@@ -1,0 +1,45 @@
+{ "listCard" :[{
+    "name":"Bronce League",
+    "title":"Bronce",
+    "img":"assets/imagenes/img1.jpg"
+},
+{
+    "name":"Iron League",
+    "title":"Iron",
+    "img":"assets/imagenes/img2.jpg"
+},
+{
+    "name":"Silver League",
+    "title":"Silver",
+    "img":"assets/imagenes/img3.jpg"
+},
+{
+    "name":"Gold League",
+    "title":"Gold",
+    "img":"assets/imagenes/img4.jpg"
+},
+{
+    "name":"Platinum League",
+    "title":"Platinum",
+    "img":"assets/imagenes/img5.jpg"
+},
+{
+    "name":"Diamond League",
+    "title":"Diamond",
+    "img":"assets/imagenes/img6.jpg"
+},
+{
+    "name":"Master League",
+    "title":"Master",
+    "img":"assets/imagenes/img7.jpg"
+},
+{
+    "name":"Grandmaster League",
+    "title":"Grandmaster",
+    "img":"assets/imagenes/img8.jpg"
+}
+
+]
+ 
+
+}
