@@ -27,10 +27,10 @@
 
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ml-auto">
-        <a class="nav-item nav-link active" href="#"
+        <a class="nav-item nav-link active" (click)="gotoPage('inicio')"
           >INICIO <span class="sr-only">(current)</span></a
         >
-        <a class="nav-item nav-link" (click)="gotoPage()">INSUMOS</a>
+        <a class="nav-item nav-link" (click)="gotoPage('catalogo')">INSUMOS</a>
         <a class="nav-item nav-link">PREG FRECUENTES</a>
         <a class="nav-item nav-link">CONTACTOS</a>
       </div>
