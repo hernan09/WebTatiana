@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
 import { ListCardComponent } from './list-card/list-card.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { TablaProductosComponent } from './tabla-productos/tabla-productos.component';
+import { NavbarComponent} from './navbar/navbar.component'
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     CardComponent,
     ListCardComponent,
     CatalogoComponent,
+    TablaProductosComponent,
     NavbarComponent
   ],
   imports: [
