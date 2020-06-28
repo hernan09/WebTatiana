@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { NgAnimateScrollService } from 'ng-animate-scroll';
 @Component({
   selector: 'app-catalogo',
   templateUrl: './catalogo.component.html',
@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CatalogoComponent implements OnInit {
   toggle:boolean = false;
   listCatalogo = [];
-  constructor() { }
+  constructor(private animateScrollService: NgAnimateScrollService) { }
 
   ngOnInit(): void {
 
@@ -22,10 +22,17 @@ export class CatalogoComponent implements OnInit {
     else this.toggle = true;
   }
 
+
+
   productoSeleccionado(producto,indice){
     console.log('producto',producto);
     console.log('indice',indice);
+    this.navigateToHeader(indice);
   }
+
+  navigateToHeader(id) {
+    this.animateScrollService.scrollToElement(id.toString(), 500);
+}
 
 
   getListaCatalogo(){

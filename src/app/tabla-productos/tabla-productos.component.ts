@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+import { Router } from '@angular/router'; 
+import { UtilsService } from '../../app/utils.service';
+import { NgAnimateScrollService } from 'ng-animate-scroll';
 
 @Component({
   selector: 'app-tabla-productos',
@@ -6,10 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tabla-productos.component.scss']
 })
 export class TablaProductosComponent implements OnInit {
-
-  constructor() { }
+  @Input() idSection: any;
+  @Input() productos: any;
+  constructor(private router:Router, private utilsService:UtilsService) { }
 
   ngOnInit(): void {
+  }
+
+  scroll(el: HTMLElement) {
+    el.scrollIntoView();
+  }
+
+  detalle(data){
+    this.utilsService.setData(data);
+    this.router.navigate(['detalle'] );
   }
 
 }
