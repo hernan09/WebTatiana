@@ -1,0 +1,121 @@
+.navbar{
+    background-color: #17a2b8;
+  
+    .container{
+        a{
+            color: white;
+            text-transform: uppercase;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            font-family: "Poppins", sans-serif;
+            cursor: pointer;
+             
+           img{
+            -webkit-animation: swirl-in-fwd 1s ease-out both;
+	        animation: swirl-in-fwd 1s ease-out both;
+           }
+
+            .sometext{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+              min-height: 10vh;
+            }
+
+            
+        }
+    }
+}
+@-webkit-keyframes swirl-in-fwd {
+    0% {
+      -webkit-transform: rotate(-540deg) scale(0);
+              transform: rotate(-540deg) scale(0);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: rotate(0) scale(1);
+              transform: rotate(0) scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes swirl-in-fwd {
+    0% {
+      -webkit-transform: rotate(-540deg) scale(0);
+              transform: rotate(-540deg) scale(0);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: rotate(0) scale(1);
+              transform: rotate(0) scale(1);
+      opacity: 1;
+    }
+  }
+  
+
+  
+
+.mydiv {
+	position: relative;
+	width: 200px;
+	height: 200px;
+    background: linear-gradient(90deg, #000, #0261ce); 
+}
+
+h4:before {
+	content: '';
+	animation: changingTxt 4s linear infinite;
+}
+
+@keyframes changingTxt {
+	0% {
+		content: 'Fabricantes ';
+	}
+	35% {
+		content: 'De Productos';
+	}
+	70% {
+		content: 'Para';
+	}
+	100% {
+		content: 'Sublimar';
+	}
+	
+}
+
+.animate-bg:before, .animate-bg:after {
+	content: '';
+	position: absolute;
+	left: -16px;
+	top: -8px;
+	background: linear-gradient(120deg, #79fb00,  
+	 #04c2e4,#adad02, #00c3ff);
+	background-size: 300%;
+	width: calc(100% + 16px);
+	height: calc(100% + 16px);
+	z-index: -1;
+    animation: BGgradient 15s ease infinite; 
+    overflow-x: hidden;
+}
+
+@keyframes BGgradient {
+	0% {
+		background-position: 0% 200%;
+	}
+	50% {
+		background-position: 200% 0%;
+	}
+	100% {
+		background-position: 0% 330%;
+	}
+}
+
+.animate-bg:after {
+	filter: brightness(1.4);
+	filter: drop-shadow(16px 16px 20px rgb(248, 220, 97));
+	filter: blur(15px);
+}
+
+  
