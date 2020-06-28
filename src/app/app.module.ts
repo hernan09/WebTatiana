@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
 import { ListCardComponent } from './list-card/list-card.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
+import { TablaProductosComponent } from './tabla-productos/tabla-productos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
     ListCardComponent,
-    CatalogoComponent
+    CatalogoComponent,
+    TablaProductosComponent
   ],
   imports: [
     BrowserModule,
