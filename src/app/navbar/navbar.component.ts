@@ -9,10 +9,13 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   constructor(private router: Router) { }
-  gotoPage(){
+
+  gotoPage(name:string){
     console.log("voy a catalogo!");
-    this.router.navigate(['catalogo']);
+    this.router.navigate([`${name}`]);
   }
+
+ 
   ngOnInit(): void {
   }
 
