@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
+import { Router } from '@angular/router'; 
 
 
 @Component({
@@ -11,7 +12,7 @@ export class ListCardComponent implements OnInit {
  
   public Users :any
   private _jsonURL = 'assets/mock.json';
-  constructor(private http:HttpClient) { 
+  constructor(private http:HttpClient, private router: Router) { 
     this.getJson()
   }
 
@@ -25,6 +26,11 @@ export class ListCardComponent implements OnInit {
 
   ngOnInit(): void {
    
+  }
+
+  gotoPage(){
+    console.log("voy a catalogo!");
+    this.router.navigate(['catalogo']);
   }
 
 }
