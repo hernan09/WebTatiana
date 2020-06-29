@@ -27,6 +27,11 @@
             color: white;
         }
     }
+    .list-group{
+      font-family: "Poppins", sans-serif;
+      -webkit-animation: fade-in-bck 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+      animation: fade-in-bck 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
 }
 //animacion del banner fade
 @-webkit-keyframes fade-in-bck {
