@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgAnimateScrollService } from 'ng-animate-scroll';
+
 @Component({
   selector: 'app-catalogo',
   templateUrl: './catalogo.component.html',

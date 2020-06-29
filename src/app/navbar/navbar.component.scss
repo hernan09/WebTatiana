@@ -12,7 +12,12 @@
             font-family: "Poppins", sans-serif;
             cursor: pointer;
              
-           img{
+           .imgelogo{
+             width: 80px;
+             height: 80px;
+             background-image: url(../../assets/imagenes/logo.png);
+             background-position: center center;
+             background-size: cover;
             -webkit-animation: swirl-in-fwd 1s ease-out both;
 	        animation: swirl-in-fwd 1s ease-out both;
            }
@@ -23,6 +28,7 @@
               align-items: center;
               flex-direction: column;
               min-height: 10vh;
+              margin-left: 10px;
             }
 
             
@@ -64,7 +70,7 @@
     background: linear-gradient(90deg, #000, #0261ce); 
 }
 
-h4:before {
+h5:before {
 	content: '';
 	animation: changingTxt 4s linear infinite;
 }
