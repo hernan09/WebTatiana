@@ -24,8 +24,6 @@ export class CatalogoComponent implements OnInit {
     else this.toggle = true;
   }
 
-
-
   productoSeleccionado(producto,indice){
     console.log('producto',producto);
     console.log('indice',indice);

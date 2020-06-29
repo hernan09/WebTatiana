@@ -1,4 +1,6 @@
-<div class="box-content" *ngFor="let subProducto of productos;  let indice=index" [id] ="indice" (click)="detalle(subProducto)">
+<div class="box-content" *ngFor="let subProducto of productos;  let indice=index"  (click)="detalle(subProducto)">
+    <div class="id-scroll" [id] ="indice" ></div>
+    
     <h3>Carpetas para sublimar {{indice}}</h3>
 
     <table class="table">
