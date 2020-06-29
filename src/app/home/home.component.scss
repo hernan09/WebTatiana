@@ -1,4 +1,25 @@
 .container{
+  
+    width: 100%;
+    height: auto;
+
+    .col1{
+        background-image: url(../../assets/imagenes/contacbaner.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 400px;
+        
+    }
+    .col2{
+        height: 400px;
+        background-color: #0d7870;
+        color: #df9415;
+       
+    }
+
+   
+
 
     .baner{
         width: 100%;
