@@ -9,7 +9,11 @@ import { CatalogoComponent } from './catalogo/catalogo.component';
 import { TablaProductosComponent } from './tabla-productos/tabla-productos.component';
 import { DescripcionProductoComponent } from './descripcion-producto/descripcion-producto.component';
 import { NavbarComponent} from './navbar/navbar.component';
-import { HomeComponent } from './home/home.component'
+import { HomeComponent } from './home/home.component';
+import { ContactFooterComponent } from './contact-footer/contact-footer.component'
+
+
+
 
 @NgModule({
   declarations: [
@@ -20,12 +24,18 @@ import { HomeComponent } from './home/home.component'
     TablaProductosComponent,
     DescripcionProductoComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    ContactFooterComponent,
+   
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
