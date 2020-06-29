@@ -1,0 +1,59 @@
+.container{
+    width: 100%;
+    height: auto;
+
+    .col1{
+        background-image: url(../../assets/imagenes/contacbaner.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 400px;
+        
+    }
+    .col2{
+        height: 400px;
+        background-color: #0d7870;
+        color: #df9415;
+       
+    }
+
+   
+}
+.subfooter{
+    background-color: black;
+    color: white;
+    .row{
+      .footer1{
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+  
+          ul{
+              li{
+                  list-style: none;
+              }
+          }
+      }
+      .footer2{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: row;
+
+          ul{
+              width: 200px;
+              display: flex;
+              justify-content: space-around;
+              a{
+                  img{
+                      width: 40px;
+                      height: 40px;
+                  }
+              }
+          }
+      }
+    }
+  }
+
