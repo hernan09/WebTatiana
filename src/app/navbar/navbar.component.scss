@@ -1,4 +1,6 @@
 .general-container{
+  position: relative;
+  height: 150px;
   .navbar{
     background-color: #17a2b8;
    
@@ -43,6 +45,8 @@
 
 #navbar2{
   background-color: transparent;
+  
+  
 }
 @-webkit-keyframes swirl-in-fwd {
     0% {
