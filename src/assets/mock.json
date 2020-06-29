@@ -1,43 +1,40 @@
 { "listCard" :[{
-    "name":"Bronce League",
-    "title":"Bronce",
-    "img":"assets/imagenes/img1.jpg"
+    "name":"Barbijos",
+    "desc":"sublimados en barbijos , estilos a eleccion",
+    "img":"assets/imagenes/product.jpg",
+    "price":"100$"
 },
 {
-    "name":"Iron League",
-    "title":"Iron",
-    "img":"assets/imagenes/img2.jpg"
+    "name":"Mochilas",
+    "desc":"sublimados en mochilas , estilso a eleccion",
+    "img":"assets/imagenes/product2.jpg",
+    "price":"300$"
 },
 {
-    "name":"Silver League",
-    "title":"Silver",
-    "img":"assets/imagenes/img3.jpg"
+    "name":"Mochilas",
+    "desc":"sublimados en mochilas , estilso a eleccion",
+    "img":"assets/imagenes/product3.jpg",
+    "price":"300$"
 },
 {
-    "name":"Gold League",
-    "title":"Gold",
-    "img":"assets/imagenes/img4.jpg"
+    "name":"Remeras",
+    "desc":"sublimados en remeras , estilos a eleccion",
+    "img":"assets/imagenes/product4.jpg",
+    "price":"400$"
 },
 {
-    "name":"Platinum League",
-    "title":"Platinum",
-    "img":"assets/imagenes/img5.jpg"
+    "name":"Tazas",
+    "desc":"Sublimados en tazas , estilso a eleccions",
+    "img":"assets/imagenes/product5.jpg",
+    "price":"200$"
 },
 {
-    "name":"Diamond League",
-    "title":"Diamond",
-    "img":"assets/imagenes/img6.jpg"
-},
-{
-    "name":"Master League",
-    "title":"Master",
-    "img":"assets/imagenes/img7.jpg"
-},
-{
-    "name":"Grandmaster League",
-    "title":"Grandmaster",
-    "img":"assets/imagenes/img8.jpg"
+    "name":"Tazas",
+    "desc":"Sublimados en tazas , estilso a eleccions",
+    "img":"assets/imagenes/product6.jpg",
+    "price":"200$"
 }
+
 
 ]
  
