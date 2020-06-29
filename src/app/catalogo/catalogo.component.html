@@ -21,7 +21,7 @@
                     </li>
                 </ul>
             </li> -->
-      <li *ngFor="let producto of listCatalogo; let indice = index">
+      <li *ngFor="let producto of listCatalogo; let indice = index" [ngClass]="{ active : indice == indiceSeleccionado}">
         <a (click)="productoSeleccionado(producto, indice)">{{
           producto.nombre
         }}</a>
@@ -32,19 +32,18 @@
   <div id="content" class="container">
     <!-- Page Content -->
     <div id="content" class="container">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <button
-            type="button"
-            (click)="toggleMenu(toggle)"
-            id="sidebarCollapse"
-            class="btn btn-info"
-          >
+
+        <button
+        type="button"
+        (click)="toggleMenu(toggle)"
+        id="sidebarCollapse"
+        class="btn btn-info"
+        >
             <i class="fas fa-align-left"></i>
-            <span>Toggle Sidebar</span>
-          </button>
-        </div>
-      </nav>
+            <span class="show-catalogo-menu">{{toggle? 'Mostrar Catalogo':'X'}}</span>
+            <span class="show-catalogo-menu-mobile">{{toggle? 'X':'Mostrar Catalogo'}}</span>
+        </button>
+
 
       <div class="row box-download">
         <div class="col-md-6 col-xs-12">

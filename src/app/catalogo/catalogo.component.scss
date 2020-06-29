@@ -72,7 +72,8 @@ a, a:hover, a:focus {
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
     color: #fff;
-    background: #6d7fcc;
+    background: #17a2b8;
+    font-weight: 900;
 }
 ul ul a {
     font-size: 0.9em !important;
@@ -107,12 +108,27 @@ a[data-toggle="collapse"] {
     transform: translateY(-50%);
 }
 
+.show-catalogo-menu{
+    display: block;
+}
+
+.show-catalogo-menu-mobile{
+    display: none;
+}
+
 @media (max-width: 768px) {
     #sidebar {
         margin-left: -320px;
     }
     #sidebar.active {
         margin-left: 0;
+    }
+    .show-catalogo-menu{
+        display: none;
+    }
+    
+    .show-catalogo-menu-mobile{
+        display: block;
     }
 }
 
@@ -160,9 +176,11 @@ Not supports in Firefox and IE */
 
 .box-download{
     padding: 10px 0;
-    border: 1px solid gray;
     border-radius: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     margin-top: 5px;
+    -webkit-box-shadow: 10px 4px 20px -2px rgba(222,222,222,1);
+    -moz-box-shadow: 10px 4px 20px -2px rgba(222,222,222,1);
+    box-shadow: 10px 4px 20px -2px rgba(222,222,222,1);
 }
 

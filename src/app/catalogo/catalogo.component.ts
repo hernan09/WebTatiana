@@ -9,6 +9,7 @@ import { NgAnimateScrollService } from 'ng-animate-scroll';
 export class CatalogoComponent implements OnInit {
   toggle:boolean = false;
   listCatalogo = [];
+  indiceSeleccionado:number;
   constructor(private animateScrollService: NgAnimateScrollService) { }
 
   ngOnInit(): void {
@@ -28,6 +29,7 @@ export class CatalogoComponent implements OnInit {
   productoSeleccionado(producto,indice){
     console.log('producto',producto);
     console.log('indice',indice);
+    this.indiceSeleccionado = indice;
     this.navigateToHeader(indice);
   }
 

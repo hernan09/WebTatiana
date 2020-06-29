@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; 
 import { ActivatedRoute } from '@angular/router';
+import { UtilsService } from '../../app/utils.service';
 
-import { UtilsService } from '../../app/utils.service' 
 @Component({
   selector: 'app-descripcion-producto',
   templateUrl: './descripcion-producto.component.html',
