@@ -34,6 +34,44 @@
     "img":"assets/imagenes/product6.jpg",
     "price":"200$"
 }
+,
+{
+    "name":"Remeras",
+    "desc":"sublimados en remeras , estilos a eleccion",
+    "img":"assets/imagenes/product4.jpg",
+    "price":"400$"
+},
+{
+    "name":"Tazas",
+    "desc":"Sublimados en tazas , estilso a eleccions",
+    "img":"assets/imagenes/product5.jpg",
+    "price":"200$"
+},
+{
+    "name":"Tazas",
+    "desc":"Sublimados en tazas , estilso a eleccions",
+    "img":"assets/imagenes/product6.jpg",
+    "price":"200$"
+}
+,
+{
+    "name":"Remeras",
+    "desc":"sublimados en remeras , estilos a eleccion",
+    "img":"assets/imagenes/product4.jpg",
+    "price":"400$"
+},
+{
+    "name":"Tazas",
+    "desc":"Sublimados en tazas , estilso a eleccions",
+    "img":"assets/imagenes/product5.jpg",
+    "price":"200$"
+},
+{
+    "name":"Tazas",
+    "desc":"Sublimados en tazas , estilso a eleccions",
+    "img":"assets/imagenes/product6.jpg",
+    "price":"200$"
+}
 
 
 ]

@@ -1,4 +1,94 @@
-.list-card{
-    -webkit-animation: fade-in-bck 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-    animation: fade-in-bck 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+.list-card {
+    display: flex;
+    height: 100%;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    -webkit-animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+
+  
+.card {
+    width: 320px;
+    height: 440px;
+    background: white;
+    border: 2px solid #fff;
+    box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+    overflow: hidden;
+    position: relative;
+    margin: 5px;
+  
+    .card img {
+      width: 100%;
+      height: 100%;
+      transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+    }
+    .descriptions {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      background-color: rgba(255, 255, 255, 0.7);
+      width: 100%;
+      height: 100%;
+      transition: all 0.7s ease-in-out;
+      padding: 20px;
+      box-sizing: border-box;
+      clip-path: circle(0% at 100% 100%);
+    }
+  }
+  
+  .card:hover .descriptions {
+    left: 0px;
+    transition: all 0.7s ease-in-out;
+    clip-path: circle(75%);
+  }
+  .card:hover {
+    transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+    transform: scale(0.97);
+  }
+  .card:hover img {
+    transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+    transform: scale(1.6) rotate(20deg);
+    filter: blur(3px);
+  }
+  .card h1 {
+    color: #189681;
+    letter-spacing: 1px;
+    margin: 0px;
+  }
+  .card p {
+    line-height: 24px;
+    height: 70%;
+    font-weight: 700;
+    color: gray;
+  }
+  
+  
 }
+@-webkit-keyframes fade-in-top {
+    0% {
+      -webkit-transform: translateY(-50px);
+              transform: translateY(-50px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in-top {
+    0% {
+      -webkit-transform: translateY(-50px);
+              transform: translateY(-50px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  

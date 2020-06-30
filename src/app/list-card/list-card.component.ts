@@ -28,9 +28,10 @@ export class ListCardComponent implements OnInit {
    
   }
 
-  gotoPage(){
-    console.log("voy a catalogo!");
-    this.router.navigate(['catalogo']);
+  gotoPage(name:string){
+    console.log(`voy paraa ..${name}`);
+    this.router.navigate([`${name}`]);
   }
+
 
 }
