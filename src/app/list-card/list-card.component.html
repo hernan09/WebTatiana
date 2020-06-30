@@ -1,21 +1,13 @@
 <div class="container">
   <div class="list-card m-5">
-    <div class="card" *ngFor="let user of Users">
-      <img src="{{ user.img }}" alt="" />
-      <div class="descriptions">
-        <h1>{{ user.name }}</h1>
-        <p>
-          {{ user.desc }}
-        </p>
-        <button
-          type="button"
-          (click)="gotoPage('detalle')"
-          class="btn btn-dark btn-sm"
-        >
-          Ver mas
-        </button>
-        <span class="badge badge-warning ml-5">{{ user.price }}</span>
-      </div>
+    <div class="grid" *ngFor="let user of Users">
+      <figure class="effect-ming" (click)="gotoPage('detalle')">
+        <img src="{{ user.img }}" alt="..." />
+        <figcaption>
+          {{ user.name }} <span> {{ user.price }}</span>
+          <p>{{ user.desc }}.</p>
+        </figcaption>
+      </figure>
     </div>
   </div>
 </div>

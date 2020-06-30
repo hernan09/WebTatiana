@@ -5,68 +5,163 @@
     flex-flow: row wrap;
     -webkit-animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-
-  
-.card {
-    width: 320px;
-    height: 440px;
-    background: white;
-    border: 2px solid #fff;
-    box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-    transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
-    overflow: hidden;
-    position: relative;
-    margin: 5px;
-  
-    .card img {
-      width: 100%;
-      height: 100%;
-      transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
-    }
-    .descriptions {
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      background-color: rgba(255, 255, 255, 0.7);
-      width: 100%;
-      height: 100%;
-      transition: all 0.7s ease-in-out;
-      padding: 20px;
-      box-sizing: border-box;
-      clip-path: circle(0% at 100% 100%);
-    }
-  }
-  
-  .card:hover .descriptions {
-    left: 0px;
-    transition: all 0.7s ease-in-out;
-    clip-path: circle(75%);
-  }
-  .card:hover {
-    transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
-    transform: scale(0.97);
-  }
-  .card:hover img {
-    transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
-    transform: scale(1.6) rotate(20deg);
-    filter: blur(3px);
-  }
-  .card h1 {
-    color: #189681;
-    letter-spacing: 1px;
-    margin: 0px;
-  }
-  .card p {
-    line-height: 24px;
-    height: 70%;
-    font-weight: 700;
-    color: gray;
-  }
-  
-  
 }
+  
+    .grid {
+      position: relative;
+      clear: both;
+      margin: 0 auto;
+      padding: 1em 0 4em;
+      max-width: 1000px;
+      list-style: none;
+      text-align: center;
+    }
+    
+    /* Common style */
+    .grid figure {
+      position: relative;
+      float: left;
+      overflow: hidden;
+      margin: 10px 1%;
+      min-width: 320px;
+      max-width: 480px;
+      max-height: 360px;
+      height: auto;
+      background: black;
+      text-align: center;
+      cursor: pointer;
+    }
+    
+    .grid figure img {
+      position: relative;
+      display: block;
+      min-height: 100%;
+      max-width: 100%;
+      opacity: 0.8;
+    }
+    
+    .grid figure figcaption {
+      padding: 2em;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 1.25em;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+    
+    .grid figure figcaption::before,
+    .grid figure figcaption::after {
+      pointer-events: none;
+    }
+    
+    .grid figure figcaption,
+    .grid figure figcaption > a {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    /* Anchor will cover the whole item by default */
+    /* For some effects it will show as a button */
+    .grid figure figcaption > a {
+      z-index: 1000;
+      text-indent: 200%;
+      white-space: nowrap;
+      font-size: 0;
+      opacity: 0;
+    }
+    
+    .grid figure h2 {
+      word-spacing: -0.15em;
+      font-weight: 700;
+      font-family: "Poppins", sans-serif;
+    }
+    
+    .grid figure h2 span {
+      font-weight: 800;
+      font-family: "Poppins", sans-serif;
+    }
+    
+    .grid figure h2,
+    .grid figure p {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+    }
+    
+    .grid figure p {
+      letter-spacing: 1px;
+      font-size: 68.5%;
+    }
+
+    /*---------------*/
+/***** Ming *****/
+/*---------------*/
+
+figure.effect-ming {
+	background: #030c17;
+}
+
+figure.effect-ming img {
+	opacity: 0.9;
+	-webkit-transition: opacity 0.35s;
+	transition: opacity 0.35s;
+}
+
+figure.effect-ming figcaption::before {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	bottom: 30px;
+	left: 30px;
+	border: 2px solid #fff;
+	box-shadow: 0 0 0 30px rgba(255,255,255,0.2);
+	content: '';
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: scale3d(1.4,1.4,1);
+	transform: scale3d(1.4,1.4,1);
+}
+
+figure.effect-ming h2 {
+	margin: 20% 0 10px 0;
+	-webkit-transition: -webkit-transform 0.35s;
+	transition: transform 0.35s;
+}
+
+figure.effect-ming p {
+	padding: 1em;
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+figure.effect-ming:hover h2 {
+	-webkit-transform: scale(0.9);
+	transform: scale(0.9);
+}
+
+figure.effect-ming:hover figcaption::before,
+figure.effect-ming:hover p {
+	opacity: 1;
+	-webkit-transform: scale3d(1,1,1);
+	transform: scale3d(1,1,1);
+}
+
+figure.effect-ming:hover figcaption {
+	background-color: rgba(58,52,42,0);
+}
+
+figure.effect-ming:hover img {
+	opacity: 0.4;
+}
+
+
 @-webkit-keyframes fade-in-top {
     0% {
       -webkit-transform: translateY(-50px);

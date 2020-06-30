@@ -23,7 +23,7 @@
              background-position: center center;
              background-size: cover;
             -webkit-animation: swirl-in-fwd 1s ease-out both;
-	        animation: swirl-in-fwd 1s ease-out both;
+	           animation: swirl-in-fwd 1s ease-out both;
            }
 
             .sometext{
@@ -109,12 +109,12 @@ h6:before {
 	content: '';
 	position: absolute;
 	left: -16px;
-	top: -8px;
+	top: 116px;
 	background: linear-gradient(120deg, #2c9c2c,  
 	 #04c2e4,#adad02, #00c3ff);
 	background-size: 300%;
 	width: calc(100% + 16px);
-	height: calc(100% + 16px);
+	height:10px;
 	z-index: -1;
     animation: BGgradient 15s ease infinite; 
     overflow-x: hidden;
