@@ -21,10 +21,15 @@
                     </li>
                 </ul>
             </li> -->
-      <li *ngFor="let producto of listCatalogo; let indice = index" [ngClass]="{ active : indice == indiceSeleccionado}">
-        <a (click)="productoSeleccionado(producto, indice)">{{
-          producto.nombre
-        }}</a>
+      <li
+        *ngFor="let producto of listCatalogo; let indice = index"
+        [ngClass]="{ active: indice == indiceSeleccionado }"
+      >
+        <a
+          (click)="productoSeleccionado(producto, indice)"
+          class="hvr-bubble-float-left"
+          >{{ producto.nombre }}</a
+        >
       </li>
     </ul>
   </nav>
@@ -32,18 +37,20 @@
   <div id="content" class="container">
     <!-- Page Content -->
     <div id="content" class="container">
-
-        <button
+      <button
         type="button"
         (click)="toggleMenu(toggle)"
         id="sidebarCollapse"
         class="btn btn-info"
-        >
-            <i class="fas fa-align-left"></i>
-            <span class="show-catalogo-menu">{{toggle? 'Mostrar Catalogo':'X'}}</span>
-            <span class="show-catalogo-menu-mobile">{{toggle? 'X':'Mostrar Catalogo'}}</span>
-        </button>
-
+      >
+        <i class="fas fa-align-left"></i>
+        <span class="show-catalogo-menu">{{
+          toggle ? "Mostrar Catalogo" : "X"
+        }}</span>
+        <span class="show-catalogo-menu-mobile">{{
+          toggle ? "X" : "Mostrar Catalogo"
+        }}</span>
+      </button>
 
       <div class="row box-download">
         <div class="col-md-6 col-xs-12">
@@ -57,19 +64,17 @@
       </div>
 
       <p>
-        En los casos que no se indique la cantidad el precio mayorista se
-        aplicará a partir de 20 unidades del mismo producto.
+        los preciso pueden sufrir variaciones ,por favor consultar antes de
+        realizar su compra.
       </p>
       <p>A continuación Listado de precios</p>
 
-      <div class="table"> 
+      <div class="table">
         <app-tabla-productos [productos]="listCatalogo"></app-tabla-productos>
       </div>
 
       
         
     </div>
-
-    
   </div>
 </div>
