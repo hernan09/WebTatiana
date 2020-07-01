@@ -7,7 +7,7 @@
  
     .container{
         a{
-            color: gray;
+            color: black;
             text-transform: uppercase;
             font-weight: 600;
             display: flex;
@@ -153,7 +153,7 @@ h6:before {
 	content: '';
 	position: absolute;
 	left: -16px;
-	top: 121px;
+	top: 151px;
 	background: linear-gradient(120deg, #2c9c2c,  
 	 #04c2e4,#adad02, #00c3ff);
 	background-size: 300%;
@@ -176,10 +176,6 @@ h6:before {
 	}
 }
 
-.animate-bg:after {
-	filter: brightness(1.4);
-	filter: drop-shadow(10px 10px 10px rgb(248, 220, 97));
-	filter: blur(15px);
-}
+
 
   
