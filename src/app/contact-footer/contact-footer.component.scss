@@ -1,11 +1,11 @@
 .subfooter {
-  background-color: black;
-  color: white;
-  z-index: 11111111111111111111111111;
-  display: flex;
- flex-flow: row wrap;
- justify-content: space-around;
-
+    background-color: black;
+    color: white;
+    z-index: 11111111111111111111111111;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    position: relative;
   
     .footer1 {
       width: 100%;
