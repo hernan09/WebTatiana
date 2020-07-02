@@ -63,6 +63,17 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        .sub-section-icons{
+          width: 150px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+
+          a{
+            color: white;
+          }
+        }
       }
     }
     .footer3 {

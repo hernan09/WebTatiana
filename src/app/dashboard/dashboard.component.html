@@ -1,1 +1,94 @@
-<p>dashboard works!</p>
+<div class="wrapper">
+  <!-- Sidebar -->
+  <nav id="sidebar" [ngClass]="{ active: toggle }" class="">
+    <!-- <div class="sidebar-header">
+              <h3>Bootstrap Sidebar</h3>
+          </div> -->
+
+    <ul class="list-unstyled components scrollbar shadow p-3 mb-5 rounded">
+      <h3 style="color: #17a2b8;">Dashboard</h3>
+      <li class="active">
+        <a
+          href="#homeSubmenu"
+          data-toggle="collapse"
+          aria-expanded="false"
+          class="dropdown-toggle"
+          >HOME</a
+        >
+        <ul class="collapse list-unstyled" id="homeSubmenu">
+          <li>
+            <a href="#">slide</a>
+          </li>
+          <li>
+            <a href="#">Acerca de nosotros</a>
+          </li>
+          <li>
+            <a href="#">Preg Frecuentes</a>
+          </li>
+        </ul>
+      </li>
+      <li class="active">
+        <a
+          href="#homeSubmenu"
+          data-toggle="collapse"
+          aria-expanded="false"
+          class="dropdown-toggle"
+          >PRODUCTOS</a
+        >
+        <ul class="collapse list-unstyled" id="homeSubmenu">
+          <li>
+            <a href="#">producto1</a>
+          </li>
+          <li>
+            <a href="#">producto2</a>
+          </li>
+          <li>
+            <a href="#">producto3</a>
+          </li>
+        </ul>
+      </li>
+      <li class="active">
+        <a
+          href="#homeSubmenu"
+          data-toggle="collapse"
+          aria-expanded="false"
+          class="dropdown-toggle"
+          >GALERIA</a
+        >
+        <ul class="collapse list-unstyled" id="homeSubmenu">
+          <li>
+            <a href="#">PRODUCTO1</a>
+          </li>
+          <li>
+            <a href="#">PRODUCTO2</a>
+          </li>
+          <li>
+            <a href="#">PRODUCTO3</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <!-- Page Content -->
+  <div id="content" class="container">
+    <!-- Page Content -->
+    <div id="content" class="container">
+      <button
+        type="button"
+        (click)="toggleMenu(toggle)"
+        id="sidebarCollapse"
+        class="btn btn-info"
+      >
+        <i class="fas fa-align-left"></i>
+        <span class="show-catalogo-menu">{{
+          toggle ? "Mostrar Dashboard" : "X"
+        }}</span>
+        <span class="show-catalogo-menu-mobile">{{
+          toggle ? "X" : "Mostrar Dashboard"
+        }}</span>
+      </button>
+
+      <div class="table"></div>
+    </div>
+  </div>
+</div>

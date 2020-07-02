@@ -6,6 +6,7 @@ import { DescripcionProductoComponent } from './descripcion-producto/descripcion
 import { HomeComponent } from './home/home.component';
 import { ContactFooterComponent } from './contact-footer/contact-footer.component';
 import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path:'inicio', component: HomeComponent},
   { path: 'galeria', component:ListCardComponent },
   { path: 'contacto', component:ContactFooterComponent },
-  { path:'login',component:LoginComponent }
+  { path:'login', component:LoginComponent },
+  { path:'dasboard', component:DashboardComponent}
 ];
 
 @NgModule({
