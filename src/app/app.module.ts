@@ -9,7 +9,8 @@ import { TablaProductosComponent } from './tabla-productos/tabla-productos.compo
 import { DescripcionProductoComponent } from './descripcion-producto/descripcion-producto.component';
 import { NavbarComponent} from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-import { ContactFooterComponent } from './contact-footer/contact-footer.component'
+import { ContactFooterComponent } from './contact-footer/contact-footer.component';
+import { LoginComponent } from './login/login.component'
 
 
 
@@ -24,6 +25,7 @@ import { ContactFooterComponent } from './contact-footer/contact-footer.componen
     NavbarComponent,
     HomeComponent,
     ContactFooterComponent,
+    LoginComponent,
    
    
   ],
