@@ -10,7 +10,8 @@ import { DescripcionProductoComponent } from './descripcion-producto/descripcion
 import { NavbarComponent} from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ContactFooterComponent } from './contact-footer/contact-footer.component';
-import { LoginComponent } from './login/login.component'
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component'
 
 
 
@@ -26,6 +27,7 @@ import { LoginComponent } from './login/login.component'
     HomeComponent,
     ContactFooterComponent,
     LoginComponent,
+    DashboardComponent,
    
    
   ],
