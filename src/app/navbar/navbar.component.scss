@@ -16,7 +16,27 @@
             align-items: center;
             font-family: "Poppins", sans-serif;
             cursor: pointer;
-             
+           
+             .conteiner-text-animation{
+               width: 300px;
+               height: 35px;
+               overflow: hidden;
+               margin-bottom: 13px;
+               margin-left: 5px;
+
+              ul{
+                list-style: none;
+                padding: 0;
+                
+                animation: cambiar 6s infinite;
+
+                p{
+                  margin: 0;
+                }
+              }
+             }
+            
+
            .imgelogo{
              width: 130px;
              height: 130px;
@@ -29,14 +49,6 @@
 	           animation: swirl-in-fwd 1s ease-out both;
            }
 
-            .sometext{
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              flex-direction: column;
-              min-height: 10vh;
-              margin-left: 10px;
-            }
 
             
         }
@@ -118,36 +130,20 @@
   }
   
 
-  
+  @keyframes cambiar{
+    0%{margin-top: 0px;}
+    20%{margin-top: 0px;}
+    25%{margin-top: -30px;}
+    50%{margin-top: -30px;}
+    55%{margin-top: -60px;}
+    80%{margin-top: -60px;}
+  }
 
-.mydiv {
-	position: relative;
-	width: 200px;
-	height: 200px;
-  background: linear-gradient(90deg, #000, #0261ce); 
-}
 
-h6:before {
-  content: '';
-  font-weight: 700;
-	animation: changingTxt 4s linear infinite;
-}
 
-@keyframes changingTxt {
-	0% {
-		content: 'Fabricantes ';
-	}
-	35% {
-		content: 'De Productos';
-	}
-	70% {
-		content: 'Para';
-	}
-	100% {
-		content: 'Sublimar';
-	}
-	
-}
+
+
+
 
 .animate-bg:before, .animate-bg:after {
 	content: '';
