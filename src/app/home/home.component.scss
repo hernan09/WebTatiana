@@ -1,4 +1,5 @@
 @import "https://fonts.googleapis.com/css?family=AmaticSC:300,400,500,600,700";
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');
 
 .container-fluid{
   .baner{
@@ -50,17 +51,17 @@
     .jumbotron{
         background-color: transparent;
         height: auto;
-        font-family: 'Amatic SC', cursive;
+        font-family: 'Source Sans Pro', sans-serif;
 
         .btn-success{
             color: white;
         }
     }
     #section4{
-      font-family: 'Amatic SC', cursive;
+      font-family: 'Source Sans Pro', sans-serif;
     }
     .section5{
-      font-family: 'Amatic SC', cursive;
+      font-family: 'Source Sans Pro', sans-serif;
     }
     .list-group{
       font-family: "Poppins", sans-serif;
@@ -74,6 +75,7 @@
         color: #343a40;
         padding: 5px;
         text-align: center;
+        font-family: 'Source Sans Pro', sans-serif;
       }
       .content-input{
         width: 100%;
