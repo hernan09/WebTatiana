@@ -1,0 +1,59 @@
+<div class="container">
+  <div
+    class="content-iterator"
+    *ngFor="let section of data; let indice = index"
+  >
+    <div class="id-scroll" [id]="indice"></div>
+    <h3>{{ section.nombre }}</h3>
+
+    <div class="content-images-slide" *ngIf="section.disponible">
+      <div class="img-1-div">
+        <span class="badge badge-danger"
+          ><img
+            src="https://img.icons8.com/windows/32/000000/delete-forever.png"
+        /></span>
+        <span class="badge badge-secondary">
+          <img
+            src="https://img.icons8.com/ios-glyphs/30/000000/update-left-rotation.png"
+          />
+        </span>
+      </div>
+      <div class="img-2-div">
+        <span class="badge badge-danger">
+          <img
+            src="https://img.icons8.com/windows/32/000000/delete-forever.png"
+        /></span>
+        <span class="badge badge-secondary">
+          <img
+            src="https://img.icons8.com/ios-glyphs/30/000000/update-left-rotation.png"
+          />
+        </span>
+      </div>
+      <div class="img-3-div">
+        <span class="badge badge-danger">
+          <img
+            src="https://img.icons8.com/windows/32/000000/delete-forever.png"
+        /></span>
+        <span class="badge badge-secondary">
+          <img
+            src="https://img.icons8.com/ios-glyphs/30/000000/update-left-rotation.png"
+          />
+        </span>
+      </div>
+    </div>
+    <div class="container-false" *ngIf="!section.disponible"></div>
+    <div class="container-form">
+      <form>
+        <div class="form-group">
+          <label for="exampleFormControlFile1">Seleccion una imagen</label>
+          <input
+            type="file"
+            class="form-control-file"
+            id="exampleFormControlFile1"
+          />
+        </div>
+      </form>
+      <button type="button" class="btn btn-success">Agregar</button>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgAnimateScrollService } from 'ng-animate-scroll';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
   toggle: boolean = false;
   listCatalogo = [];
-  constructor() {}
+  indiceSeleccionado:number;
+  constructor(private animateScrollService: NgAnimateScrollService) {
+    
+  }
 
   toggleMenu(toggle) {
     console.log('toggle menu');
@@ -16,15 +20,28 @@ export class DashboardComponent implements OnInit {
     if (toggle) this.toggle = false;
     else this.toggle = true;
   }
+  productoSeleccionado(producto,indice){
+    console.log('producto',producto);
+    console.log('indice',indice);
+    this.indiceSeleccionado = indice;
+    this.navigateToHeader(indice);
+    
+  }
+  
+  navigateToHeader(id) {
+    this.animateScrollService.scrollToElement(id.toString(), 500);
+}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getListaCatalogo()
+  }
 
   getListaCatalogo() {
     this.listCatalogo = [
       {
         id: 123,
         id_user: 111,
-        nombre: 'BARBIJOS Y KIT DE HIGIENE',
+        nombre: 'SLIDE',
         precio: 1,
         stock: 2,
         descripcion: 'Una descripcion',
@@ -39,11 +56,11 @@ export class DashboardComponent implements OnInit {
       {
         id: 123,
         id_user: 111,
-        nombre: 'TELAS SUBLIMABLES',
+        nombre: 'ACERCA DE NOSOTROS',
         precio: 1,
         stock: 2,
         descripcion: 'Una descripcion',
-        disponible: true,
+        disponible: false,
         img: [
           {
             nombre: '',
@@ -54,41 +71,11 @@ export class DashboardComponent implements OnInit {
       {
         id: 123,
         id_user: 111,
-        nombre: 'BOLSOS Y MOCHILAS',
+        nombre: 'PREG FRECUENTES',
         precio: 1,
         stock: 2,
         descripcion: 'Una descripcion',
-        disponible: true,
-        img: [
-          {
-            nombre: '',
-            url: '',
-          },
-        ],
-      },
-      {
-        id: 123,
-        id_user: 111,
-        nombre: 'BILLETERAS',
-        precio: 1,
-        stock: 2,
-        descripcion: 'Una descripcion',
-        disponible: true,
-        img: [
-          {
-            nombre: '',
-            url: '',
-          },
-        ],
-      },
-      {
-        id: 123,
-        id_user: 111,
-        nombre: 'CARPETAS PARA SUBLIMAR',
-        precio: 1,
-        stock: 2,
-        descripcion: 'Una descripcion',
-        disponible: true,
+        disponible: false,
         img: [
           {
             nombre: '',

@@ -6,7 +6,7 @@
           </div> -->
 
     <ul class="list-unstyled components scrollbar shadow p-3 mb-5 rounded">
-      <h3 style="color: #17a2b8;">Dashboard</h3>
+      <h3 style="color: #6c7475;">Dashboard</h3>
       <li class="active">
         <a
           href="#homeSubmenu"
@@ -16,14 +16,10 @@
           >HOME</a
         >
         <ul class="collapse list-unstyled" id="homeSubmenu">
-          <li>
-            <a href="#">slide</a>
-          </li>
-          <li>
-            <a href="#">Acerca de nosotros</a>
-          </li>
-          <li>
-            <a href="#">Preg Frecuentes</a>
+          <li *ngFor="let section of listCatalogo; let indice = index">
+            <a (click)="productoSeleccionado(section, indice)">{{
+              section.nombre
+            }}</a>
           </li>
         </ul>
       </li>
@@ -87,8 +83,10 @@
           toggle ? "X" : "Mostrar Dashboard"
         }}</span>
       </button>
-
-      <div class="table"></div>
+      <!-- aca van los componentes -->
+      <div class="table">
+        <app-homeslide [data]="listCatalogo"></app-homeslide>
+      </div>
     </div>
   </div>
 </div>
