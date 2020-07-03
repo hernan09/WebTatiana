@@ -44,6 +44,7 @@ export class DashboardComponent implements OnInit {
         nombre: 'SLIDE',
         precio: 1,
         stock: 2,
+        title:'TITLE 1',
         descripcion: 'Una descripcion',
         disponible: true,
         img: [
@@ -59,6 +60,7 @@ export class DashboardComponent implements OnInit {
         nombre: 'ACERCA DE NOSOTROS',
         precio: 1,
         stock: 2,
+        title:'TITLE 2',
         descripcion: 'Una descripcion',
         disponible: false,
         img: [
@@ -74,6 +76,7 @@ export class DashboardComponent implements OnInit {
         nombre: 'PREG FRECUENTES',
         precio: 1,
         stock: 2,
+        title:'TITLE 3',
         descripcion: 'Una descripcion',
         disponible: false,
         img: [

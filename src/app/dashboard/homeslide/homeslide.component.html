@@ -12,36 +12,23 @@
           ><img
             src="https://img.icons8.com/windows/32/000000/delete-forever.png"
         /></span>
-        <span class="badge badge-secondary">
-          <img
-            src="https://img.icons8.com/ios-glyphs/30/000000/update-left-rotation.png"
-          />
-        </span>
       </div>
       <div class="img-2-div">
         <span class="badge badge-danger">
           <img
             src="https://img.icons8.com/windows/32/000000/delete-forever.png"
         /></span>
-        <span class="badge badge-secondary">
-          <img
-            src="https://img.icons8.com/ios-glyphs/30/000000/update-left-rotation.png"
-          />
-        </span>
       </div>
       <div class="img-3-div">
         <span class="badge badge-danger">
           <img
             src="https://img.icons8.com/windows/32/000000/delete-forever.png"
         /></span>
-        <span class="badge badge-secondary">
-          <img
-            src="https://img.icons8.com/ios-glyphs/30/000000/update-left-rotation.png"
-          />
-        </span>
       </div>
     </div>
-    <div class="container-false" *ngIf="!section.disponible"></div>
+    <div class="container-false" *ngIf="!section.disponible">
+      <h3>{{ section.descripcion }}</h3>
+    </div>
     <div class="container-form">
       <form>
         <div class="form-group">
@@ -51,9 +38,24 @@
             class="form-control-file"
             id="exampleFormControlFile1"
           />
+          <hr />
+          <input
+            class="form-control"
+            type="text"
+            placeholder="{{ section.title }}"
+          />
+          <hr />
+          <input
+            class="form-control"
+            type="text"
+            placeholder="{{ section.descripcion }}"
+          />
         </div>
       </form>
-      <button type="button" class="btn btn-success">Agregar</button>
+      <div class="content-button">
+        <button type="button" class="btn btn-success btn-block">Agregar</button>
+        <button type="button" class="btn btn-warning btn-block">Editar</button>
+      </div>
     </div>
   </div>
 </div>
