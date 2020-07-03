@@ -12,18 +12,33 @@
           ><img
             src="https://img.icons8.com/windows/32/000000/delete-forever.png"
         /></span>
+        <span class="badge badge-info">
+          <img
+            src="https://img.icons8.com/ios-glyphs/30/000000/update-left-rotation.png"
+          />
+        </span>
       </div>
       <div class="img-2-div">
         <span class="badge badge-danger">
           <img
             src="https://img.icons8.com/windows/32/000000/delete-forever.png"
         /></span>
+        <span class="badge badge-info">
+          <img
+            src="https://img.icons8.com/ios-glyphs/30/000000/update-left-rotation.png"
+          />
+        </span>
       </div>
       <div class="img-3-div">
         <span class="badge badge-danger">
           <img
             src="https://img.icons8.com/windows/32/000000/delete-forever.png"
         /></span>
+        <span class="badge badge-info">
+          <img
+            src="https://img.icons8.com/ios-glyphs/30/000000/update-left-rotation.png"
+          />
+        </span>
       </div>
     </div>
     <div class="container-false" *ngIf="!section.disponible">
@@ -45,16 +60,19 @@
             placeholder="{{ section.title }}"
           />
           <hr />
-          <input
-            class="form-control"
-            type="text"
-            placeholder="{{ section.descripcion }}"
-          />
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              id="exampleFormControlTextarea1"
+              placeholder="{{ section.descripcion }}"
+              rows="3"
+            ></textarea>
+          </div>
         </div>
       </form>
       <div class="content-button">
         <button type="button" class="btn btn-success btn-block">Agregar</button>
-        <button type="button" class="btn btn-warning btn-block">Editar</button>
+        <button type="button" class="btn btn-info btn-block">Editar</button>
       </div>
     </div>
   </div>
