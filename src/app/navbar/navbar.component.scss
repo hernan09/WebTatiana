@@ -139,7 +139,14 @@
     80%{margin-top: -60px;}
   }
 
-
+//searchbar query
+@media(min-width:991px) and (max-width:1199px){
+  .form-inline{
+    position: absolute;
+    right: 131px;
+    bottom: 15px;
+  }
+}
 
 
 

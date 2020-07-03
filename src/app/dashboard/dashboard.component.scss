@@ -34,10 +34,7 @@ a, a:hover, a:focus {
     font-weight: 500;
 }
 
-#sidebar .sidebar-header {
-    padding: 20px;
-   
-}
+
 
 #sidebar ul.components {
     position: fixed;
@@ -45,8 +42,9 @@ a, a:hover, a:focus {
     font-size: 0.8em;
     height: 65vh;
     overflow-y: scroll;
-   
+    border-radius: 50%;
     z-index: 111111111111111111111;
+   
 }
 
 #sidebar ul p {
@@ -58,24 +56,33 @@ a, a:hover, a:focus {
     padding: 4px;
     font-size: 1.1em;
     display: block;
+
+    .span-icon{
+        img{
+            background-color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+        }
+    }
 }
 
 
 #sidebar ul li  {
-    border-bottom: 1px solid #bfdce6;
+    border-bottom: 1px solid gray;
     cursor: pointer;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
     color: #fff;
-    background: #17a2b8;
-    font-weight: 900;
+    background: black;
+    font-weight: 700;
 }
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
     text-transform: uppercase;
-    color: #17a2b8;
+    color: black;
     font-weight: 700;
     background-color: white;
 }

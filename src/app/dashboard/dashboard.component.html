@@ -6,14 +6,16 @@
           </div> -->
 
     <ul class="list-unstyled components scrollbar shadow p-3 mb-5 rounded">
-      <h3 style="color: #6c7475;">Dashboard</h3>
       <li class="active">
         <a
           href="#homeSubmenu"
           data-toggle="collapse"
           aria-expanded="false"
           class="dropdown-toggle"
-          >HOME</a
+          ><span class="span-icon"
+            ><img src="https://img.icons8.com/windows/24/000000/home.png"
+          /></span>
+          HOME</a
         >
         <ul class="collapse list-unstyled" id="homeSubmenu">
           <li *ngFor="let section of listCatalogo; let indice = index">
@@ -29,7 +31,11 @@
           data-toggle="collapse"
           aria-expanded="false"
           class="dropdown-toggle"
-          >PRODUCTOS</a
+          ><span class="span-icon"
+            ><img
+              src="https://img.icons8.com/windows/24/000000/add-shopping-cart.png"
+          /></span>
+          PRODUCTOS</a
         >
         <ul class="collapse list-unstyled" id="homeSubmenu2">
           <li>
@@ -49,7 +55,10 @@
           data-toggle="collapse"
           aria-expanded="false"
           class="dropdown-toggle"
-          >GALERIA</a
+          ><span class="span-icon"
+            ><img src="https://img.icons8.com/windows/24/000000/plus-math.png"
+          /></span>
+          GALERIA</a
         >
         <ul class="collapse list-unstyled" id="homeSubmenu3">
           <li>
@@ -73,7 +82,7 @@
         type="button"
         (click)="toggleMenu(toggle)"
         id="sidebarCollapse"
-        class="btn btn-info"
+        class="btn btn-dark"
       >
         <i class="fas fa-align-left"></i>
         <span class="show-catalogo-menu">{{
