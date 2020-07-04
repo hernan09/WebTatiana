@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const REST_PORT = (process.env.PORT || 5100)
+const path = require('path')
 
 const cors = require('express-cross');
 // const OneSignal = require('onesignal-node');
@@ -30,4 +31,8 @@ app.use(function(req, res, next) {
 
 app.listen(REST_PORT, () => {
  console.log('App ready on port ' + REST_PORT)
+})
+
+app.get('/',(req,res)=>{
+    res.sendFile(path.join(__dirname +'dist/my-dream-app/index.html'))
 })
