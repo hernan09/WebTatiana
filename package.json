@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "npm install && node server"
   },
   "private": true,
   "dependencies": {
@@ -21,8 +22,12 @@
     "@angular/router": "~10.0.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "ftp-deploy": "^2.3.7",
     "hover.css": "^2.3.2",
     "ng-animate-scroll": "^7.1.0",
+    "path": "^0.12.7",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
