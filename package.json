@@ -9,7 +9,7 @@
   "scripts": {
     "ng": "ng",
     "build": "ng build",
-    "start": "node server.js",
+    "start": "node server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "private": true,
