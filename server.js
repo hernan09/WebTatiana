@@ -14,7 +14,7 @@ app.use( bodyParser.urlencoded({ extended: true }) ) // support URL-encoded bodi
 app.use( bodyParser.text({type: 'application/json'}) )
 
 // app.use(express.static(__dirname + '/public'));
-app.use(express.static(__dirname + "/dist/my-dream-app")); // serve static files
+app.use(express.static(__dirname + "dist/my-dream-app")); // serve static files
 
 
 
