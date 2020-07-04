@@ -27,6 +27,6 @@ mongoose.connect(process.env.URLDB, {
 
 });*/
 
-app.listen(3000,()=>{
-    console.log('escuchando  test en el puerto ',3000);
+app.listen(process.env.PORT || 3000,()=>{
+    console.log('escuchando  test en el puerto ',process.env.PORT || 3000);
 }) 
