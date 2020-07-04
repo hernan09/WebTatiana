@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-sm-12 col-xs-12 col-lg-12 col-md-12">
-      <form>
+      <form (ngSubmit)="SendInfoLogin()">
         <div class="form-group">
           <label for="exampleInputEmail1">Usuario</label>
           <input
@@ -9,6 +9,9 @@
             class="form-control"
             id="exampleInputtext1"
             aria-describedby="emailHelp"
+            required
+            [(ngModel)]="data.name"
+            [ngModelOptions]="{ standalone: true }"
           />
         </div>
         <div class="form-group">
@@ -17,10 +20,52 @@
             type="password"
             class="form-control"
             id="exampleInputPassword1"
+            [(ngModel)]="data.pass"
+            [ngModelOptions]="{ standalone: true }"
+            required
           />
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Login</button>
+        <button type="submit" class="btn btn-info btn-block">
+          Login
+        </button>
       </form>
+    </div>
+  </div>
+  <div
+    id="victorModal"
+    class="modal fade"
+    [ngClass]="{
+      'modal fade show': showmodalbolean,
+      'modal fade': !showmodalbolean
+    }"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-hidden="true"
+            (click)="closemodal()"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>¿Bienvenida Tatiana?</p>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-default"
+            data-dismiss="modal"
+            (click)="closemodal()"
+          >
+            Cerrar
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

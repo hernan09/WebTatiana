@@ -8,6 +8,7 @@ import { Component, OnInit,Input } from '@angular/core';
 export class HomeslideComponent implements OnInit {
   @Input() idSection: any;
   @Input() data: any;
+ 
   constructor() { }
 
   ngOnInit(): void {

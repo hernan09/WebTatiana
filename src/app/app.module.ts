@@ -13,6 +13,7 @@ import { ContactFooterComponent } from './contact-footer/contact-footer.componen
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeslideComponent } from './dashboard/homeslide/homeslide.component'
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -38,6 +39,7 @@ import { HomeslideComponent } from './dashboard/homeslide/homeslide.component'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
     
     
     
