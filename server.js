@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())//esto por ejemplo es un midelware que son funciones que se van a ejecutar cada ves que pase por ahí el codigo
 
 //habilitar la carpeta public para que pueda ser accedida desde el browser
-app.use(express.static( path.resolve(__dirname, './dist/my-dream-app')));//necesitamos el path que resuelva la ruta
+app.use(express.static( __dirname, './dist/my-dream-app'));//necesitamos el path que resuelva la ruta
 //congif global de rutas
 //app.use( require('./routes/index'));
 
