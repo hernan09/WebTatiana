@@ -27,6 +27,10 @@ mongoose.connect(process.env.URLDB, {
 
 });*/
 
-app.listen(process.env.PORT || 3000,()=>{
-    console.log('escuchando  test en el puerto ',process.env.PORT || 3000);
+const PORT = process.env.PORT || 3000;
+
+app.set("port",PORT);
+
+app.listen(PORT,()=>{
+    console.log('escuchando  test en el puerto ',PORT);
 }) 
