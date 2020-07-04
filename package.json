@@ -1,13 +1,16 @@
 {
   "name": "my-dream-app",
   "version": "0.0.0",
+  "engines": {
+    "node": "12.11.1"
+    },
   "scripts": {
     "ng": "ng",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start": "npm install && node server.js"
+    "start": "node server.js"
   },
   "private": true,
   "dependencies": {
