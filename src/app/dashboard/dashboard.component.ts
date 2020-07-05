@@ -57,7 +57,7 @@ export class DashboardComponent implements OnInit {
       {
         id: 123,
         id_user: 111,
-        nombre: 'ACERCA DE NOSOTROS',
+        nombre: 'MAS VENDIDOS',
         precio: 1,
         stock: 2,
         title:'TITLE 2',

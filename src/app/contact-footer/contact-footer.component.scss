@@ -8,23 +8,24 @@
     flex-flow: row wrap;
     justify-content: space-around;
     position: relative;
+    align-items: center;
   
     .footer1 {
-      width: 100%;
+      position: relative;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      h5{
-        position: relative;
-        right: 75px;
-      }
-      ul {
+      text-align: center;
+      
+     
+      .list-horarios {
         li {
           list-style: none;
         }
       }
     }
+
     .footer2 {
       display: flex;
       justify-content: center;
@@ -83,8 +84,26 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-
+       
+      .list-horarios{
+        li{
+          list-style: none;
+        }
+      }
     
+    }
+    .footer4{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      .list-horarios{
+        li{
+          list-style: none;
+        }
+      }
     }
   
 }
@@ -98,10 +117,5 @@
     align-items: center;
     text-align: center;
   }
-  .footer1{
-    h5{
-      position: relative;
-      right: 55px !important;
-    }
-  }
+  
 }

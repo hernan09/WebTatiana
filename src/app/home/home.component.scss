@@ -85,6 +85,12 @@
                height: 300px;
                cursor: pointer;
              }
+
+             hr{
+               height: 2px;
+               background-color:#b3c985 ;
+             }
+
              img:hover{
                filter: grayscale(100%);
                transform:translateY(10px) ;
