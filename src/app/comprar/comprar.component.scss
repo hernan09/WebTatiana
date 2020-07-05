@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+.container{
+    .row{
+        .comprar{
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+
+         
+            .section-list1{
+                li{
+                    list-style: none;
+                    font-family: 'Amatic SC', cursive;
+                    font-size: 17px;
+                }
+            }
+
+          .section-list2{
+              li{
+                  list-style: none;
+                  font-family: 'Amatic SC', cursive;
+                  font-size: 17px;
+              }
+          }
+
+          .spantext{
+              color: #b3c984;
+              font-weight: 700;
+          }
+
+            .banner{
+                width: 100%;
+                height: 200px;
+                background-image: url(../../assets/imagenes/bannerdesc.jpg);
+                background-position: center center;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+}
+
+@media(max-width:450px){
+    .text-compra-1{
+        margin-left: 35px;
+    }
+}
