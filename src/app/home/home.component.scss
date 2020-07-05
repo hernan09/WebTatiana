@@ -1,4 +1,4 @@
-@import "https://fonts.googleapis.com/css?family=AmaticSC:300,400,500,600,700";
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');
 
 .container-fluid{
@@ -72,20 +72,39 @@
     .jumbotron{
         background-color: transparent;
         height: auto;
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Amatic SC', cursive;
+
+        blockquote{
+          .content-images-most{
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+             img{
+               width: 300px;
+               height: 300px;
+               cursor: pointer;
+             }
+             img:hover{
+               filter: grayscale(100%);
+               transform:translateY(10px) ;
+               transition: all linear 0.3s;
+             }
+          }
+        }
 
         .btn-success{
             color: white;
         }
     }
     #section4{
-      font-family: 'Source Sans Pro', sans-serif;
+      font-family: 'Amatic SC', cursive;
       position: relative;   
       width: 100%;
       height: 100px;
     }
     .section5{
-      font-family: 'Source Sans Pro', sans-serif;
+      font-family: 'Amatic SC', cursive;
     }
     .list-group{
       font-family: "Poppins", sans-serif;
