@@ -8,6 +8,7 @@ import { ContactFooterComponent } from './contact-footer/contact-footer.componen
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeslideComponent } from './dashboard/homeslide/homeslide.component';
+import { ComprarComponent } from './comprar/comprar.component';
 
 
 
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'contacto', component:ContactFooterComponent },
   { path:'login', component:LoginComponent },
   { path:'dasboard', component:DashboardComponent},
-  { path:'dasboard/slide',component:HomeslideComponent }
+  { path:'dasboard/slide',component:HomeslideComponent },
+  { path:'comprar',component:ComprarComponent }
 ];
 
 @NgModule({

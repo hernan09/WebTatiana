@@ -11,8 +11,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   gotoPage(name:string){
-    console.log("voy a catalogo!");
+    console.log(`voy a  ${name}`);
     this.router.navigate([`${name}`]);
   }
 }

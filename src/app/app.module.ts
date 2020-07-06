@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeslideComponent } from './dashboard/homeslide/homeslide.component'
 import { FormsModule } from '@angular/forms';
+import { ComprarComponent } from './comprar/comprar.component';
 
 
 
@@ -32,6 +33,7 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     DashboardComponent,
     HomeslideComponent,
+    ComprarComponent,
    
    
   ],

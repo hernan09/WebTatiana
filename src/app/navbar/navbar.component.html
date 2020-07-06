@@ -39,27 +39,33 @@
             >PRODUCTOs</a
           >
           <a class="nav-item nav-link hvr-float-shadow" href="#section4"
+            >ENVIOS</a
+          >
+          <a
+            class="nav-item nav-link hvr-float-shadow"
+            (click)="gotoPage('comprar')"
             >COMO COMPRAR</a
           >
           <a class="nav-item nav-link hvr-float-shadow" href="#contacto"
             >CONTACTO</a
           >
         </div>
-        <form class="form-inline">
-          <input
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Buscar Poducto"
-            aria-label="Search"
-          />
-          <button class="btn btn-info my-2 my-sm-0" type="submit">
-            Buscar
-          </button>
-        </form>
       </div>
     </div>
   </nav>
 </div>
 <nav id="navbar2" class="navbar navbar-light mt-5">
-  <div class="container"></div>
+  <div class="container mb-5">
+    <form class="form-inline ml-auto">
+      <input
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Buscar Poducto"
+        aria-label="Search"
+      />
+      <button class="btn btn-info my-2 my-sm-0" type="submit">
+        Buscar
+      </button>
+    </form>
+  </div>
 </nav>

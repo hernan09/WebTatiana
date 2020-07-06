@@ -57,35 +57,36 @@
   <div class="col-12 col-md-12 col-lg-12 mt-5">
     <div class="jumbotron">
       <blockquote class="text-center">
-        <h3 class="display-4">Acerca de Nosotros</h3>
-        <p class="lead">
-          This is a simple hero unit, a simple jumbotron-style component for
-          calling extra attention to featured content or information.
-        </p>
-        <hr class="my-4" />
-        <p>
-          It uses utility classes for typography and spacing to space content
-          out within the larger container.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
-          praesentium itaque exercitationem, reiciendis facere explicabo
-          quisquam deleniti ut fuga sunt accusantium at saepe ducimus distinctio
-          alias delectus eveniet
-        </p>
-        <hr />
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
-          praesentium itaque exercitationem, reiciendis facere explicabo
-          quisquam deleniti ut fuga sunt accusantium at saepe ducimus distinctio
-          alias delectus eveniet
-        </p>
-        <a
-          class="btn btn-success btn-lg"
-          (click)="gotoPage('galeria')"
-          role="button"
-          >Galeria</a
-        >
+        <h3 class="display-4 mb-5">Mas vendidos</h3>
+        <div class="content-images-most">
+          <div class="contet-image">
+            <img
+              (click)="gotoPage('detalle')"
+              src="../../assets/imagenes/product5.jpg"
+              alt="..."
+            />
+            <hr />
+            <h5>Tazas</h5>
+          </div>
+          <div class="contet-image">
+            <img
+              (click)="gotoPage('detalle')"
+              src="../../assets/imagenes/product2.jpg"
+              alt="..."
+            />
+            <hr />
+            <h5>Mochilas</h5>
+          </div>
+          <div class="contet-image">
+            <img
+              (click)="gotoPage('detalle')"
+              src="../../assets/imagenes/product3.jpg"
+              alt="..."
+            />
+            <hr />
+            <h5>Mochilas</h5>
+          </div>
+        </div>
       </blockquote>
     </div>
   </div>
@@ -93,7 +94,7 @@
     <div class="col-12" id="section4"></div>
     <div class="jumbotron section5">
       <blockquote class="text-center">
-        <h3 class="display-4">Como Comprar</h3>
+        <h3 class="display-4">Envios</h3>
         <p class="lead">
           This is a simple hero unit, a simple jumbotron-style component for
           calling extra attention to featured content or information.
@@ -298,14 +299,14 @@
                   ><img
                     src="https://img.icons8.com/android/24/000000/phone.png"
                 /></span>
-                Telefono De linea : 42498221
+                42498221
               </li>
               <li>
                 <span
                   ><img
                     src="https://img.icons8.com/material-outlined/24/000000/whatsapp.png"
                 /></span>
-                Whatsapp : 1131491074
+                1131491074
               </li>
               <li>
                 <span
@@ -318,13 +319,6 @@
                 <span
                   ><img
                     src="https://img.icons8.com/material-outlined/24/000000/taxi-location.png"
-                /></span>
-                Ubicacion: Bs.Aires- Zona Sur
-              </li>
-              <li>
-                <span
-                  ><img
-                    src="https://img.icons8.com/material/24/000000/map-marker--v1.png"
                 /></span>
                 Eva peron 1670 - Lanus Este
               </li>
