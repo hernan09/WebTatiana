@@ -4,25 +4,11 @@
     *ngFor="let section of data; let indice = index"
   >
     <div class="id-scroll" [id]="indice"></div>
-
     <h3>{{ section.nombre }}</h3>
 
-    <div class="content-images-slide" *ngIf="section.disponible">
-      <div class="img-1-div">
-        <a href="#victorModal" role="button" data-toggle="modal">
-          <span class="badge badge-danger"
-            ><img
-              src="https://img.icons8.com/windows/32/000000/delete-forever.png" /></span
-        ></a>
-      </div>
+    <div class="content-images-slide">
       <div class="img-2-div">
-        <a href="#victorModal" role="button" data-toggle="modal"
-          ><span class="badge badge-danger">
-            <img
-              src="https://img.icons8.com/windows/32/000000/delete-forever.png" /></span
-        ></a>
-      </div>
-      <div class="img-3-div">
+        <img src="{{ section.img[0].url }}" alt="" />
         <a href="#victorModal" role="button" data-toggle="modal"
           ><span class="badge badge-danger">
             <img
@@ -31,40 +17,60 @@
       </div>
     </div>
     <div class="container-form">
-      <form>
+      <form (ngSubmit)="sendMesage()">
         <div class="form-group">
-          <h4 *ngIf="section.disponible">Selecciona una imagen</h4>
+          <label for="exampleFormControlFile1">Seleccion una imagen</label>
           <input
-            *ngIf="section.disponible"
             type="file"
             class="form-control-file"
             id="exampleFormControlFile1"
           />
           <hr />
-          <h4 *ngIf="section.input_true_false">Ingrese un titulo</h4>
+          <h4>Ingrese un titulo de Producto</h4>
           <input
-            *ngIf="section.input_true_false"
             class="form-control"
             type="text"
             placeholder="{{ section.title }}"
+            [(ngModel)]="dataForm.title"
+            [ngModelOptions]="{ standalone: true }"
           />
           <hr />
           <div class="form-group">
-            <h4 *ngIf="section.input_true_false">Ingrese una descripcion</h4>
+            <h4>Ingrese una descripcion</h4>
             <textarea
-              *ngIf="section.input_true_false"
               class="form-control"
               id="exampleFormControlTextarea1"
               placeholder="{{ section.descripcion }}"
               rows="3"
+              [(ngModel)]="dataForm.descripcion"
+              [ngModelOptions]="{ standalone: true }"
             ></textarea>
           </div>
+          <div class="form-group">
+            <h4>Ingrese un precio al por menor</h4>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="{{ section.precioMinorista }}"
+              [(ngModel)]="dataForm.preciomenor"
+              [ngModelOptions]="{ standalone: true }"
+            />
+            <h4>Ingrese un precio al por mayor</h4>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="{{ section.precioMayorista }}"
+              [(ngModel)]="dataForm.preciomayor"
+              [ngModelOptions]="{ standalone: true }"
+            />
+          </div>
         </div>
+
+        <button type="submit" class="btn btn-success btn-block">
+          Agregar
+        </button>
+        <button type="submit" class="btn btn-info btn-block">Editar</button>
       </form>
-      <div class="content-button">
-        <button type="button" class="btn btn-success btn-block">Agregar</button>
-        <button type="button" class="btn btn-info btn-block">Editar</button>
-      </div>
     </div>
   </div>
 </div>

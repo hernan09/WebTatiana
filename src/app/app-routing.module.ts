@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeslideComponent } from './dashboard/homeslide/homeslide.component';
 import { ComprarComponent } from './comprar/comprar.component';
+import { ProductosComponent } from './dashboard/productos/productos.component'
+import { PreguntasComponent } from './dashboard/preguntas/preguntas.component';
 
 
 
@@ -22,7 +24,9 @@ const routes: Routes = [
   { path:'login', component:LoginComponent },
   { path:'dasboard', component:DashboardComponent},
   { path:'dasboard/slide',component:HomeslideComponent },
-  { path:'comprar',component:ComprarComponent }
+  { path:'comprar',component:ComprarComponent },
+  { path:'dasboard/producto',component:ProductosComponent },
+  { path:'dasboard/preguntas',component:PreguntasComponent }
 ];
 
 @NgModule({
