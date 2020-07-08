@@ -15,6 +15,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeslideComponent } from './dashboard/homeslide/homeslide.component'
 import { FormsModule } from '@angular/forms';
 import { ComprarComponent } from './comprar/comprar.component';
+import { ProductosComponent } from './dashboard/productos/productos.component';
+import { PreguntasComponent } from './dashboard/preguntas/preguntas.component';
 
 
 
@@ -34,6 +36,8 @@ import { ComprarComponent } from './comprar/comprar.component';
     DashboardComponent,
     HomeslideComponent,
     ComprarComponent,
+    ProductosComponent,
+    PreguntasComponent,
    
    
   ],

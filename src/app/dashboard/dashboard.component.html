@@ -1,10 +1,6 @@
 <div class="wrapper">
   <!-- Sidebar -->
   <nav id="sidebar" [ngClass]="{ active: toggle }" class="">
-    <!-- <div class="sidebar-header">
-              <h3>Bootstrap Sidebar</h3>
-          </div> -->
-
     <ul class="list-unstyled components scrollbar shadow p-3 mb-5 rounded">
       <li class="active">
         <a
@@ -38,14 +34,10 @@
           PRODUCTOS</a
         >
         <ul class="collapse list-unstyled" id="homeSubmenu2">
-          <li>
-            <a href="#">producto1</a>
-          </li>
-          <li>
-            <a href="#">producto2</a>
-          </li>
-          <li>
-            <a href="#">producto3</a>
+          <li *ngFor="let section of listProducto; let indice = index">
+            <a (click)="productoSeleccionado(section, indice)">{{
+              section.nombre
+            }}</a>
           </li>
         </ul>
       </li>
@@ -58,44 +50,41 @@
           ><span class="span-icon"
             ><img src="https://img.icons8.com/windows/24/000000/plus-math.png"
           /></span>
-          GALERIA</a
+          PREGUNTAS Y RESPUESTAS</a
         >
         <ul class="collapse list-unstyled" id="homeSubmenu3">
-          <li>
-            <a href="#">PRODUCTO1</a>
-          </li>
-          <li>
-            <a href="#">PRODUCTO2</a>
-          </li>
-          <li>
-            <a href="#">PRODUCTO3</a>
+          <li *ngFor="let section of QuestionAsnwer; let indice = index">
+            <a (click)="productoSeleccionado(section, indice)">{{
+              section.nombre
+            }}</a>
           </li>
         </ul>
       </li>
     </ul>
   </nav>
   <!-- Page Content -->
+
+  <!-- Page Content -->
   <div id="content" class="container">
-    <!-- Page Content -->
-    <div id="content" class="container">
-      <button
-        type="button"
-        (click)="toggleMenu(toggle)"
-        id="sidebarCollapse"
-        class="btn btn-dark"
-      >
-        <i class="fas fa-align-left"></i>
-        <span class="show-catalogo-menu">{{
-          toggle ? "Mostrar Dashboard" : "X"
-        }}</span>
-        <span class="show-catalogo-menu-mobile">{{
-          toggle ? "X" : "Mostrar Dashboard"
-        }}</span>
-      </button>
-      <!-- aca van los componentes -->
-      <div class="table">
-        <app-homeslide [data]="listCatalogo"></app-homeslide>
-      </div>
+    <button
+      type="button"
+      (click)="toggleMenu(toggle)"
+      id="sidebarCollapse"
+      class="btn btn-dark"
+    >
+      <i class="fas fa-align-left"></i>
+      <span class="show-catalogo-menu">{{
+        toggle ? "Mostrar Dashboard" : "X"
+      }}</span>
+      <span class="show-catalogo-menu-mobile">{{
+        toggle ? "X" : "Mostrar Dashboard"
+      }}</span>
+    </button>
+    <!-- aca van los componentes -->
+    <div class="table">
+      <app-homeslide [data]="listCatalogo"></app-homeslide>
+      <app-productos [data]="listProducto"></app-productos>
+      <app-preguntas [data]="QuestionAsnwer"></app-preguntas>
     </div>
   </div>
 </div>
