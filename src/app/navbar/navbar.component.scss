@@ -180,6 +180,9 @@
 }
 
 @media (max-width: 768px) {
+  #examplenav {
+    padding-bottom: 18px;
+  }
   .container {
     a {
       margin: 0;
@@ -211,7 +214,7 @@
     width: 100%;
   }
   #navbar2{
-    
+
     .container {
       padding: 0 !important;
       margin: 0 !important;

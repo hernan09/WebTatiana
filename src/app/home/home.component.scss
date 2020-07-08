@@ -192,4 +192,41 @@
       padding: 0;
       margin: 0;
     }
+
+    form {
+      padding: 0 !important;
+    }
+
+    #contacto {
+      padding: 10px 2px;
+
+      .box-contact {
+        height: 340px;
+      }
+
+      form {
+        margin-top: 35px;
+      }
+
+      h3 {
+        margin-top: 20px;
+        font-size: 1.5em;
+      }
+
+      .btn-dark{
+        width: 100%;
+      }
+
+      .section-contact {
+        padding: 0 !important;
+
+        ul {
+          padding-top: 20px;
+
+          li {
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
   }
