@@ -1,4 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-homeslide',
@@ -14,10 +15,16 @@ export class HomeslideComponent implements OnInit {
     descripcion:'',
 
   }
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
   }
+
+  getJson(){
+    return this.http.get('').subscribe((resp:any)=>{
+    
+    })
+   }
 
   sendMesage(){
     console.log(this.dataForm)

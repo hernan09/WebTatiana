@@ -3,7 +3,7 @@
     class="content-iterator"
     *ngFor="let section of data; let indice = index"
   >
-    <div class="id-scroll" [id]="indice"></div>
+    <div class="id-scroll" [id]="section.id"></div>
     <h3>{{ section.nombre }}</h3>
 
     <div class="container-form">

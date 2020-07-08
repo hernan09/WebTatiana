@@ -1,30 +1,30 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-
 @Component({
-  selector: 'app-preguntas',
-  templateUrl: './preguntas.component.html',
-  styleUrls: ['./preguntas.component.scss']
+  selector: 'app-noticias',
+  templateUrl: './noticias.component.html',
+  styleUrls: ['./noticias.component.scss']
 })
-export class PreguntasComponent implements OnInit {
+export class NoticiasComponent implements OnInit {
   @Input() idSection: any;
   @Input() data: any;
+
   dataForm={
-    pregunta:'',
-    respuesta:''
+    title:'',
+    descripcion:'',
+
   }
   constructor(private http:HttpClient) { }
-
-  ngOnInit(): void {
-  }
-
   getJson(){
     return this.http.get('').subscribe((resp:any)=>{
     
     })
    }
-  SendInfoLogin(){
+
+  sendMesage(){
     console.log(this.dataForm)
+  }
+  ngOnInit(): void {
   }
 
 }

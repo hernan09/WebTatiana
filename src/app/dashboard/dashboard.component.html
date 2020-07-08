@@ -60,6 +60,25 @@
           </li>
         </ul>
       </li>
+      <li class="active">
+        <a
+          href="#homeSubmenu4"
+          data-toggle="collapse"
+          aria-expanded="false"
+          class="dropdown-toggle"
+          ><span class="span-icon"
+            ><img src="https://img.icons8.com/windows/24/000000/plus-math.png"
+          /></span>
+          NOTICIAS</a
+        >
+        <ul class="collapse list-unstyled" id="homeSubmenu4">
+          <li *ngFor="let section of NoticiasArray; let indice = index">
+            <a (click)="productoSeleccionado(section, indice)">{{
+              section.nombre
+            }}</a>
+          </li>
+        </ul>
+      </li>
     </ul>
   </nav>
   <!-- Page Content -->
@@ -85,6 +104,7 @@
       <app-homeslide [data]="listCatalogo"></app-homeslide>
       <app-productos [data]="listProducto"></app-productos>
       <app-preguntas [data]="QuestionAsnwer"></app-preguntas>
+      <app-noticias [data]="NoticiasArray"></app-noticias>
     </div>
   </div>
 </div>
