@@ -124,6 +124,17 @@
     }
 
     #contacto{
+      .section-contact {
+        padding: 0 !important;
+
+        ul {
+          padding-top: 20px;
+
+          li {
+            margin-bottom: 20px;
+          }
+        }
+      }
 
       .title-contact{
         color: #343a40;
