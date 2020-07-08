@@ -181,3 +181,15 @@
       }
     }
   }
+
+
+  @media (max-width: 768px) {
+    .container-fluid {
+      padding: 0;
+    }
+
+    .content-img {
+      padding: 0;
+      margin: 0;
+    }
+  }

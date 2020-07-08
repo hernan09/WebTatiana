@@ -179,6 +179,52 @@
 	}
 }
 
+@media (max-width: 768px) {
+  .container {
+    a {
+      margin: 0;
+      width: 80%;
+      margin-top: 4%;
+    }
+    .imgelogo{
+      width: 122px !important;
+      height: 107px !important;
+    }
+
+    .conteiner-text-animation {
+      ul {
+        font-size: 18px;
+        li {
+          margin-bottom: 5px;
+        }
+      }
+    }
+
+    .navbar-nav {
+      margin-top: 20px;
+    }
+
+
+  }
+  form {
+    margin-left: 0 !important;
+    width: 100%;
+  }
+  #navbar2{
+    
+    .container {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    button{
+      width: 100%;
+    }
+
+  }
+
+}
+
 
 
   
