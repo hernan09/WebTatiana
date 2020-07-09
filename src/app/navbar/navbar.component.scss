@@ -44,21 +44,31 @@
 
           a.nav-item.nav-link:hover{
             color: #17a2b8;
-           }
+          }
          
         }
       
+        .lines-item{
+          border-top: 2px solid white;
+          border-bottom: 2px solid white;
+        }
+
+
         .lines-item:hover{
           border-top: 2px solid #bdd089;
           border-bottom: 2px solid #bdd089;
-       
         }
-       
-      
-       
+
+        .active-link {
+          a.nav-item.nav-link{
+            color: #17a2b8;
+          }
+          border-top: 2px solid #bdd089;
+          border-bottom: 2px solid #bdd089;
+        }
         
     }
-}
+  }
 }
 
 
