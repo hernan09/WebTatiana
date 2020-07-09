@@ -8,6 +8,7 @@
       .col1{
           .title-contact{
              text-align: center;
+             margin-top: 10px;
           }
           height: 400px;
           background-color: whitesmoke;
@@ -34,6 +35,9 @@
           
       }
       .col2{
+        .title-contact{
+          margin-top: 10px;
+        }
 
        .content-input{
            display: flex;
@@ -65,5 +69,7 @@
           display: flex;
           justify-content: center;
           align-items: center;
+          background-color: whitesmoke;
+          padding: 15px;
       }
     }
