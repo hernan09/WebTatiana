@@ -70,6 +70,7 @@
     }
  
     .container{
+      word-wrap: break-word;
         a{
             color: black;
             text-transform: uppercase;
@@ -179,7 +180,7 @@
 
 //searchbar query
 @media(min-width:991px) and (max-width:1199px){
-  .form-inline{
+  #wrap{
     position: absolute;
     right: 131px;
     bottom: 15px;

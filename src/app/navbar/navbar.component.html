@@ -22,27 +22,42 @@
 
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <div class="lines-item" [ngClass]="{'active-link': section == 'inicio'}">
+          <div
+            class="lines-item"
+            [ngClass]="{ 'active-link': section == 'inicio' }"
+          >
             <a class="nav-item nav-link active" (click)="gotoPage('inicio')"
               >INICIO</a
             >
           </div>
-          <div class="lines-item" [ngClass]="{'active-link': section == 'catalogo'}">
+          <div
+            class="lines-item"
+            [ngClass]="{ 'active-link': section == 'catalogo' }"
+          >
             <a class="nav-item nav-link" (click)="gotoPage('catalogo')"
               >CATEGORIAS</a
             >
           </div>
-          <div class="lines-item" [ngClass]="{'active-link': section == 'comprar'}">
+          <div
+            class="lines-item"
+            [ngClass]="{ 'active-link': section == 'comprar' }"
+          >
             <a class="nav-item nav-link" (click)="gotoPage('comprar')"
               >COMO COMPRAR</a
             >
           </div>
-          <div class="lines-item" [ngClass]="{'active-link': section == 'preguentas'}">
+          <div
+            class="lines-item"
+            [ngClass]="{ 'active-link': section == 'preguentas' }"
+          >
             <a class="nav-item nav-link" (click)="gotoPage('preguentas')"
-              >PREG FRECUENTES</a
+              >PG FREC</a
             >
           </div>
-          <div class="lines-item" [ngClass]="{'active-link': section == 'contacto'}">
+          <div
+            class="lines-item"
+            [ngClass]="{ 'active-link': section == 'contacto' }"
+          >
             <a class="nav-item nav-link" (click)="gotoPage('contacto')"
               >CONTACTO</a
             >
