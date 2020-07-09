@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
+
 
 .container-fluid{
   padding: 0;
@@ -31,49 +32,7 @@
 .container{
     width: 100%;
     height: auto;
-    .display-4{
-      font-size: 2.5rem;
-    }
-    .col1{
-        height: 400px;
-        background-color: whitesmoke;
-         hr{
-           height: 2px;
-           width: 40%;
-           background-color: #b3c985;
-         }
-        .section-contact{
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          .lista-contactos{
-            padding: 0;
-            font-family: 'Amatic SC', cursive;
-            li{
-              list-style: none;
-              font-weight: 700;
-            }
-          }
-        }
-        
-    }
-    .col2{
-        height: 400px;
-        background-color: whitesmoke;
-        color: white;
-       
-        hr{
-          height: 2px;
-           width: 40%;
-           background-color: #bfdce6;
-        }
-        button{
-          width: 200px;
-         
-        }
-       
-    }
+   
 
  
     .jumbotron{
