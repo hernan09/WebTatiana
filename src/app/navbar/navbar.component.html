@@ -6,13 +6,6 @@
     <div class="container">
       <a class="navbar-brand" href="#">
         <div class="imgelogo"></div>
-        <div class="conteiner-text-animation animate-bg">
-          <ul>
-            <li>Fabricantes</li>
-            <li>De Productos</li>
-            <li>Para Sublimar</li>
-          </ul>
-        </div>
       </a>
       <button
         class="navbar-toggler"
@@ -28,44 +21,43 @@
 
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a
-            class="nav-item nav-link active hvr-float-shadow"
-            (click)="gotoPage('inicio')"
-            >INICIO</a
-          >
-          <a
-            class="nav-item nav-link hvr-float-shadow"
-            (click)="gotoPage('catalogo')"
-            >PRODUCTOs</a
-          >
-          <a class="nav-item nav-link hvr-float-shadow" href="#section4"
-            >ENVIOS</a
-          >
-          <a
-            class="nav-item nav-link hvr-float-shadow"
-            (click)="gotoPage('comprar')"
-            >COMO COMPRAR</a
-          >
-          <a class="nav-item nav-link hvr-float-shadow" href="#contacto"
-            >CONTACTO</a
-          >
+          <div class="lines-item">
+            <a class="nav-item nav-link active" (click)="gotoPage('inicio')"
+              >INICIO</a
+            >
+          </div>
+          <div class="lines-item">
+            <a class="nav-item nav-link" (click)="gotoPage('catalogo')"
+              >CATEGORIAS</a
+            >
+          </div>
+          <div class="lines-item">
+            <a class="nav-item nav-link" (click)="gotoPage('comprar')"
+              >COMO COMPRAR</a
+            >
+          </div>
+          <div class="lines-item">
+            <a class="nav-item nav-link" href="#section4">PREG FRECUENTES</a>
+          </div>
+          <div class="lines-item">
+            <a class="nav-item nav-link" href="#contacto">CONTACTO</a>
+          </div>
         </div>
+        <form class="form-inline ml-auto">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Buscar Poducto"
+            aria-label="Search"
+          />
+          <button class="btn btn-info my-2 my-sm-0" type="submit">
+            Buscar
+          </button>
+        </form>
       </div>
     </div>
   </nav>
 </div>
 <nav id="navbar2" class="navbar navbar-light mt-5">
-  <div class="container mb-5">
-    <form class="form-inline ml-auto">
-      <input
-        class="form-control mr-sm-2"
-        type="search"
-        placeholder="Buscar Poducto"
-        aria-label="Search"
-      />
-      <button class="btn btn-info my-2 my-sm-0" type="submit">
-        Buscar
-      </button>
-    </form>
-  </div>
+  <div class="container mb-5"></div>
 </nav>
