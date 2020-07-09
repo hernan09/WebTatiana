@@ -18,6 +18,8 @@ import { ProductosComponent } from './dashboard/productos/productos.component';
 import { PreguntasComponent } from './dashboard/preguntas/preguntas.component';
 import { NoticiasComponent } from './dashboard/noticias/noticias.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PregfrecuentesComponent } from './pregfrecuentes/pregfrecuentes.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 
 
@@ -40,6 +42,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProductosComponent,
     PreguntasComponent,
     NoticiasComponent,
+    PregfrecuentesComponent,
+    ContactoComponent,
    
    
   ],

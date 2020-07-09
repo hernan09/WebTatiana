@@ -1,0 +1,69 @@
+.container{
+
+    .display-4{
+        font-size: 2.5rem;
+        font-family: 'Source Sans Pro', sans-serif;
+        margin-top: 5px;
+      }
+      .col1{
+          .title-contact{
+             text-align: center;
+          }
+          height: 400px;
+          background-color: whitesmoke;
+           hr{
+             height: 2px;
+             width: 40%;
+             background-color: #b3c985;
+           }
+          .section-contact{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .lista-contactos{
+              padding: 0;
+              font-family: 'Amatic SC', cursive;
+              li{
+                list-style: none;
+                font-weight: 700;
+                margin-bottom: 20px;
+              }
+            }
+          }
+          
+      }
+      .col2{
+
+       .content-input{
+           display: flex;
+           flex-direction: row;
+           justify-content: space-between;
+        .inputs-contact{
+            width: 45%;
+        }
+       }
+
+          height: 400px;
+          background-color: whitesmoke;
+          text-align: center;
+         
+          hr{
+            height: 2px;
+             width: 40%;
+             background-color: #bfdce6;
+          }
+          button{
+            width: 200px;
+           
+          }
+         
+      }
+      .container-map{
+          margin-top: 10%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+    }

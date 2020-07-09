@@ -1,72 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
+
 
 .container-fluid{
+  padding: 0;
+  margin: 0;
   .baner{
     width: 100%;
     height: auto;
+    padding: 0;
     -webkit-animation: fade-in-bck 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
       animation: fade-in-bck 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+      .col-12{
+        padding: 0;
+        .carousel{
+          .carousel-inner{
+              .carousel-item{
+                  img{
+                      width: 100%;
+                      max-height: 432px;
+                  }
+              }
+          }
+      }
+      }
 
-    .carousel{
-        .carousel-inner{
-            .carousel-item{
-                img{
-                    width: 100%;
-                    max-height: 432px;
-                }
-            }
-        }
-    }
+    
 }
 }
 
 .container{
     width: 100%;
     height: auto;
-    .display-4{
-      font-size: 2.5rem;
-    }
-    .col1{
-        height: 400px;
-        background-color: whitesmoke;
-         hr{
-           height: 2px;
-           width: 40%;
-           background-color: #b3c985;
-         }
-        .section-contact{
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          .lista-contactos{
-            padding: 0;
-            font-family: 'Amatic SC', cursive;
-            li{
-              list-style: none;
-              font-weight: 700;
-            }
-          }
-        }
-        
-    }
-    .col2{
-        height: 400px;
-        background-color: whitesmoke;
-        color: white;
-       
-        hr{
-          height: 2px;
-           width: 40%;
-           background-color: #bfdce6;
-        }
-        button{
-          width: 200px;
-         
-        }
-       
-    }
+   
 
  
     .jumbotron{
@@ -76,31 +42,87 @@
         padding: 20px  0;
         blockquote{
           .content-images-most{
+           
             width: 100%;
             display: flex;
             flex-flow: row wrap;
             justify-content: space-around;
-             img{
-               width: 300px;
-               height: 300px;
-               cursor: pointer;
-             }
 
-             hr{
-               height: 2px;
-               background-color:#b3c985 ;
-             }
-             button{
-               position: relative;
-               bottom: 200px;
+            .contet-image{
+              img{
+                width: 300px;
+                height: 300px;
+                cursor: pointer;
+              }
+ 
+              hr{
+                height: 2px;
+                background-color:#b3c985 ;
+              }
+              button{
+                position: relative;
+                bottom: 200px;
+                visibility: hidden;
+                
+              }
+
+              /*button animation*/
+              @-webkit-keyframes scale-in-hor-center {
+                0% {
+                  -webkit-transform: scaleX(0);
+                          transform: scaleX(0);
+                  opacity: 1;
+                }
+                100% {
+                  -webkit-transform: scaleX(1);
+                          transform: scaleX(1);
+                  opacity: 1;
+                }
+              }
+              @keyframes scale-in-hor-center {
+                0% {
+                  -webkit-transform: scaleX(0);
+                          transform: scaleX(0);
+                  opacity: 1;
+                }
+                100% {
+                  -webkit-transform: scaleX(1);
+                          transform: scaleX(1);
+                  opacity: 1;
+                }
+              }
               
-             }
+ 
+              img:hover{
+                filter: grayscale(100%);
+                display: block;
+                transform:translateY(10px) ;
+                transition: all linear 0.3s;
+                
+              }
+              button:hover{
+                visibility: visible;
+                -webkit-animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	              animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+              }
+              img:hover~button{
+                visibility: visible;
+                -webkit-animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	              animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+              }
 
-             img:hover{
-               filter: grayscale(100%);
-               transform:translateY(10px) ;
-               transition: all linear 0.3s;
-             }
+              @media(max-width:600px){
+                button{
+                  position: relative;
+                  bottom: 200px;
+                  visibility: visible;
+                  
+                }
+              }
+            }
+            
+           
+            
           }
         }
 
