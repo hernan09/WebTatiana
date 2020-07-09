@@ -149,9 +149,6 @@
 }
 
 
-
-
-
 .animate-bg:before, .animate-bg:after {
 	content: '';
 	position: absolute;
@@ -165,6 +162,10 @@
 	z-index: -1;
     animation: BGgradient 15s ease infinite; 
     overflow-x: hidden;
+}
+
+.line-black {
+  
 }
 
 @keyframes BGgradient {
