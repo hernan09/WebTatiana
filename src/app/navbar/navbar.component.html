@@ -1,4 +1,4 @@
-<div class="general-container">
+<div class="general-container mb-5">
   <div class="line-black"></div>
   <nav
     id="examplenav"
@@ -22,30 +22,40 @@
 
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <div class="lines-item btn-border-5" [ngClass]="{'active-link': section == 'inicio'}" (click)="gotoPage('inicio')">
-            <a class="nav-item nav-link active " 
-              >INICIO</a
-            >
+          <div
+            class="lines-item btn-border-5"
+            [ngClass]="{ 'active-link': section == 'inicio' }"
+            (click)="gotoPage('inicio')"
+          >
+            <a class="nav-item nav-link active">INICIO</a>
           </div>
-          <div class="lines-item btn-border-5" [ngClass]="{'active-link': section == 'catalogo'}"  (click)="gotoPage('catalogo')">
-            <a class="nav-item nav-link" 
-              >CATEGORIAS</a
-            >
+          <div
+            class="lines-item btn-border-5"
+            [ngClass]="{ 'active-link': section == 'catalogo' }"
+            (click)="gotoPage('catalogo')"
+          >
+            <a class="nav-item nav-link">CATEGORIAS</a>
           </div>
-          <div class="lines-item btn-border-5" [ngClass]="{'active-link': section == 'comprar'}" (click)="gotoPage('comprar')">
-            <a class="nav-item nav-link" 
-              >COMO COMPRAR</a
-            >
+          <div
+            class="lines-item btn-border-5"
+            [ngClass]="{ 'active-link': section == 'comprar' }"
+            (click)="gotoPage('comprar')"
+          >
+            <a class="nav-item nav-link">COMO COMPRAR</a>
           </div>
-          <div class="lines-item btn-border-5" [ngClass]="{'active-link': section == 'preguentas'}"  (click)="gotoPage('preguentas')">
-            <a class="nav-item nav-link"
-              >PREG FRECUENTES</a
-            >
+          <div
+            class="lines-item btn-border-5"
+            [ngClass]="{ 'active-link': section == 'preguentas' }"
+            (click)="gotoPage('preguentas')"
+          >
+            <a class="nav-item nav-link">PREG FRECUENTES</a>
           </div>
-          <div class="lines-item btn-border-5" [ngClass]="{'active-link': section == 'contacto'}" (click)="gotoPage('contacto')">
-            <a class="nav-item nav-link" 
-              >CONTACTO</a
-            >
+          <div
+            class="lines-item btn-border-5"
+            [ngClass]="{ 'active-link': section == 'contacto' }"
+            (click)="gotoPage('contacto')"
+          >
+            <a class="nav-item nav-link">CONTACTO</a>
           </div>
         </div>
         <div id="wrap">
