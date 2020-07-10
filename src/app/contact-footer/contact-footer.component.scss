@@ -20,9 +20,11 @@
       
      
       .list-horarios {
-        li {
-          list-style: none;
-        }
+         display: flex;
+         flex-direction: column;
+         a{
+           cursor: pointer;
+         }
       }
     }
 
@@ -37,6 +39,7 @@
       ul {
         width: 60px;
         display: flex;
+        flex-direction: row;
         justify-content: space-around;
         align-items: flex-start;
         margin-top: 6px;
@@ -61,7 +64,7 @@
       }
       .list-logos {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
 
@@ -70,9 +73,16 @@
           display: flex;
           flex-direction: row;
           justify-content: space-evenly;
+          
+          
 
           a{
             color: white;
+            img{
+              border: 2px solid white;
+              background-color: honeydew;
+              border-radius: 50%;
+            }
           }
         }
       }
@@ -81,14 +91,29 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       text-align: center;
        
       .list-horarios{
-        li{
-          list-style: none;
+        .list-content{
+          div{
+            margin: 5px;
+             a{
+               color: white;
+             }
+            span{
+              img{
+                border: 2px solid white;
+                background-color: white;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+              }
+            }
+          }
         }
+       
       }
     
     }
@@ -110,12 +135,15 @@
 @media(max-width:990px){
   .footer3 {
     position: relative;
-    top: -20px!important;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-  }
+
+    .list-horarios{
+      
+    }
+}
   
 }

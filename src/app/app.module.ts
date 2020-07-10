@@ -20,6 +20,7 @@ import { NoticiasComponent } from './dashboard/noticias/noticias.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PregfrecuentesComponent } from './pregfrecuentes/pregfrecuentes.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { BannerenviosComponent } from './bannerenvios/bannerenvios.component';
 
 
 
@@ -44,6 +45,7 @@ import { ContactoComponent } from './contacto/contacto.component';
     NoticiasComponent,
     PregfrecuentesComponent,
     ContactoComponent,
+    BannerenviosComponent,
    
    
   ],

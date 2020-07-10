@@ -13,6 +13,7 @@ import { ProductosComponent } from './dashboard/productos/productos.component'
 import { PreguntasComponent } from './dashboard/preguntas/preguntas.component';
 import { PregfrecuentesComponent } from  './pregfrecuentes/pregfrecuentes.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { BannerenviosComponent } from './bannerenvios/bannerenvios.component';
 
 
 
@@ -30,7 +31,8 @@ const routes: Routes = [
   { path:'dasboard/producto',component:ProductosComponent },
   { path:'dasboard/preguntas',component:PreguntasComponent },
   { path:'preguentas',component:PregfrecuentesComponent  },
-  { path:'contacto',component:ContactoComponent }
+  { path:'contacto',component:ContactoComponent },
+  { path:'bannerenvios',component:BannerenviosComponent }
 ];
 
 @NgModule({

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'; 
 
 
 @Component({
@@ -7,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-footer.component.scss']
 })
 export class ContactFooterComponent implements OnInit {
-
-  constructor() { }
+  section: String='inicio';
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  gotoPage(name:string){
+    console.log("voy a catalogo!");
+    this.section = name;
+    this.router.navigate([`${name}`]);
   }
 
 }
