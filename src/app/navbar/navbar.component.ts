@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  section: String;
+  section: String='inicio';
   constructor(private router: Router) { }
 
   gotoPage(name:string){
