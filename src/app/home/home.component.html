@@ -114,12 +114,24 @@
       </blockquote>
     </div>
   </div>
-  <div class="col-12 col-md-12 col-lg-12">
-    <div class="jumbotron section5">
-      <blockquote class="text-center">
-        <h3 class="display-4">Categorias</h3>
-        <app-bannerenvios></app-bannerenvios>
-      </blockquote>
+  <div class="col-12 col-md-12 col-lg-12 contain">
+    <h3 class="display-4" style="text-align: center;">Categorias</h3>
+    <div class="content-grid">
+      <div class="grid" (click)="gotoPage('catalogo')">
+        <figure
+          class="effect-jazz"
+          *ngFor="let item of arrayImages; let indice = index"
+        >
+          <img src="{{ item.img }}" alt="img25" />
+          <figcaption>
+            <h2>{{ item.title }}</h2>
+            <p>
+              {{ item.descripcion }}
+            </p>
+          </figcaption>
+        </figure>
+      </div>
     </div>
   </div>
+  <app-bannerenvios></app-bannerenvios>
 </div>
