@@ -1,6 +1,12 @@
 .general-container{
   position: relative;
   height: 150px;
+
+  #examplenav {
+    .navbar-nav {
+      font-size: 0.9em;
+    }
+  }
   .navbar{
     background-color: white;
     #wrap {
