@@ -5,27 +5,17 @@
   >
     <div class="id-scroll" [id]="indice"></div>
 
-    <h3>{{ section.nombre }}</h3>
+    <h3>{{ section.id }}</h3>
 
-    <div class="content-images-slide" *ngIf="section.disponible">
-      <div class="img-1-div">
+    <div class="content-images-slide">
+      <div
+        class="img-1-div"
+        *ngFor="let img of section.arrayImg; let indice = index"
+      >
+        <img class="image-slide" src="{{ img.img }}" alt="" />
         <a href="#victorModal" role="button" data-toggle="modal">
           <span class="badge badge-danger"
             ><img
-              src="https://img.icons8.com/windows/32/000000/delete-forever.png" /></span
-        ></a>
-      </div>
-      <div class="img-2-div">
-        <a href="#victorModal" role="button" data-toggle="modal"
-          ><span class="badge badge-danger">
-            <img
-              src="https://img.icons8.com/windows/32/000000/delete-forever.png" /></span
-        ></a>
-      </div>
-      <div class="img-3-div">
-        <a href="#victorModal" role="button" data-toggle="modal"
-          ><span class="badge badge-danger">
-            <img
               src="https://img.icons8.com/windows/32/000000/delete-forever.png" /></span
         ></a>
       </div>
@@ -33,9 +23,8 @@
     <div class="container-form">
       <form (ngSubmit)="sendMesage()">
         <div class="form-group">
-          <h4 *ngIf="section.disponible">Selecciona una imagen</h4>
+          <h4>Selecciona una imagen</h4>
           <input
-            *ngIf="section.disponible"
             type="file"
             class="form-control-file"
             id="exampleFormControlFile1"
@@ -65,8 +54,8 @@
             ></textarea>
           </div>
         </div>
-        <button type="submit" class="btn btn-success btn-block">Agregar</button>
-        <button type="submit" class="btn btn-info btn-block">Editar</button>
+
+        <button type="submit" class="btn btn-info btn-block">Modificar</button>
       </form>
     </div>
   </div>
@@ -91,7 +80,14 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">
           Cerrar
         </button>
-        <button type="button" class="btn btn-danger">Eliminar</button>
+        <button
+          type="button"
+          (click)="eliminarImg()"
+          data-dismiss="modal"
+          class="btn btn-danger"
+        >
+          Eliminar
+        </button>
       </div>
     </div>
   </div>

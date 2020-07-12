@@ -65,40 +65,23 @@ export class DashboardComponent implements OnInit {
 
   getListaCatalogo() {
     this.listCatalogo = [
-      {
-        id: 1,
-        id_user: 111,
-        nombre: 'SLIDE',
-        precio: 1,
-        stock: 2,
-        title: 'TITLE 1',
-        descripcion: 'Una descripcion',
-        disponible: true,
-        input_true_false: false,
-        img: [
-          {
-            nombre: '',
-            url: '',
-          },
-        ],
-      },
-      {
-        id: 2,
-        id_user: 111,
-        nombre: 'MAS VENDIDOS',
-        precio: 1,
-        stock: 2,
-        title: 'TITLE 2',
-        descripcion: 'Una descripcion',
-        disponible: true,
-        input_true_false: true,
-        img: [
-          {
-            nombre: '',
-            url: '',
-          },
-        ],
-      },
+        {
+          id:1,
+          arrayImg:[
+            {
+              id_admin:1,
+              img:'../../assets/imagenes/banner1.jpg'
+            },  {
+              id_admin:1,
+              img:'../../assets/imagenes/banner2.jpg'
+            }
+            ,  {
+              id_admin:1,
+              img:'../../assets/imagenes/banner3.jpg'
+            }
+          ]
+        }
+     
     ];
   }
 

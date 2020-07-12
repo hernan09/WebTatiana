@@ -10,17 +10,16 @@ export class HomeslideComponent implements OnInit {
   @Input() idSection: any;
   @Input() data: any;
   dataForm={
-    file:{},
-    title:'',
-    descripcion:'',
-
+    id_admin: 1,
+    img:{},
   }
   constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
+    console.log(this.data[0].arrayImg)
   }
   changeFile(e){
-    this.dataForm.file= e.target.files[0]
+    this.dataForm.img = e.target.files[0].name
   }
 
   getJson(){
@@ -28,9 +27,13 @@ export class HomeslideComponent implements OnInit {
     
     })
    }
+   eliminarImg(){
+    this.data[0].arrayImg.pop()
+   }
 
   sendMesage(){
     console.log(this.dataForm)
+    this.data[0].arrayImg.push(this.dataForm)
   }
 
 }
