@@ -10,7 +10,7 @@ export class HomeslideComponent implements OnInit {
   @Input() idSection: any;
   @Input() data: any;
   dataForm={
-    file:'',
+    file:{},
     title:'',
     descripcion:'',
 
@@ -18,6 +18,9 @@ export class HomeslideComponent implements OnInit {
   constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
+  }
+  changeFile(e){
+    this.dataForm.file= e.target.files[0]
   }
 
   getJson(){

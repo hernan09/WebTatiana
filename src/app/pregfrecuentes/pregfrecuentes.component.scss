@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;900&display=swap');
 .container{
 
     .display-4{
@@ -62,5 +63,24 @@
 
       .jumbotron{
           background-color: transparent;
+
+          h3{
+            font-family: 'Lato', sans-serif;
+              color: black;
+              font-weight: 700;
+          }
+
+          .card-header{
+            button{
+              font-family: 'Lato', sans-serif;
+              color: gray;
+              font-weight: 900;
+            }
+          }
+          .card-body{
+            font-family: 'Lato', sans-serif;
+              color: black;
+              font-weight: 300;
+          }
       }
 }

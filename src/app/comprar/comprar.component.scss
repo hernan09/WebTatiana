@@ -1,56 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;900&display=swap');
 .container{
     .row{
-        .comprar{
-            display: flex;
-            flex-flow: column wrap;
-            justify-content: center;
-            align-items: center;
+        .jumbotron{
+            background-color: transparent;
+              
+             h2,h3{
+                font-family: 'Lato', sans-serif;
+                color: black;
+                font-weight: 700;
+             }
 
-         
-            .section-list1{
-                .item-list{
-                    h4{
-                        color: #b3c984;
-                    }
-                    p{font-family: 'Source Sans Pro', sans-serif;}
-                    
-                }
-            }
-
-          .section-list2{
-              li{
-                  list-style: none;
-                  font-family: 'Amatic SC', cursive;
-                  font-size: 17px;
+            .card-header{
+              button{
+                font-family: 'Lato', sans-serif;
+                color: gray;
+                font-weight: 900;
               }
-          }
-
-          .spantext{
-              color: #b3c984;
-              font-weight: 700;
-          }
-
-            .banner{
-                width: 100%;
-                height: 200px;
-                background-image: url(../../assets/imagenes/bannerdesc.jpg);
-                background-position: center center;
-                background-size: contain;
-                background-repeat: no-repeat;
             }
-
-            h2{
-                margin-left: 0px;
+            .card-body{
+              font-family: 'Lato', sans-serif;
+                color: black;
+                font-weight: 300;
             }
-
-            ul {
-                padding-left: 1px;
-            }
-
-
-
         }
     }
 }

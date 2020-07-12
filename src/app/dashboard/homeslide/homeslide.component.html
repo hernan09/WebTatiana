@@ -39,6 +39,7 @@
             type="file"
             class="form-control-file"
             id="exampleFormControlFile1"
+            (change)="changeFile($event)"
           />
           <hr />
           <h4 *ngIf="section.input_true_false">Ingrese un titulo</h4>
