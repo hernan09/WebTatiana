@@ -1,81 +1,68 @@
-<div class="box-content" *ngFor="let subProducto of productos;  let indice=index"  (click)="detalle(subProducto)">
-    <div class="id-scroll" [id] ="indice" ></div>
-    
-    <h3>Carpetas para sublimar {{indice}}</h3>
+<div
+  class="box-content"
+  *ngFor="let subProducto of productos; let indice = index"
+  (click)="detalle(subProducto)"
+>
+  <div class="id-scroll" [id]="indice"></div>
 
-    <table class="table">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">Productos</th>
-            <th scope="col">Precios: Minorista - Mayorista</th>
-          </tr>
-        </thead>
-    
-        <tbody>
-          <tr>
-            <td>
-                <div class="row">
-                    <div class="col-md-4 col-xs-4"><div class="productos-img"></div></div>
-                    <div class="col-md-8 col-xs-8">CARPETAS PARA SUBLIMAR</div>
-                </div>
-            </td>
-            <td> Minorista:$285.00-A partir de 20 un.$255.00</td>
-          </tr>
-          <tr>
-            <td>
-                <div class="row">
-                    <div class="col-md-4 col-xs-4"><div class="productos-img"></div></div>
-                    <div class="col-md-8 col-xs-8">CARPETAS PARA SUBLIMAR</div>
-                </div>
-            </td>
-            <td> Minorista:$285.00-A partir de 20 un.$255.00</td>
-          </tr>
-          <tr>
-            <td>
-                <div class="row">
-                    <div class="col-md-4 col-xs-4"><div class="productos-img"></div></div>
-                    <div class="col-md-8 col-xs-8">CARPETAS PARA SUBLIMAR</div>
-                </div>
-            </td>
-            <td> Minorista:$285.00-A partir de 20 un.$255.00</td>
-          </tr>      <tr>
-            <td>
-                <div class="row">
-                    <div class="col-md-4 col-xs-4"><div class="productos-img"></div></div>
-                    <div class="col-md-8 col-xs-8">CARPETAS PARA SUBLIMAR</div>
-                </div>
-            </td>
-            <td> Minorista:$285.00-A partir de 20 un.$255.00</td>
-          </tr>      <tr>
-            <td>
-                <div class="row">
-                    <div class="col-md-4 col-xs-4"><div class="productos-img"></div></div>
-                    <div class="col-md-8 col-xs-8">CARPETAS PARA SUBLIMAR</div>
-                </div>
-            </td>
-            <td> Minorista:$285.00-A partir de 20 un.$255.00</td>
-          </tr>      <tr>
-            <td>
-                <div class="row">
-                    <div class="col-md-4 col-xs-4"><div class="productos-img"></div></div>
-                    <div class="col-md-8 col-xs-8">CARPETAS PARA SUBLIMAR</div>
-                </div>
-            </td>
-            <td> Minorista:$285.00-A partir de 20 un.$255.00</td>
-          </tr>      <tr>
-            <td>
-                <div class="row">
-                    <div class="col-md-4 col-xs-4"><div class="productos-img"></div></div>
-                    <div class="col-md-8 col-xs-8">CARPETAS PARA SUBLIMAR</div>
-                </div>
-            </td>
-            <td> Minorista:$285.00-A partir de 20 un.$255.00</td>
-          </tr>
-    
-        </tbody>
-      </table>
+  <div class="col-12 col-md-12 col-lg-12">
+    <div class="jumbotron">
+      <blockquote class="text-center">
+        <h3 class="display-4 mb-5">categoria {{ indice }}</h3>
+        <div class="content-images-most">
+          <div class="contet-image">
+            <img
+              (click)="gotoPage('detalle')"
+              src="../../assets/imagenes/novedades1.HEIC"
+              alt="..."
+            />
+            <hr />
+            <button
+              type="button"
+              (click)="gotoPage('detalle')"
+              class="btn btn-info"
+            >
+              Ver Producto
+            </button>
+
+            <h5>Tapa Bocas</h5>
+          </div>
+          <div class="contet-image">
+            <img
+              (click)="gotoPage('detalle')"
+              src="../../assets/imagenes/novedades2.jpg"
+              alt="..."
+            />
+            <hr />
+            <button
+              type="button"
+              (click)="gotoPage('detalle')"
+              class="btn btn-info"
+            >
+              Ver Producto
+            </button>
+
+            <h5>Tintas Wow</h5>
+          </div>
+          <div class="contet-image">
+            <img
+              (click)="gotoPage('detalle')"
+              src="../../assets/imagenes/novedades3.jpg"
+              alt="..."
+            />
+            <hr />
+            <button
+              type="button"
+              (click)="gotoPage('detalle')"
+              class="btn btn-info"
+            >
+              Ver Producto
+            </button>
+
+            <h5>Pantuflas</h5>
+          </div>
+        </div>
+      </blockquote>
+    </div>
+  </div>
 </div>
-
-
-
-

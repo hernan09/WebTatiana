@@ -1,43 +1,113 @@
-tr:nth-child(even) {
-    background-color: #bfdce663;
-}
 
-tr:hover {background-color:#f5f5f5;}
 
 
 .box-content{
     -webkit-animation: fade-in-bck 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation: fade-in-bck 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     
-    .table {
-       
-        tr {
-            cursor: pointer;
+    .jumbotron{
+        background-color: transparent;
+        height: auto;
+        font-family: 'Amatic SC', cursive;
+        padding: 20px  0;
+
+        .display-4{
+          font-size: 2.5rem !important;
         }
-        td, th {
-            border: 1px solid #dddddd;
-            padding: 8px;
-        }
-        .thead-dark {
-            text-align: center;
-            th{
-                background-color: #b3c984;
-                border-color: #b3c984;
+        blockquote{
+          .content-images-most{
+           
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+
+            .contet-image{
+              img{
+                width: 300px;
+                height: 300px;
+                cursor: pointer;
+              }
+ 
+              hr{
+                height: 2px;
+                background-color:#b3c985 ;
+              }
+              button{
+                position: relative;
+                bottom: 200px;
+                visibility: hidden;
+                
+              }
+
+              /*button animation*/
+              @-webkit-keyframes scale-in-hor-center {
+                0% {
+                  -webkit-transform: scaleX(0);
+                          transform: scaleX(0);
+                  opacity: 1;
+                }
+                100% {
+                  -webkit-transform: scaleX(1);
+                          transform: scaleX(1);
+                  opacity: 1;
+                }
+              }
+              @keyframes scale-in-hor-center {
+                0% {
+                  -webkit-transform: scaleX(0);
+                          transform: scaleX(0);
+                  opacity: 1;
+                }
+                100% {
+                  -webkit-transform: scaleX(1);
+                          transform: scaleX(1);
+                  opacity: 1;
+                }
+              }
+              
+ 
+              img:hover{
+                filter: grayscale(100%);
+                display: block;
+                transform:translateY(10px) ;
+                transition: all linear 0.3s;
+                
+              }
+              button:hover{
+                visibility: visible;
+                -webkit-animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	              animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+              }
+              img:hover~button{
+                visibility: visible;
+                -webkit-animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	              animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+              }
+
+              @media(max-width:600px){
+                button{
+                  position: relative;
+                  bottom: 200px;
+                  visibility: visible;
+                  
+                }
+              }
             }
+            
+           
+            
+          }
+        }
+
+        .btn-success{
+            color: white;
         }
     }
 }
 
 
-.productos-img{
-    background-image: url('../../assets/imagenes/carpeta.jpg');
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 40px;
-    width: 40px;
-    cursor: pointer;
-}
+
 
 .id-scroll {
     position: relative;
