@@ -19,7 +19,7 @@ export class HomeslideComponent implements OnInit {
     console.log(this.data[0].arrayImg)
   }
   changeFile(e){
-    this.dataForm.img = e.target.files[0].name
+    this.dataForm.img =`assets/imagenes/${e.target.files[0].name}` 
   }
 
   getJson(){
