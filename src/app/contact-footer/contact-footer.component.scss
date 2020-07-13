@@ -2,6 +2,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
 
 .subfooter {
+    ul {
+        list-style-type: none;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+        li{
+            border-bottom: 1px solid white;
+            padding-bottom: 1px;
+            position: relative;
+            margin-bottom: 6px;
+            
+            .content-info{
+                text-align: center;
+                width: 83%;
+                display: inline-block;
+            }
+
+            .img {
+
+                width: 25px;
+                height: 25px;
+                display: inline-block;
+                background: white;
+                margin-right: 20px;
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+                border-radius: 50%;
+                position: relative;
+                top: 1px;
+            } a{
+                cursor: pointer;
+            }
+
+            .name-image1{
+                background-image: url('../../assets/imagenes/ubicfooter.png');
+            }
+            .name-image2{
+                background-image: url('https://img.icons8.com/material-outlined/24/000000/whatsapp.png');
+            }
+            .name-image3{
+                background-image: url('../../assets/imagenes/icontelfooter.png');
+            }
+            .name-image4{
+                background-image: url('https://img.icons8.com/material-outlined/24/000000/create-new-child-post.png');
+            }
+            .name-image5{
+                background-image: url('../../assets/imagenes/iconfooterrelog.jpg');
+            }
+        }
+
+    }
     background-color: black;
     color: white;
     z-index: 11111111111111111111111111;
@@ -147,9 +199,12 @@
     align-items: center;
     text-align: center;
 
-    .list-horarios{
-      
+        .list-horarios{
+        
+        }
     }
-}
   
 }
+
+
+
