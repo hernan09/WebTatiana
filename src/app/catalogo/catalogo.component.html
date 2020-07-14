@@ -25,11 +25,9 @@
         *ngFor="let producto of listCatalogo; let indice = index"
         [ngClass]="{ active: indice == indiceSeleccionado }"
       >
-        <a
-          (click)="productoSeleccionado(producto, indice)"
-          class="hvr-curl-top-right"
-          >{{ producto.nombre }}</a
-        >
+        <a (click)="productoSeleccionado(producto, indice)">{{
+          producto.nombre
+        }}</a>
       </li>
     </ul>
   </nav>
