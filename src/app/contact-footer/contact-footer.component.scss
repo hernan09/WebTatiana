@@ -8,7 +8,7 @@
         margin: 0;
         padding: 0;
         li{
-            border-bottom: 1px solid white;
+           
             padding-bottom: 1px;
             position: relative;
             margin-bottom: 6px;
@@ -20,7 +20,6 @@
             }
 
             .img {
-
                 width: 25px;
                 height: 25px;
                 display: inline-block;
@@ -62,7 +61,7 @@
     justify-content: space-around;
     position: relative;
     align-items: center;
-    font-family: 'Amatic SC', cursive;
+    font-family: 'Source Sans Pro', sans-serif;
   
     .footer1 {
       position: relative;
@@ -155,12 +154,12 @@
        
       .list-horarios{
         .list-content{
-          div{
+          ul{
             margin: 5px;
              a{
                color: white;
              }
-            span{
+            li{
               img{
                 border: 2px solid white;
                 background-color: white;
@@ -168,6 +167,10 @@
                 height: 30px;
                 border-radius: 50%;
               }
+             .last-item-img{
+               position: relative;
+               bottom: 18px;
+             }
             }
           }
         }

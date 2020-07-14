@@ -14,11 +14,11 @@
           HOME</a
         >
         <ul class="collapse list-unstyled" id="homeSubmenu">
-          <li>
-            <a> Slide </a>
-          </li>
-          <li>
-            <a> Novedades </a>
+          <li
+            *ngFor="let section of listCatalogo; let indice = index"
+            (click)="productoSeleccionado(section, indice)"
+          >
+            <a> {{ section.name }} </a>
           </li>
         </ul>
       </li>
@@ -102,7 +102,10 @@
     </button>
     <!-- aca van los componentes -->
     <div class="table">
-      <app-homeslide [data]="listCatalogo"></app-homeslide>
+      <app-homeslide
+        [data]="listCatalogo"
+        [catalogo]="listCategory"
+      ></app-homeslide>
       <app-productos [data]="listProducto"></app-productos>
       <app-preguntas [data]="QuestionAsnwer"></app-preguntas>
       <app-noticias [data]="NoticiasArray"></app-noticias>
