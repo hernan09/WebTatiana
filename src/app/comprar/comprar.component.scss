@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;900&display=swap');
 .container{
     .row{
+       
 
+      @media(min-width:1000px){
+        .content-text-title{
+          text-align: center;
+          -webkit-animation: fade-in-right 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: fade-in-right 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;}
+      }
       .content-text-title{
         text-align: center;
-        -webkit-animation: fade-in-right 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-          animation: fade-in-right 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+     
           
 
           @-webkit-keyframes fade-in-right {
@@ -34,10 +40,16 @@
           }
           
       }
+      @media(min-width:1000px){
+        .jumbotron{
+          background-color: transparent;
+          -webkit-animation: fade-in-left 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+          animation: fade-in-left 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        }
+      }
         .jumbotron{
             background-color: transparent;
-            -webkit-animation: fade-in-left 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-            animation: fade-in-left 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+          
               
              h2,h3{
                 font-family: 'Lato', sans-serif;
