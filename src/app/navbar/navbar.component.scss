@@ -53,8 +53,8 @@
       cursor: text;
     }
     input[type="submit"] {
-      height: 40px;
-      width: 40px;
+      height: 50px;
+      width: 42px;
       display: inline-block;
       color:red;
       float: right;
@@ -67,7 +67,6 @@
       z-index: 2;
       cursor: pointer;
       opacity: 0.4;
-      cursor: pointer;
       transition: opacity .4s ease;
     }
     
