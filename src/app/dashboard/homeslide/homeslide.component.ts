@@ -10,10 +10,12 @@ export class HomeslideComponent implements OnInit {
   @Input() idSection: any;
   @Input() data: any;
   @Input() catalogo:any;
+  arrayReturn=[]
   dataForm={
     id_admin: 1,
     img:{},
   }
+  
   dataSendPost={
     id_admin:1,
     name:"",
@@ -21,7 +23,9 @@ export class HomeslideComponent implements OnInit {
     disponible:false,
     img:{}
   }
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) {
+   
+   }
 
   ngOnInit(): void {
     console.log(this.data[0].arrayImg)
@@ -33,6 +37,8 @@ export class HomeslideComponent implements OnInit {
   changeFile2(e){
     this.dataSendPost.img =`assets/imagenes/${e.target.files[0].name}` 
   }
+
+
 
   getJson(){
     return this.http.get('').subscribe((resp:any)=>{

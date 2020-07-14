@@ -5,6 +5,32 @@
    justify-content: center;
    text-align: center;
   
+   .content-padre-edit-and-delete{
+
+   
+    .div-content-edit-and-delete{
+      width: 300px;
+      padding: 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: baseline;
+      p{
+        width: 100px;
+      }
+      .content-button{
+        width: auto;
+
+       
+        button{
+          width: 55px;
+          height: 50px;
+          margin: 10px;
+        }
+      }
+    }
+   }
+   
 
   .content-iterator{
 

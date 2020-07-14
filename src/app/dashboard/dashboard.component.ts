@@ -102,7 +102,7 @@ export class DashboardComponent implements OnInit {
         arrayProduct:[
           {
             id_admin:1,
-           id_product:1,
+           id_product:0,
            name:"Placard",
            descripcion:"asda",
            disponible:false,
@@ -110,7 +110,7 @@ export class DashboardComponent implements OnInit {
           },
           {
             id_admin:1,
-           id_product:2,
+           id_product:1,
            name:"Mesa",
            descripcion:"asda",
            disponible:false,
@@ -118,7 +118,7 @@ export class DashboardComponent implements OnInit {
           },
           {
             id_admin:1,
-           id_product:3,
+           id_product:2,
            name:"Tablas",
            descripcion:"asda",
            disponible:false,
@@ -126,7 +126,7 @@ export class DashboardComponent implements OnInit {
           },
           {
             id_admin:1,
-           id_product:4,
+           id_product:3,
            name:"Skate",
            descripcion:"asda",
            disponible:false,
@@ -141,7 +141,7 @@ export class DashboardComponent implements OnInit {
         arrayProduct:[
           {
             id_admin:1,
-           id_product:1,
+           id_product:0,
            name:"Tazas",
            descripcion:"asda",
            disponible:false,
@@ -149,7 +149,7 @@ export class DashboardComponent implements OnInit {
           },
           {
             id_admin:1,
-           id_product:2,
+           id_product:1,
            name:"Juguetes",
            descripcion:"asda",
            disponible:false,
@@ -157,7 +157,7 @@ export class DashboardComponent implements OnInit {
           },
           {
             id_admin:1,
-           id_product:3,
+           id_product:2,
            name:"Tazos",
            descripcion:"asda",
            disponible:false,
@@ -165,7 +165,7 @@ export class DashboardComponent implements OnInit {
           },
           {
             id_admin:1,
-           id_product:4,
+           id_product:3,
            name:"Cajas",
            descripcion:"asda",
            disponible:false,
@@ -180,7 +180,7 @@ export class DashboardComponent implements OnInit {
         arrayProduct:[
           {
             id_admin:1,
-           id_product:1,
+           id_product:0,
            name:"telas",
            descripcion:"asda",
            disponible:false,
@@ -188,7 +188,7 @@ export class DashboardComponent implements OnInit {
           },
           {
             id_admin:1,
-           id_product:2,
+           id_product:1,
            name:"Remeras",
            descripcion:"asda",
            disponible:false,
@@ -196,7 +196,7 @@ export class DashboardComponent implements OnInit {
           },
           {
             id_admin:1,
-           id_product:3,
+           id_product:2,
            name:"Buzos",
            descripcion:"asda",
            disponible:false,
@@ -204,7 +204,7 @@ export class DashboardComponent implements OnInit {
           },
           {
             id_admin:1,
-           id_product:4,
+           id_product:3,
            name:"Ropa",
            descripcion:"asda",
            disponible:false,
@@ -219,7 +219,7 @@ export class DashboardComponent implements OnInit {
         arrayProduct:[
           {
             id_admin:1,
-           id_product:1,
+           id_product:0,
            name:"Botas",
            descripcion:"asda",
            disponible:false,
@@ -227,7 +227,7 @@ export class DashboardComponent implements OnInit {
           },
           {
             id_admin:1,
-           id_product:2,
+           id_product:1,
            name:"Billeteras",
            descripcion:"asda",
            disponible:false,
@@ -235,7 +235,7 @@ export class DashboardComponent implements OnInit {
           },
           {
             id_admin:1,
-           id_product:3,
+           id_product:2,
            name:"Camperas",
            descripcion:"asda",
            disponible:false,
@@ -243,7 +243,7 @@ export class DashboardComponent implements OnInit {
           },
           {
             id_admin:1,
-           id_product:4,
+           id_product:3,
            name:"Cueros",
            descripcion:"asda",
            disponible:false,

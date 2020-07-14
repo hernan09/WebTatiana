@@ -144,13 +144,32 @@
                     >{{ item.name }}</option
                   >
                 </select>
-              </div>
-              <div>
-                <span
-                  *ngFor="let item of catalogo.arrayProduct; let indice = index"
-                  >{{ item.name }}</span
+                <div
+                  class="content-padre-edit-and-delete"
+                  *ngFor="
+                    let item of catalogo | filter: dataSendPost.id_catalogo
+                  "
                 >
+                  <div>
+                    <div class="div-content-edit-and-delete">
+                      <p></p>
+                      <div class="content-button">
+                        <button class="btn btn-success">
+                          <img
+                            src="https://img.icons8.com/android/24/000000/ball-point-pen.png"
+                          /></button
+                        ><button class="btn btn-danger">
+                          <img
+                            src="https://img.icons8.com/windows/32/000000/delete-forever.png"
+                            alt=""
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
+              <div></div>
             </form>
           </div>
         </div>

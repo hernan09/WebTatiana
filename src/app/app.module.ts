@@ -21,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PregfrecuentesComponent } from './pregfrecuentes/pregfrecuentes.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { BannerenviosComponent } from './bannerenvios/bannerenvios.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 
@@ -46,6 +47,7 @@ import { BannerenviosComponent } from './bannerenvios/bannerenvios.component';
     PregfrecuentesComponent,
     ContactoComponent,
     BannerenviosComponent,
+    FilterPipe
    
    
   ],
