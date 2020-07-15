@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgAnimateScrollService } from 'ng-animate-scroll';
+import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +16,7 @@ export class DashboardComponent implements OnInit {
   listCategory=[];
   indiceSeleccionado: number;
 
-  constructor(private animateScrollService: NgAnimateScrollService) {}
+  constructor(private http:HttpClient,private animateScrollService: NgAnimateScrollService) {}
 
   toggleMenu(toggle) {
     console.log('toggle menu');
@@ -29,6 +30,12 @@ export class DashboardComponent implements OnInit {
     this.indiceSeleccionado = indice;
     this.navigateToHeader(indice);
   }
+
+    //aca voy a pegarle al endpoint de emi
+    getJson(){
+      return this.http.get('this._jsonURL').subscribe((resp:any)=>{
+      })
+     }
 
   navigateToHeader(id) {
     this.animateScrollService.scrollToElement(id.toString(), 500);

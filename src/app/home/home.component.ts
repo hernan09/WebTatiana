@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; 
+import { HttpClient} from '@angular/common/http';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,12 +9,18 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 arrayImages=[]
-  constructor(private router: Router) { }
+  constructor(private http:HttpClient,private router: Router) { }
 
   ngOnInit(): void {
     this.getImages()
     console.log(this.getImages())
   }
+
+    //aca voy a pegarle al endpoint de emi
+    getJson(){
+      return this.http.get('this._jsonURL').subscribe((resp:any)=>{
+      })
+     }
 
   gotoPage(name:string){
     console.log(`voy a  ${name}`);
