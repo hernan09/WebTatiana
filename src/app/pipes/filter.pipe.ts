@@ -10,12 +10,13 @@ export class FilterPipe implements PipeTransform{
         if(arg ==='' ){return value}
         value.forEach(element => {   
             if(element.id_catalogo == arg){
-                console.log(element.arrayProduct)
+               
                 result.push(element.arrayProduct) 
+                
             }
             
         });
-
-        return result;
+        console.log(result[0])
+        return result[0];
     }
 }
