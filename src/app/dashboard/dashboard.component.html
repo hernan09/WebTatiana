@@ -35,9 +35,9 @@
           PRODUCTOS</a
         >
         <ul class="collapse list-unstyled" id="homeSubmenu2">
-          <li *ngFor="let section of listProducto; let indice = index">
+          <li *ngFor="let section of listCategory; let indice = index">
             <a (click)="productoSeleccionado(section, indice)">{{
-              section.nombre
+              section.name
             }}</a>
           </li>
         </ul>
@@ -106,7 +106,7 @@
         [data]="listCatalogo"
         [catalogo]="listCategory"
       ></app-homeslide>
-      <app-productos [data]="listProducto"></app-productos>
+      <app-productos [data]="listCategory"></app-productos>
       <app-preguntas [data]="QuestionAsnwer"></app-preguntas>
       <app-noticias [data]="NoticiasArray"></app-noticias>
     </div>
