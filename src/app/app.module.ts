@@ -21,7 +21,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PregfrecuentesComponent } from './pregfrecuentes/pregfrecuentes.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { BannerenviosComponent } from './bannerenvios/bannerenvios.component';
-import { FilterPipe } from './pipes/filter.pipe';
+import { FilterPipe } from './pipes/filterdash/filter.pipe';
+import { FilterPipe2 } from './pipes/pipefilter/search.pipe'
+
+
 
 
 
@@ -47,7 +50,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     PregfrecuentesComponent,
     ContactoComponent,
     BannerenviosComponent,
-    FilterPipe
+    FilterPipe,
+    FilterPipe2
    
    
   ],

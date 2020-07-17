@@ -120,7 +120,7 @@
               <button
                 type="button"
                 class="btn btn-primary btn-lg btn-block btn-sm"
-                (click)="sendMesage2()"
+                (click)="sendMesage2(indice)"
               >
                 Guardar
               </button>
@@ -147,18 +147,23 @@
                 <div
                   class="content-padre-edit-and-delete"
                   *ngFor="
-                    let item of catalogo | filter: dataSendPost.id_catalogo
+                    let item of catalogo | filter: dataSendPost.id_catalogo;
+                    let indice = index
                   "
                 >
                   <div>
                     <div class="div-content-edit-and-delete">
                       <p>{{ item.name }}</p>
+
                       <div class="content-button">
-                        <button class="btn btn-success">
+                        <button class="btn btn-light">
                           <img
                             src="https://img.icons8.com/android/24/000000/ball-point-pen.png"
                           /></button
-                        ><button class="btn btn-danger">
+                        ><button
+                          (click)="deleteObject(item, dataSendPost.id_catalogo)"
+                          class="btn btn-danger"
+                        >
                           <img
                             src="https://img.icons8.com/windows/32/000000/delete-forever.png"
                             alt=""
