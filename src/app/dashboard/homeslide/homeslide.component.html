@@ -42,16 +42,32 @@
       <div class="general-content-tabs" *ngIf="section.id === 2">
         <ul class="nav nav-pills">
           <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#home">ALTA</a>
+            <a
+              class="nav-link active"
+              data-toggle="tab"
+              [ngClass]="{ active: activeTab === 'home' }"
+              (click)="search('home')"
+              href="#home"
+              >ALTA</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#profile"
+            <a
+              class="nav-link"
+              data-toggle="tab"
+              href="#profile"
+              [ngClass]="{ active: activeTab === 'profile' }"
+              (click)="result('profile')"
               >EDITAR/ELIMINAR</a
             >
           </li>
         </ul>
         <div id="myTabContent" class="tab-content">
-          <div class="tab-pane fade active show" id="home">
+          <div
+            class="tab-pane fade active show"
+            [ngClass]="{ active: activeTab === 'home' }"
+            id="home"
+          >
             <form>
               <div class="form-group">
                 <label for="exampleFormControlSelect1"
@@ -126,7 +142,11 @@
               </button>
             </form>
           </div>
-          <div class="tab-pane fade" id="profile">
+          <div
+            class="tab-pane fade show"
+            [ngClass]="{ active: activeTab === 'profile' }"
+            id="profile"
+          >
             <form action="">
               <div class="form-group">
                 <label for="exampleFormControlSelect1"
@@ -156,7 +176,11 @@
                       <p>{{ item.name }}</p>
 
                       <div class="content-button">
-                        <button class="btn btn-light">
+                        <button
+                          class="btn btn-light"
+                          (click)="passDataToTabs(item)"
+                          (click)="result('home')"
+                        >
                           <img
                             src="https://img.icons8.com/android/24/000000/ball-point-pen.png"
                           /></button

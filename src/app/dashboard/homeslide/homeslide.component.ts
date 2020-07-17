@@ -11,6 +11,7 @@ export class HomeslideComponent implements OnInit {
   @Input() data: any;
   @Input() catalogo:any;
   arrayReturn=[]
+  activeTab = 'home';
   dataForm={
     id_admin: 1,
     img:{},
@@ -26,6 +27,12 @@ export class HomeslideComponent implements OnInit {
   constructor(private http:HttpClient) {
    
    }
+   search(activeTab){
+    this.activeTab = activeTab;
+  }
+  result(activeTab){
+    this.activeTab = activeTab;
+  }
 
   ngOnInit(): void {
     console.log(this.data[0].arrayImg)
@@ -53,7 +60,12 @@ export class HomeslideComponent implements OnInit {
     this.dataSendPost.img =`assets/imagenes/${e.target.files[0].name}` 
   }
 
-
+  passDataToTabs(item){
+    console.log(item)
+    this.dataSendPost.name = item.name
+    this.dataSendPost.descripcion = item.descripcion
+    this.dataSendPost.disponible = item.disponible
+  }
 
   getJson(){
     return this.http.get('').subscribe((resp:any)=>{

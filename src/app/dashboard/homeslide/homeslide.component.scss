@@ -6,7 +6,7 @@
    text-align: center;
   
    .content-padre-edit-and-delete{
-
+      z-index: 1111111111111;
    
     .div-content-edit-and-delete{
       width: 300px;
@@ -16,8 +16,9 @@
       justify-content: space-between;
       align-items: baseline;
       p{
-        width: 100px;
+        width: 80px;
       }
+    
       .content-button{
         width: auto;
 
