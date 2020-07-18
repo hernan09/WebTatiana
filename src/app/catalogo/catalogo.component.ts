@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgAnimateScrollService } from 'ng-animate-scroll';
+import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-catalogo',
@@ -10,12 +11,19 @@ export class CatalogoComponent implements OnInit {
   toggle:boolean = false;
   listCatalogo = [];
   indiceSeleccionado:number;
-  constructor(private animateScrollService: NgAnimateScrollService) { }
+  constructor(private http:HttpClient,private animateScrollService: NgAnimateScrollService) { }
 
   ngOnInit(): void {
 
     this.getListaCatalogo()
   }
+
+
+  //aca voy a pegarle al endpoint de emi
+  getJson(){
+    return this.http.get('this._jsonURL').subscribe((resp:any)=>{
+    })
+   }
 
   toggleMenu(toggle){
     console.log("toggle menu");

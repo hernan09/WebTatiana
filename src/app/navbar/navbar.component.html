@@ -65,8 +65,24 @@
               name="search"
               type="text"
               placeholder="Que desea buscar ?"
+              [(ngModel)]="searchSelect"
+              [ngModelOptions]="{ standalone: true }"
             /><input id="search_submit" value="Rechercher" type="submit" />
           </form>
+          <div class="content-table">
+            <table class="table" *ngIf="searchSelect">
+              <tbody>
+                <tr
+                  *ngFor="
+                    let item of arrayImages2 | search: searchSelect;
+                    let indice = index
+                  "
+                >
+                  <td>{{ item.title }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

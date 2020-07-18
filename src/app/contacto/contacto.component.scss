@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;900&display=swap');
+
 .container{
+
+  @media(min-width:1000px){
+    #contacto{
+      -webkit-animation: fade-in-right 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+      animation: fade-in-right 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;}
+  }
       #contacto{
-        -webkit-animation: fade-in-right 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-        animation: fade-in-right 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+       
         
         @-webkit-keyframes fade-in-right {
           0% {
@@ -35,43 +42,72 @@
 
       }
       .col1{
-          .title-contact{
-             text-align: center;
-             margin-top: 27px;
-          }
-          height: 400px;
-          background-color: whitesmoke;
-           hr{
-             height: 2px;
-             width: 40%;
-             background-color: #b3c985;
-           }
-          .section-contact{
+        background-color: black;
+        color: white;
+
+        h3{
+          text-align: center;
+          font-family: 'Lato', sans-serif;
+          font-weight: 900;
+        }
+        hr{
+          height: 2px;
+          width: 40%;
+          background-color: #b4ca85;
+        }
+          .content-items{
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            .lista-contactos{
-              padding: 0;
-              font-family: 'Amatic SC', cursive;
-              li{
-                list-style: none;
-                font-weight: 700;
-                margin-bottom: 20px;
+            flex-direction: row;
+            justify-content: space-between;
+            .item-content-1{
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+
+              p{
+                font-family: 'Lato', sans-serif;
+                font-weight: 300;
+              }
+              .iconnos{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-bottom: 5px;
               }
             }
           }
-          
+
+          @media(max-width:1000px){
+            .content-items{
+              display: flex;
+              flex-direction: column;
+            }
+          }
+          @media(min-width:1000px){
+            .div-del-mid{
+              margin-left: 65px;
+            }
+          }
       }
       .col2{
         .title-contact{
           margin-top: 27px;
+          font-family: 'Lato', sans-serif;
+          font-weight: 900;
+        }
+        .formu{
+          width: 80%;
+          margin: auto;
         }
 
+    
        .content-input{
            display: flex;
            flex-direction: row;
            justify-content: space-between;
+
+           
         .inputs-contact{
             width: 45%;
         }
@@ -106,11 +142,17 @@
             background-position: center center;
             background-repeat: no-repeat;
             background-color: #f5f5f5;
-  
+                
+
+            @media(min-width:1000px){
+              iframe{
+                width: 100%;
+                -webkit-animation: fade-in-left 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+                animation: fade-in-left 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;}
+            }
             iframe{
               width: 100%;
-              -webkit-animation: fade-in-left 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-              animation: fade-in-left 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+             
   
               @-webkit-keyframes fade-in-left {
                 0% {

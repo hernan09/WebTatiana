@@ -5,9 +5,9 @@
   >
     <div class="id-scroll" [id]="indice"></div>
 
-    <h3>{{ section.id }}</h3>
+    <h3>{{ section.name }}</h3>
 
-    <div class="content-images-slide">
+    <div class="content-images-slide" *ngIf="section.id === 1">
       <div
         class="img-1-div"
         *ngFor="let img of section.arrayImg; let indice = index"
@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="container-form">
-      <form (ngSubmit)="sendMesage()">
+      <form (ngSubmit)="sendMesage()" *ngIf="section.id === 1">
         <div class="form-group">
           <h4>Selecciona una imagen</h4>
           <input
@@ -31,32 +31,178 @@
             (change)="changeFile($event)"
           />
           <hr />
-          <h4 *ngIf="section.input_true_false">Ingrese un titulo</h4>
-          <input
-            *ngIf="section.input_true_false"
-            class="form-control"
-            type="text"
-            placeholder="{{ section.title }}"
-            [(ngModel)]="dataForm.title"
-            [ngModelOptions]="{ standalone: true }"
-          />
+
           <hr />
-          <div class="form-group">
-            <h4 *ngIf="section.input_true_false">Ingrese una descripcion</h4>
-            <textarea
-              *ngIf="section.input_true_false"
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              placeholder="{{ section.descripcion }}"
-              rows="3"
-              [(ngModel)]="dataForm.descripcion"
-              [ngModelOptions]="{ standalone: true }"
-            ></textarea>
-          </div>
         </div>
 
-        <button type="submit" class="btn btn-info btn-block">Modificar</button>
+        <button type="submit" class="btn btn-info btn-block">
+          Modificar
+        </button>
       </form>
+      <div class="general-content-tabs" *ngIf="section.id === 2">
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              data-toggle="tab"
+              [ngClass]="{ active: activeTab === 'home' }"
+              (click)="search('home')"
+              href="#home"
+              >ALTA</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-toggle="tab"
+              href="#profile"
+              [ngClass]="{ active: activeTab === 'profile' }"
+              (click)="result('profile')"
+              >EDITAR/ELIMINAR</a
+            >
+          </li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+          <div
+            class="tab-pane fade active show"
+            [ngClass]="{ active: activeTab === 'home' }"
+            id="home"
+          >
+            <form>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1"
+                  >Seleciona la categoria</label
+                >
+                <select
+                  class="form-control"
+                  id="exampleFormControlSelect1"
+                  [(ngModel)]="dataSendPost.id_catalogo"
+                  [ngModelOptions]="{ standalone: true }"
+                >
+                  <option
+                    *ngFor="let item of catalogo; let indice = index"
+                    value="{{ item.id_catalogo }}"
+                    >{{ item.name }}</option
+                  >
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Nombre de Producto</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="Nombre de producto"
+                  [(ngModel)]="dataSendPost.name"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1"
+                  >Escriba una descripcion</label
+                >
+                <textarea
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                  [(ngModel)]="dataSendPost.descripcion"
+                  [ngModelOptions]="{ standalone: true }"
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Cargar imagen</label>
+                <input
+                  type="file"
+                  class="form-control-file"
+                  id="exampleFormControlFile1"
+                  (change)="changeFile2($event)"
+                />
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="defaultCheck1"
+                  [(ngModel)]="dataSendPost.disponible"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+                <label class="form-check-label" for="defaultCheck1">
+                  Disponible
+                </label>
+              </div>
+              <br />
+              <button
+                type="button"
+                class="btn btn-primary btn-lg btn-block btn-sm"
+                (click)="sendMesage2(indice)"
+              >
+                Guardar
+              </button>
+            </form>
+          </div>
+          <div
+            class="tab-pane fade show"
+            [ngClass]="{ active: activeTab === 'profile' }"
+            id="profile"
+          >
+            <form action="">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1"
+                  >Seleciona la categoria</label
+                >
+                <select
+                  class="form-control"
+                  id="exampleFormControlSelect1"
+                  [(ngModel)]="dataSendPost.id_catalogo"
+                  [ngModelOptions]="{ standalone: true }"
+                >
+                  <option
+                    *ngFor="let item of catalogo; let indice = index"
+                    value="{{ item.id_catalogo }}"
+                    >{{ item.name }}</option
+                  >
+                </select>
+                <div
+                  class="content-padre-edit-and-delete"
+                  *ngFor="
+                    let item of catalogo | filter: dataSendPost.id_catalogo;
+                    let indice = index
+                  "
+                >
+                  <div>
+                    <div class="div-content-edit-and-delete">
+                      <p>{{ item.name }}</p>
+
+                      <div class="content-button">
+                        <button
+                          class="btn btn-light"
+                          (click)="passDataToTabs(item)"
+                          (click)="result('home')"
+                        >
+                          <img
+                            src="https://img.icons8.com/android/24/000000/ball-point-pen.png"
+                          /></button
+                        ><button
+                          (click)="deleteObject(item, dataSendPost.id_catalogo)"
+                          class="btn btn-danger"
+                        >
+                          <img
+                            src="https://img.icons8.com/windows/32/000000/delete-forever.png"
+                            alt=""
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div></div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

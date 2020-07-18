@@ -25,11 +25,9 @@
         *ngFor="let producto of listCatalogo; let indice = index"
         [ngClass]="{ active: indice == indiceSeleccionado }"
       >
-        <a
-          (click)="productoSeleccionado(producto, indice)"
-          class="hvr-curl-top-right"
-          >{{ producto.nombre }}</a
-        >
+        <a (click)="productoSeleccionado(producto, indice)">{{
+          producto.nombre
+        }}</a>
       </li>
     </ul>
   </nav>
@@ -42,7 +40,7 @@
         type="button"
         (click)="toggleMenu(toggle)"
         id="sidebarCollapse"
-        class="btn btn-info"
+        class="btn btn-dark"
       >
         <i class="fas fa-align-left"></i>
         <span class="show-catalogo-menu">{{

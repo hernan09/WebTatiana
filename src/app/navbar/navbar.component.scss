@@ -20,10 +20,45 @@
       left: 18%;
       top: -2px;
     }
+    .content-table{
+      position: relative;
+      top: 46px;
+      right: 64px;
+     
+      height: 200px;
+      overflow-y: scroll;
+     
+    }
+    .content-table::-webkit-scrollbar {
+      background-color:transparent;
+      width:16px
+  }
+  
+  /* background of the scrollbar except button or resizer */
+  .content-table::-webkit-scrollbar-track {
+      background-color:transparent
+  }
+  .content-table::-webkit-scrollbar-track:hover {
+      background-color:transparent
+  }
+  
+  /* scrollbar itself */
+  .content-table::-webkit-scrollbar-thumb {
+      background-color:#babac0;
+      border-radius:16px;
+      border:5px solid #fff
+  }
+  .content-table::-webkit-scrollbar-thumb:hover {
+      background-color:#a0a0a5;
+      border:4px solid #f4f4f4
+  }
+  
+  /* set button(top and bottom of the scrollbar) */
+  .content-table::-webkit-scrollbar-button {display:none}
     
     input[type="text"] {
       height: 46px;
-      font-size: 22px;
+      font-size: 16px;
       display: inline-block;
       font-family: "Lato";
       font-weight: 100;
@@ -53,21 +88,21 @@
       cursor: text;
     }
     input[type="submit"] {
-      height: 46px;
-      width: 60px;
+      height: 35px;
+      width: 42px;
       display: inline-block;
       color:red;
       float: right;
       background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRFU1NT9fX1lJSUXl5e1dXVfn5+c3Nz6urqv7+/tLS0iYmJqampn5+fysrK39/faWlp////Vi4ZywAAABF0Uk5T/////////////////////wAlrZliAAABLklEQVR42rSWWRbDIAhFHeOUtN3/ags1zaA4cHrKZ8JFRHwoXkwTvwGP1Qo0bYObAPwiLmbNAHBWFBZlD9j0JxflDViIObNHG/Do8PRHTJk0TezAhv7qloK0JJEBh+F8+U/hopIELOWfiZUCDOZD1RADOQKA75oq4cvVkcT+OdHnqqpQCITWAjnWVgGQUWz12lJuGwGoaWgBKzRVBcCypgUkOAoWgBX/L0CmxN40u6xwcIJ1cOzWYDffp3axsQOyvdkXiH9FKRFwPRHYZUaXMgPLeiW7QhbDRciyLXJaKheCuLbiVoqx1DVRyH26yb0hsuoOFEPsoz+BVE0MRlZNjGZcRQyHYkmMp2hBTIzdkzCTc/pLqOnBrk7/yZdAOq/q5NPBH1f7x7fGP4C3AAMAQrhzX9zhcGsAAAAASUVORK5CYII=) center center no-repeat;
       text-indent: -9900px;
+      background-size: contain;
       border: none;
       position: absolute;
-      top: 0;
+      top: 15px;
       right: 0;
       z-index: 2;
       cursor: pointer;
       opacity: 0.4;
-      cursor: pointer;
       transition: opacity .4s ease;
     }
     

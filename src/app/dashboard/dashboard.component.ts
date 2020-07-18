@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgAnimateScrollService } from 'ng-animate-scroll';
+import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,9 +13,10 @@ export class DashboardComponent implements OnInit {
   listProducto = [];
   QuestionAsnwer = [];
   NoticiasArray = [];
+  listCategory=[];
   indiceSeleccionado: number;
 
-  constructor(private animateScrollService: NgAnimateScrollService) {}
+  constructor(private http:HttpClient,private animateScrollService: NgAnimateScrollService) {}
 
   toggleMenu(toggle) {
     console.log('toggle menu');
@@ -29,6 +31,12 @@ export class DashboardComponent implements OnInit {
     this.navigateToHeader(indice);
   }
 
+    //aca voy a pegarle al endpoint de emi
+    getJson(){
+      return this.http.get('this._jsonURL').subscribe((resp:any)=>{
+      })
+     }
+
   navigateToHeader(id) {
     this.animateScrollService.scrollToElement(id.toString(), 500);
   }
@@ -38,6 +46,7 @@ export class DashboardComponent implements OnInit {
     this.getListaProductos();
     this.getquestionAndAnswer();
     this.getListNoticias();
+    this.getCategory()
   }
 
   getquestionAndAnswer() {
@@ -67,6 +76,7 @@ export class DashboardComponent implements OnInit {
     this.listCatalogo = [
         {
           id:1,
+          name:"Slide",
           arrayImg:[
             {
               id_admin:1,
@@ -80,9 +90,176 @@ export class DashboardComponent implements OnInit {
               img:'../../assets/imagenes/banner3.jpg'
             }
           ]
+        },
+        {
+          id:2,
+          name:"Novedades",
+
         }
      
     ];
+  }
+
+  getCategory(){
+    this.listCategory =[
+      {
+        id_catalogo:1,
+        id_user:123,
+        name:"Madera",
+        arrayProduct:[
+          {
+            id_admin:1,
+           id_product:0,
+           name:"Placard",
+           descripcion:"asda",
+           disponible:false,
+           img:{}
+          },
+          {
+            id_admin:1,
+           id_product:1,
+           name:"Mesa",
+           descripcion:"asda",
+           disponible:false,
+           img:{}
+          },
+          {
+            id_admin:1,
+           id_product:2,
+           name:"Tablas",
+           descripcion:"asda",
+           disponible:false,
+           img:{}
+          },
+          {
+            id_admin:1,
+           id_product:3,
+           name:"Skate",
+           descripcion:"asda",
+           disponible:false,
+           img:{}
+          }
+        ]
+      },
+      {
+        id_catalogo:2,
+        id_user:123,
+        name:"Plastico",
+        arrayProduct:[
+          {
+            id_admin:1,
+           id_product:0,
+           name:"Tazas",
+           descripcion:"asda",
+           disponible:false,
+           img:{}
+          },
+          {
+            id_admin:1,
+           id_product:1,
+           name:"Juguetes",
+           descripcion:"asda",
+           disponible:false,
+           img:{}
+          },
+          {
+            id_admin:1,
+           id_product:2,
+           name:"Tazos",
+           descripcion:"asda",
+           disponible:false,
+           img:{}
+          },
+          {
+            id_admin:1,
+           id_product:3,
+           name:"Cajas",
+           descripcion:"asda",
+           disponible:false,
+           img:{}
+          }
+        ]
+      },
+      {
+        id_catalogo:3,
+        id_user:123,
+        name:"Textil",
+        arrayProduct:[
+          {
+            id_admin:1,
+           id_product:0,
+           name:"telas",
+           descripcion:"asda",
+           disponible:false,
+           img:{}
+          },
+          {
+            id_admin:1,
+           id_product:1,
+           name:"Remeras",
+           descripcion:"asda",
+           disponible:false,
+           img:{}
+          },
+          {
+            id_admin:1,
+           id_product:2,
+           name:"Buzos",
+           descripcion:"asda",
+           disponible:false,
+           img:{}
+          },
+          {
+            id_admin:1,
+           id_product:3,
+           name:"Ropa",
+           descripcion:"asda",
+           disponible:false,
+           img:{}
+          }
+        ]
+      },
+      {
+        id_catalogo:4,
+        id_user:123,
+        name:"Cueros",
+        arrayProduct:[
+          {
+            id_admin:1,
+           id_product:0,
+           name:"Botas",
+           descripcion:"asda",
+           disponible:false,
+           img:{}
+          },
+          {
+            id_admin:1,
+           id_product:1,
+           name:"Billeteras",
+           descripcion:"asda",
+           disponible:false,
+           img:{}
+          },
+          {
+            id_admin:1,
+           id_product:2,
+           name:"Camperas",
+           descripcion:"asda",
+           disponible:false,
+           img:{}
+          },
+          {
+            id_admin:1,
+           id_product:3,
+           name:"Cueros",
+           descripcion:"asda",
+           disponible:false,
+           img:{}
+          }
+        ]
+      }
+
+    ]
   }
 
   getListNoticias() {

@@ -1,7 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { Router } from '@angular/router'; 
-import { HttpClient } from '@angular/common/http';
 import { UtilsService } from '../../app/utils.service';
+import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
     this.getImages()
     console.log(this.getImages())
   }
+
 
   gotoPage(name:string){
     console.log(`voy a  ${name}`);
