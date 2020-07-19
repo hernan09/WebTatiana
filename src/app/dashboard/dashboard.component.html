@@ -34,13 +34,19 @@
           /></span>
           PRODUCTOS</a
         >
-        <ul class="collapse list-unstyled" id="homeSubmenu2">
-          <li *ngFor="let section of listCategory; let indice = index">
-            <a (click)="productoSeleccionado(section, indice)">{{
-              section.name
-            }}</a>
-          </li>
-        </ul>
+      </li>
+      <li class="active">
+        <a
+          href="#homeSubmenu2"
+          data-toggle="collapse"
+          aria-expanded="false"
+          class="dropdown-toggle"
+          ><span class="span-icon"
+            ><img
+              src="https://img.icons8.com/windows/24/000000/add-shopping-cart.png"
+          /></span>
+          CATEGORIAS</a
+        >
       </li>
       <li class="active">
         <a
@@ -53,13 +59,6 @@
           /></span>
           PREGUNTAS Y RESPUESTAS</a
         >
-        <ul class="collapse list-unstyled" id="homeSubmenu3">
-          <li *ngFor="let section of QuestionAsnwer; let indice = index">
-            <a (click)="productoSeleccionado(section, indice)">{{
-              section.nombre
-            }}</a>
-          </li>
-        </ul>
       </li>
       <li class="active">
         <a
@@ -70,15 +69,8 @@
           ><span class="span-icon"
             ><img src="https://img.icons8.com/windows/24/000000/plus-math.png"
           /></span>
-          NOTICIAS</a
+          COMO COMPRAR</a
         >
-        <ul class="collapse list-unstyled" id="homeSubmenu4">
-          <li *ngFor="let section of NoticiasArray; let indice = index">
-            <a (click)="productoSeleccionado(section, indice)">{{
-              section.nombre
-            }}</a>
-          </li>
-        </ul>
       </li>
     </ul>
   </nav>
@@ -103,10 +95,18 @@
     <!-- aca van los componentes -->
     <div class="table">
       <app-homeslide
+        [product]="listProducto"
         [data]="listCatalogo"
         [catalogo]="listCategory"
       ></app-homeslide>
-      <app-productos [data]="listCategory"></app-productos>
+      <app-productos
+        [data2]="listIterator"
+        [data]="listCategory"
+      ></app-productos>
+      <app-categoria
+        [data2]="listIterator"
+        [data]="listCategory"
+      ></app-categoria>
       <app-preguntas [data]="QuestionAsnwer"></app-preguntas>
       <app-noticias [data]="NoticiasArray"></app-noticias>
     </div>

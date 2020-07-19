@@ -10,6 +10,7 @@ import { HttpClient} from '@angular/common/http';
 export class DashboardComponent implements OnInit {
   toggle: boolean = false;
   listCatalogo = [];
+  listIterator = []
   listProducto = [];
   QuestionAsnwer = [];
   NoticiasArray = [];
@@ -46,7 +47,8 @@ export class DashboardComponent implements OnInit {
     this.getListaProductos();
     this.getquestionAndAnswer();
     this.getListNoticias();
-    this.getCategory()
+    this.getCategory();
+    this.getListproductandcategory()
   }
 
   getquestionAndAnswer() {
@@ -98,6 +100,50 @@ export class DashboardComponent implements OnInit {
         }
      
     ];
+  }
+
+  getListproductandcategory(){
+   this.listIterator=[
+    {
+      id_catalogo:1,
+      id_user:123,
+      name:"Madera",
+      arrayProduct:[
+        {
+          id_admin:1,
+         id_product:0,
+         name:"Placard",
+         descripcion:"asda",
+         disponible:false,
+         img:{}
+        },
+        {
+          id_admin:1,
+         id_product:1,
+         name:"Mesa",
+         descripcion:"asda",
+         disponible:false,
+         img:{}
+        },
+        {
+          id_admin:1,
+         id_product:2,
+         name:"Tablas",
+         descripcion:"asda",
+         disponible:false,
+         img:{}
+        },
+        {
+          id_admin:1,
+         id_product:3,
+         name:"Skate",
+         descripcion:"asda",
+         disponible:false,
+         img:{}
+        }
+      ]
+    }
+   ]
   }
 
   getCategory(){
@@ -269,30 +315,6 @@ export class DashboardComponent implements OnInit {
         id_user: 111,
         title: 'aqui estan las noticias del momento',
         nombre:'noticia 1',
-        descripcion: 'Una descripcion',
-        disponible: true,
-      },
-      {
-        id: 123,
-        id_user: 111,
-        title: 'aqui estan las noticias del momento',
-        nombre:'noticia 2',
-        descripcion: 'Una descripcion',
-        disponible: true,
-      },
-      {
-        id: 123,
-        id_user: 111,
-        title: 'aqui estan las noticias del momento',
-        nombre:'noticia 3',
-        descripcion: 'Una descripcion',
-        disponible: true,
-      },
-      {
-        id: 123,
-        id_user: 111,
-        title: 'aqui estan las noticias del momento',
-        nombre:'noticia 4',
         descripcion: 'Una descripcion',
         disponible: true,
       },

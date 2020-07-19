@@ -3,9 +3,9 @@
     class="content-iterator"
     *ngFor="let section of data2; let indice = index"
   >
-    <div class="id-scroll" [id]="indice"></div>
+    <div class="id-scroll"></div>
 
-    <h3>PRODUCTOS</h3>
+    <h3>CATEGORIAS</h3>
 
     <div class="container-form">
       <div class="general-content-tabs">
@@ -39,29 +39,12 @@
           >
             <form>
               <div class="form-group">
-                <label for="exampleFormControlSelect1"
-                  >Seleciona la categoria</label
-                >
-                <select
-                  class="form-control"
-                  id="exampleFormControlSelect1"
-                  [(ngModel)]="dataSendPost.id_catalogo"
-                  [ngModelOptions]="{ standalone: true }"
-                >
-                  <option
-                    *ngFor="let item of data; let indice = index"
-                    value="{{ item.id_catalogo }}"
-                    >{{ item.name }}</option
-                  >
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlInput1">Nombre de Producto</label>
+                <label for="exampleFormControlInput1">Nombre</label>
                 <input
                   type="text"
                   class="form-control"
                   id="exampleFormControlInput1"
-                  placeholder="Nombre de producto"
+                  placeholder="Nombre"
                   [(ngModel)]="dataSendPost.name"
                   [ngModelOptions]="{ standalone: true }"
                 />

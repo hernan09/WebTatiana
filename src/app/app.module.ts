@@ -22,7 +22,8 @@ import { PregfrecuentesComponent } from './pregfrecuentes/pregfrecuentes.compone
 import { ContactoComponent } from './contacto/contacto.component';
 import { BannerenviosComponent } from './bannerenvios/bannerenvios.component';
 import { FilterPipe } from './pipes/filterdash/filter.pipe';
-import { FilterPipe2 } from './pipes/pipefilter/search.pipe'
+import { FilterPipe2 } from './pipes/pipefilter/search.pipe';
+import { CategoriaComponent } from './dashboard/categoria/categoria.component'
 
 
 
@@ -51,7 +52,8 @@ import { FilterPipe2 } from './pipes/pipefilter/search.pipe'
     ContactoComponent,
     BannerenviosComponent,
     FilterPipe,
-    FilterPipe2
+    FilterPipe2,
+    CategoriaComponent
    
    
   ],

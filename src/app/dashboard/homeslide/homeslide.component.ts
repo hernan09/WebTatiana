@@ -10,6 +10,7 @@ export class HomeslideComponent implements OnInit {
   @Input() idSection: any;
   @Input() data: any;
   @Input() catalogo:any;
+  @Input() product:any;
   arrayReturn=[]
   activeTab = 'home';
   dataForm={

@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit {
   getCategoria(){
     console.log("estoy en categorias GET");//_id que te genera mongo
 
-    this.utilsService.getConfig(this.url+'/categoria')
+    this.utilsService.getConfig(this.url+'categoria')
       .subscribe((data) => {
         console.log("data->",data);
       });
@@ -149,7 +149,7 @@ export class HomeComponent implements OnInit {
 
   //---------------------------------Porducto
 
-  getProducto(id){
+  getProducto(){
     console.log("estoy en producto GET");
     let id= 1;
     this.utilsService.getConfig('http://localhost:3000/producto/'+id)

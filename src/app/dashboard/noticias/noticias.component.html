@@ -1,7 +1,7 @@
 <div class="container">
   <div class="col-12" *ngFor="let section of data; let indice = index">
     <div class="id-scroll" [id]="indice"></div>
-    <h3>Seccion Noticias</h3>
+    <h3>COMO COMPRAR</h3>
     <form (ngSubmit)="sendMesage()" action="">
       <input
         class="form-control"
@@ -22,7 +22,7 @@
           [ngModelOptions]="{ standalone: true }"
         ></textarea>
       </div>
-      <button type="submit" class="btn btn-success btn-block">
+      <button type="submit" class="btn btn-success btn-block btn-sm">
         Agregar
       </button>
     </form>

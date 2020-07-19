@@ -1,13 +1,12 @@
 import { Component, OnInit ,Input} from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 
-
 @Component({
-  selector: 'app-productos',
-  templateUrl: './productos.component.html',
-  styleUrls: ['./productos.component.scss']
+  selector: 'app-categoria',
+  templateUrl: './categoria.component.html',
+  styleUrls: ['./categoria.component.scss']
 })
-export class ProductosComponent implements OnInit {
+export class CategoriaComponent implements OnInit {
   @Input() idSection: any;
   @Input() data: any;
   @Input() data2: any;
@@ -20,8 +19,9 @@ export class ProductosComponent implements OnInit {
     disponible:false,
     img:{}
   }
-  constructor(private http:HttpClient) {
-    
+  constructor(private http:HttpClient) { }
+
+  ngOnInit(): void {
   }
 
   changeFile(e){
@@ -79,11 +79,6 @@ export class ProductosComponent implements OnInit {
     this.data[id].arrayProduct.push(this.dataSendPost)
     console.log(this.dataSendPost)
     
-  }
-
- 
-
-  ngOnInit(): void {
   }
 
 }

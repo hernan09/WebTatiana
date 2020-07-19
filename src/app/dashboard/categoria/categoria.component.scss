@@ -1,0 +1,58 @@
+.container {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+   
+    .content-padre-edit-and-delete{
+       z-index: 1111111111111;
+    
+     .div-content-edit-and-delete{
+       width: 300px;
+       padding: 10px;
+       display: flex;
+       flex-direction: row;
+       justify-content: space-between;
+       align-items: center;
+  
+       .content-check{
+  
+  
+        p{
+          width: 80px;
+        }
+  
+       }
+      
+     
+       .content-button{
+         width: auto;
+  
+        
+         button{
+           width: 55px;
+           height: 50px;
+           margin: 10px;
+         }
+       }
+     }
+    }
+  
+    .container-form{
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: whitesmoke;
+      padding: 5px;
+      margin-top: 5%;
+  
+      .content-button{
+        width: 250px;
+  
+      }
+  }
+  }
