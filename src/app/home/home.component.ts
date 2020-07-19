@@ -1,7 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { Router } from '@angular/router'; 
+import { HttpClient } from '@angular/common/http';
 import { UtilsService } from '../../app/utils.service';
-import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -10,13 +10,17 @@ import { HttpClient} from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
   arrayImages=[]
+  urlDev:string='http://localhost:3000/';  
+  urlProd:string='https://serviciosmundosublimado.herokuapp.com/';
+
+  url:string=this.urlProd;
   constructor(private router: Router, private utilsService:UtilsService) { }
+  
 
   ngOnInit(): void {
     this.getImages()
     console.log(this.getImages())
   }
-
 
   gotoPage(name:string){
     console.log(`voy a  ${name}`);
@@ -65,7 +69,7 @@ export class HomeComponent implements OnInit {
   getCategoria(){
     console.log("estoy en categorias GET");//_id que te genera mongo
 
-    this.utilsService.getConfig('http://localhost:3000/categoria')
+    this.utilsService.getConfig(this.url+'/categoria')
       .subscribe((data) => {
         console.log("data->",data);
       });
@@ -140,15 +144,12 @@ export class HomeComponent implements OnInit {
         }
 
       );
-
   }
-
-
 
 
   //---------------------------------Porducto
 
-  getProducto(){
+  getProducto(id){
     console.log("estoy en producto GET");
     let id= 1;
     this.utilsService.getConfig('http://localhost:3000/producto/'+id)
