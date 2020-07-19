@@ -88,8 +88,8 @@ export class HomeComponent implements OnInit {
         img: 'https://upload.wikimedia.org/wikipedia/commons/4/4b/16_wood_samples.jpg'
     }
 
-    this.utilsService.postConfig(this.url+'categoria',obj)
-      .subscribe(
+    this.utilsService.postConfig(this.url+'categoria',obj) 
+      .subscribe( 
         (data) => {
           console.log("data->",data);
         },
@@ -108,7 +108,7 @@ export class HomeComponent implements OnInit {
     let obj = {
         id_admin:1,
         nombre: 'Madera testtest final',
-        descripcion: 'Maderapara exteriores',
+        descripcion: 'Maderapara exteriores', 
         disponible: true,
         stock: 10000000000000,
     }
