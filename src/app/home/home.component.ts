@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit {
   getCategoria(){
     console.log("estoy en categorias GET");//_id que te genera mongo
 
-    this.utilsService.getConfig(this.url+'/categoria')
+    this.utilsService.getConfig(this.url+'categoria')
       .subscribe((data) => {
         console.log("data->",data);
       });
@@ -88,7 +88,7 @@ export class HomeComponent implements OnInit {
         img: 'https://upload.wikimedia.org/wikipedia/commons/4/4b/16_wood_samples.jpg'
     }
 
-    this.utilsService.postConfig('http://localhost:3000/categoria',obj)
+    this.utilsService.postConfig(this.url+'categoria',obj)
       .subscribe(
         (data) => {
           console.log("data->",data);
@@ -115,7 +115,7 @@ export class HomeComponent implements OnInit {
 
     let id = "5f112fc514efaa5550b03771"
 
-    this.utilsService.putConfig('http://localhost:3000/categoria/'+id,obj)
+    this.utilsService.putConfig(this.url+'categoria/'+id,obj)
       .subscribe(
         (data) => {
           console.log("data->",data);
@@ -134,7 +134,7 @@ export class HomeComponent implements OnInit {
 
     let id = "5f112fc514efaa5550b03771";
 
-    this.utilsService.deleteConfig('http://localhost:3000/categoria/'+id)
+    this.utilsService.deleteConfig(this.url+'categoria/'+id)
       .subscribe(
         (data) => {
           console.log("data->",data);
@@ -149,10 +149,10 @@ export class HomeComponent implements OnInit {
 
   //---------------------------------Porducto
 
-  getProducto(id){
+  getProducto(){
     console.log("estoy en producto GET");
     let id= 1;
-    this.utilsService.getConfig('http://localhost:3000/producto/'+id)
+    this.utilsService.getConfig(this.url+'producto/'+id)
       .subscribe((data) => {
         console.log("data->",data);
       });
@@ -163,15 +163,15 @@ export class HomeComponent implements OnInit {
 
     let obj = {
         id_admin:1,
-        id_catalogo:2,
-        nombre: 'textil 1',
+        id_catalogo:1,
+        nombre: 'textil 12',
         descripcion: 'Maderapara exteriores',
         disponible: true,
         stock: 10,
         img: 'https://upload.wikimedia.org/wikipedia/commons/4/4b/16_wood_samples.jpg'
     }
 
-    this.utilsService.postConfig('http://localhost:3000/producto',obj)
+    this.utilsService.postConfig(this.url+'producto',obj)
       .subscribe(
         (data) => {
           console.log("data->",data);
@@ -200,7 +200,7 @@ export class HomeComponent implements OnInit {
 
     let id = "5f137680af4ee3182872d0bd";
 
-    this.utilsService.putConfig('http://localhost:3000/producto/'+id,obj)
+    this.utilsService.putConfig(this.url+'producto/'+id,obj)
       .subscribe(
         (data) => {
           console.log("data->",data);
@@ -217,7 +217,7 @@ export class HomeComponent implements OnInit {
 
     let id = "5f137680af4ee3182872d0bd";
 
-    this.utilsService.deleteConfig('http://localhost:3000/producto/'+id)
+    this.utilsService.deleteConfig(this.url+'producto/'+id)
       .subscribe(
         (data) => {
           console.log("data->",data);

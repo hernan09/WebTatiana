@@ -18,8 +18,6 @@ export class UtilsService {
     return this.data;
   }
 
-
-
 	getConfig(url) {
 		console.log("url",url);
 		return this.http.get(url);
