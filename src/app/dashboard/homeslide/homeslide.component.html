@@ -1,95 +1,52 @@
-<div class="container">
-  <div
-    class="content-iterator"
-    *ngFor="let section of data; let indice = index"
-  >
-    <div class="id-scroll" [id]="indice"></div>
+<div class="container slide">
+  <h1> Slide de Imagenes</h1>
 
-    <h3>{{ section.name }}</h3>
+      <div class="box">
 
-    <div class="content-images-slide" *ngIf="section.id === 1">
-      <div
-        class="img-1-div"
-        *ngFor="let img of section.arrayImg; let indice = index"
-      >
-        <img class="image-slide" src="{{ img.img }}" alt="" />
-        <a href="#victorModal" role="button" data-toggle="modal">
-          <span class="badge badge-danger"
-            ><img
-              src="https://img.icons8.com/windows/32/000000/delete-forever.png" /></span
-        ></a>
-      </div>
-    </div>
-    <div class="container-form">
-      <form (ngSubmit)="sendMesage()" *ngIf="section.id === 1">
-        <div class="form-group">
-          <h4>Selecciona una imagen</h4>
-          <input
-            type="file"
-            class="form-control-file"
-            id="exampleFormControlFile1"
-            (change)="changeFile($event)"
-          />
-          <hr />
-
-          <hr />
-        </div>
-
-        <button type="submit" class="btn btn-info btn-block btn-sm">
-          Modificar
-        </button>
-      </form>
-      <div class="general-content-tabs" *ngIf="section.id === 2">
-        <div class="content-productos">
-          <div class="content-check-text"></div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value=""
-              id="defaultCheck1"
-              [(ngModel)]="dataSendPost.disponible"
-              [ngModelOptions]="{ standalone: true }"
-            />
-            <label class="form-check-label" for="defaultCheck1">
-              Disponible
-            </label>
-          </div>
+        <div class="img " *ngFor="let img of arrayImage" [ngStyle]="{'background-image':'url('+ img.img+')'}">
+          <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
       </div>
+
+    <div class="btn-upload">
+      <input type="file"  id="file1" name="file1" placeholder="cargar Imagen" (change)="handleFileInput($event.target.files)">
+      <label for="file1" class="btn-2">Subir Imagenes</label>
     </div>
-  </div>
+  <button class="btn" (click)="upImage()">Guardar</button>
 </div>
-<!--modal-->
-<div id="victorModal" class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-hidden="true"
-        >
-          &times;
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>¿Seguro que quieres borrar este elemento?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">
-          Cerrar
-        </button>
-        <button
-          type="button"
-          (click)="eliminarImg()"
-          data-dismiss="modal"
-          class="btn btn-danger"
-        >
-          Eliminar
-        </button>
-      </div>
-    </div>
+
+
+<div class="container slide">
+  <h1> Novedades    </h1> 
+  <div class="box-loading" *ngIf="showLoading">
+    <div class="spinner-border text-success" ></div><span>CARGANDO...</span>
   </div>
+
+  <div *ngIf="!showLoading ">
+
+    <label for="">Categoría </label> 
+    <select id="editselect" #editselect name="select-categoria2" class="form-control" (change)="getProducto(editselect)">
+      <option  value="0" >Seleccione una categoria para empezar</option>
+      <option *ngFor="let categoria of arrayCategoria" [value]="categoria._id" >{{categoria.nombre}}</option>
+    </select>
+
+    <table *ngIf="arrayProducto.length">
+      <tr>
+        <th><div>Mostrar</div></th>
+        <th><div>Producto</div></th>
+      </tr>
+      <tr *ngFor="let producto of arrayProducto">
+        <td><input type="checkbox" [(ngModel)]="producto.disponible"></td>
+        <td>{{producto.nombre}}</td>
+      </tr>
+    </table>
+
+    <h3  *ngIf="!arrayProducto.length"> No hay productos</h3>
+
+  </div>
+
+
+  <button class="btn" *ngIf="arrayProducto.length"  (click)="actualizarNovedates()">Guardar</button>
 </div>

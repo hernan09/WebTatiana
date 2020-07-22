@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+
+.modal.fade-anim.in {
+    z-index: 999999999999999999999999!important;
+}
+
+
+.btn-upload{
+    [type="file"] {
+        height: 0;
+        overflow: hidden;
+        width: 0;
+      }
+      
+      [type="file"] + label {
+        background: #f15d22;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+          font-family: 'Rubik', sans-serif;
+          font-size: inherit;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        outline: none;
+        padding: 0.5rem 30px;
+        position: relative;
+        transition: all 0.3s;
+        vertical-align: middle;
+        
+        &:hover {
+          background-color: darken(#f15d22, 10%);
+        }
+        
+ 
+        
+        &.btn-2 {
+          background-color: #99c793;
+          border-radius: 50px;
+          overflow: hidden;
+          
+      
+      
+          &:hover {
+            background-color: darken(#99c793, 30%);
+              
+            &::before {
+              right: 75%;
+            }
+          }
+        }
+        
+
+      }
+      
+
+}

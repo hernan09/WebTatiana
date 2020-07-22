@@ -16,25 +16,23 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { BannerenviosComponent } from './bannerenvios/bannerenvios.component';
 import { CategoriaComponent } from './dashboard/categoria/categoria.component';
 
-
-
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'catalogo', component: CatalogoComponent },
-  { path: 'detalle', component: DescripcionProductoComponent },
+  { path:'', component: HomeComponent },
+  { path:'catalogo', component: CatalogoComponent },
+  { path:'detalle', component: DescripcionProductoComponent },
   { path:'inicio', component: HomeComponent},
-  { path: 'galeria', component:ListCardComponent },
+  { path:'galeria', component:ListCardComponent },
   { path: 'footer', component:ContactFooterComponent },
   { path:'login', component:LoginComponent },
-  { path:'dasboard', component:DashboardComponent},
-  { path:'dasboard/slide',component:HomeslideComponent },
+  { path:'dashboard', component:DashboardComponent},
+  { path:'dashboard/slide',component:HomeslideComponent },
   { path:'comprar',component:ComprarComponent },
-  { path:'dasboard/producto',component:ProductosComponent },
-  { path:'dasboard/preguntas',component:PreguntasComponent },
+  { path:'dashboard/producto',component:ProductosComponent },
+  { path:'dashboard/preguntas',component:PreguntasComponent },
   { path:'preguentas',component:PregfrecuentesComponent  },
   { path:'contacto',component:ContactoComponent },
   { path:'bannerenvios',component:BannerenviosComponent },
-  { path:'dasboard/categorias',component:CategoriaComponent }
+  { path:'dashboard/categorias',component:CategoriaComponent }
 ];
 
 @NgModule({

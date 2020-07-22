@@ -1,191 +1,71 @@
-<div class="container">
-  <div
-    class="content-iterator"
-    *ngFor="let section of data2; let indice = index"
-  >
-    <div class="id-scroll" [id]="indice"></div>
+  <div class="container categoria">
+    <h1> Producto</h1>
+  
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="altaproducto" data-toggle="tab" href="#alta-producto" role="tab" aria-controls="alta-producto" aria-selected="true" [ngClass]="{ 'active':activeTab=='alta'}" >Alta</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="eeproducto" data-toggle="tab" href="#ee-producto" role="tab" aria-controls="ee-producto" aria-selected="false" (click)="getCategorias();result('ee')"   [ngClass]="{ 'active':activeTab=='ee'}">Editar/Eliminar </a>
+      </li>
+    </ul>
+  
+  
+    <div class="tab-content" id="myTabContent">
+  
+      <div class="tab-pane fade show active" id="alta-producto" role="tabpanel" aria-labelledby="altaproducto"  [ngClass]="{ 'active':activeTab=='alta','show':activeTab=='alta'}">
+  
+        <form #producto="ngForm">
 
-    <h3>PRODUCTOS</h3>
+          <label for="">Categoría</label>
+          <select id="inputState"  #inputState name="select-categoria" class="form-control" [(ngModel)]="idCategoria" (change)="getSelectAddId(inputState)">
+            <option *ngFor="let categoria of arrayCategoria" [value]="categoria._id" >{{categoria.nombre}} </option>
+          </select> 
 
-    <div class="container-form">
-      <div class="general-content-tabs">
-        <ul class="nav nav-pills">
-          <li class="nav-item">
-            <a
-              class="nav-link active"
-              data-toggle="tab"
-              [ngClass]="{ active: activeTab === 'home' }"
-              (click)="search('home')"
-              href="#home"
-              >ALTA</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              data-toggle="tab"
-              href="#profile"
-              [ngClass]="{ active: activeTab === 'profile' }"
-              (click)="result('profile')"
-              >EDITAR/ELIMINAR</a
-            >
-          </li>
-        </ul>
-        <div id="myTabContent" class="tab-content">
-          <div
-            class="tab-pane fade active show"
-            [ngClass]="{ active: activeTab === 'home' }"
-            id="home"
-          >
-            <form>
-              <div class="form-group">
-                <label for="exampleFormControlSelect1"
-                  >Seleciona la categoria</label
-                >
-                <select
-                  class="form-control"
-                  id="exampleFormControlSelect1"
-                  [(ngModel)]="dataSendPost.id_catalogo"
-                  [ngModelOptions]="{ standalone: true }"
-                >
-                  <option
-                    *ngFor="let item of data; let indice = index"
-                    value="{{ item.id_catalogo }}"
-                    >{{ item.name }}</option
-                  >
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlInput1">Nombre de Producto</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleFormControlInput1"
-                  placeholder="Nombre de producto"
-                  [(ngModel)]="dataSendPost.name"
-                  [ngModelOptions]="{ standalone: true }"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="exampleFormControlTextarea1"
-                  >Escriba una descripcion</label
-                >
-                <textarea
-                  class="form-control"
-                  id="exampleFormControlTextarea1"
-                  rows="3"
-                  [(ngModel)]="dataSendPost.descripcion"
-                  [ngModelOptions]="{ standalone: true }"
-                ></textarea>
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlInput1">Cargar imagen</label>
-                <input
-                  type="file"
-                  class="form-control-file"
-                  id="exampleFormControlFile1"
-                  (change)="changeFile2($event)"
-                />
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="defaultCheck1"
-                  [(ngModel)]="dataSendPost.disponible"
-                  [ngModelOptions]="{ standalone: true }"
-                />
-                <label class="form-check-label" for="defaultCheck1">
-                  Disponible
-                </label>
-              </div>
-              <br />
-              <button
-                type="button"
-                class="btn btn-primary btn-lg btn-block btn-sm"
-                (click)="sendMesage2(indice)"
-              >
-                Editar
-              </button>
-            </form>
+          <input type="text" [(ngModel)]="nombre" name="nombreProdcuto"  placeholder="Nombre">
+  
+          <textarea name="" id=""  [(ngModel)]="descripcion" name="descripcionProdcuto" placeholder="Descripción"  cols="30" rows="10"></textarea>
+  
+          <div class="btn-upload">
+            <input type="file" id="producto" name="producto"  (change)="cargarImgProducto($event.target.files)"  placeholder="cargar Imagen">
+            <label for="producto" class="btn-2">Subir Imagenes</label>
           </div>
-          <div
-            class="tab-pane fade show"
-            [ngClass]="{ active: activeTab === 'profile' }"
-            id="profile"
-          >
-            <form action="">
-              <div class="form-group">
-                <label for="exampleFormControlSelect1"
-                  >Seleciona la categoria</label
-                >
-                <select
-                  class="form-control"
-                  id="exampleFormControlSelect1"
-                  [(ngModel)]="dataSendPost.id_catalogo"
-                  [ngModelOptions]="{ standalone: true }"
-                >
-                  <option
-                    *ngFor="let item of data; let indice = index"
-                    value="{{ item.id_catalogo }}"
-                    >{{ item.name }}</option
-                  >
-                </select>
-                <div
-                  class="content-padre-edit-and-delete"
-                  *ngFor="
-                    let item of data | filter: dataSendPost.id_catalogo;
-                    let indice = index
-                  "
-                >
-                  <div>
-                    <div class="div-content-edit-and-delete">
-                      <div class="content-check">
-                        <div class="form-check">
-                          <p>{{ item.name }}</p>
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            value=""
-                            id="defaultCheck1"
-                            [(ngModel)]="dataSendPost.disponible"
-                            [ngModelOptions]="{ standalone: true }"
-                          />
-                          <label class="form-check-label" for="defaultCheck1">
-                            Disponible
-                          </label>
-                        </div>
-                      </div>
-
-                      <div class="content-button">
-                        <button
-                          class="btn btn-light"
-                          (click)="passDataToTabs(item)"
-                          (click)="result('home')"
-                        >
-                          <img
-                            src="https://img.icons8.com/android/24/000000/ball-point-pen.png"
-                          /></button
-                        ><button
-                          (click)="deleteObject(item, dataSendPost.id_catalogo)"
-                          class="btn btn-danger"
-                        >
-                          <img
-                            src="https://img.icons8.com/windows/32/000000/delete-forever.png"
-                            alt=""
-                          />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
+  
+        </form>
+  
+        <button (click)="postProducto(producto)"   class="btn">{{nameBtn}}</button>
+  
       </div>
+  
+      <div class="tab-pane fade" id="ee-producto" role="tabpanel" aria-labelledby="eeproducto"  [ngClass]="{ 'active':activeTab=='ee','show':activeTab=='ee'}">
+        <div class="spinner-border text-success" *ngIf="showLoading"></div>
+
+        <div *ngIf="!showLoading">
+
+          <label for="">Categoría</label>
+          <select id="editselect" #editselect name="select-categoria2" class="form-control" (change)="getProducto(editselect)">
+            <option *ngFor="let categoria of arrayCategoria" [value]="categoria._id" >{{categoria.nombre}}</option>
+          </select>
+  
+          <table>
+            <tr>
+              <th>Producto</th>
+              <th>Editar</th>
+              <th>Eliminar</th>
+            </tr>
+            <tr *ngFor="let producto of arrayProducto">
+              <td>{{producto.nombre}}</td>
+              <td><button (click)="editar(producto,'alta')" class="btn-table">Editar</button></td>
+              <td><button (click)="deleteProducto(producto)" class="btn-table">Eliminar</button></td>
+            </tr>
+          </table>
+
+        </div>
+
+      </div>
+  
     </div>
   </div>
-</div>
+  
+  
+  

@@ -13,6 +13,7 @@ import { ContactFooterComponent } from './contact-footer/contact-footer.componen
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeslideComponent } from './dashboard/homeslide/homeslide.component'
+import { PopupComponent } from './dashboard/popup/popup.component';
 import { ComprarComponent } from './comprar/comprar.component';
 import { ProductosComponent } from './dashboard/productos/productos.component';
 import { PreguntasComponent } from './dashboard/preguntas/preguntas.component';
@@ -24,12 +25,7 @@ import { BannerenviosComponent } from './bannerenvios/bannerenvios.component';
 import { FilterPipe } from './pipes/filterdash/filter.pipe';
 import { FilterPipe2 } from './pipes/pipefilter/search.pipe';
 import { CategoriaComponent } from './dashboard/categoria/categoria.component'
-
-
-
-
-
-
+import { SimpleModalModule } from 'ngx-simple-modal';
 
 @NgModule({
   declarations: [
@@ -53,17 +49,16 @@ import { CategoriaComponent } from './dashboard/categoria/categoria.component'
     BannerenviosComponent,
     FilterPipe,
     FilterPipe2,
-    CategoriaComponent
-   
-   
+    CategoriaComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
-   
+    ReactiveFormsModule,
+    SimpleModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

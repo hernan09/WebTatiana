@@ -13,13 +13,13 @@ export class HomeComponent implements OnInit {
   urlDev:string='http://localhost:3000/';  
   urlProd:string='https://serviciosmundosublimado.herokuapp.com/';
 
-  url:string=this.urlProd;
+  url:string=this.urlDev;
   constructor(private router: Router, private utilsService:UtilsService) { }
   
 
   ngOnInit(): void {
-    this.getImages()
-    console.log(this.getImages())
+    this.getImages();
+    console.log(this.getImages());
   }
 
   gotoPage(name:string){
@@ -158,13 +158,13 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  postProducto(){
+  postProducto() {
     console.log("estoy en producto POST");
 
     let obj = {
         id_admin:1,
-        id_catalogo:1,
-        nombre: 'textil 12',
+        id_catalogo:2,
+        nombre: 'madera 12',
         descripcion: 'Maderapara exteriores',
         disponible: true,
         stock: 10,
@@ -228,4 +228,162 @@ export class HomeComponent implements OnInit {
 
       );
   } 
+
+
+  //---------------------------------Como comprar
+
+  getComprar(){
+    console.log("estoy en compra GET");
+    this.utilsService.getConfig(this.url+'compra')
+      .subscribe((data) => {
+        console.log("data->",data);
+      });
+  }
+
+  postComprar() {
+    console.log("estoy en compra POST");
+
+    let obj = {
+      id_admin:1,
+      pregunta: 'pregunta 1',
+      respuesta: 'respuesta 1',
+    }
+
+    this.utilsService.postConfig(this.url+'compra',obj)
+      .subscribe(
+        (data) => {
+          console.log("data->",data);
+        },
+        err =>{
+          console.log("ERROR",err);
+        }
+
+      );
+
+  }
+
+
+  putComprar(){
+    console.log("estoy en compra PUT");
+
+    let obj = {
+      id_admin: 1,
+      pregunta: 'pregunta 2',
+      respuesta: 'respuesta 1',
+    }
+
+    let id = "5f13fd1885640842f47103ac";
+
+    this.utilsService.putConfig(this.url+'compra/'+id,obj)
+      .subscribe(
+        (data) => {
+          console.log("data->",data);
+        },
+        err =>{
+          console.log("ERROR",err);
+        }
+
+      );
+  }
+
+  deleteComprar(){
+    console.log("estoy en compra DELETE");
+
+    let id = "5f13fd1885640842f47103ac";
+
+    this.utilsService.deleteConfig(this.url+'compra/'+id)
+      .subscribe(
+        (data) => {
+          console.log("data->",data);
+        },
+        err =>{
+          console.log("ERROR",err);
+        }
+
+      );
+  }
+
+
+  //---------------------------------Pregunta Frecuentes
+
+  getPreFre(){
+    console.log("estoy en prefre GET");
+    this.utilsService.getConfig(this.url+'prefre')
+      .subscribe((data) => {
+        console.log("data->",data);
+      });
+  }
+
+  postPreFre() {
+    console.log("estoy en prefre POST");
+
+    let obj = {
+      id_admin:1,
+      pregunta: 'pregunta 1',
+      respuesta: 'respuesta 1',
+    }
+
+    this.utilsService.postConfig(this.url+'prefre',obj)
+      .subscribe(
+        (data) => {
+          console.log("data->",data);
+        },
+        err =>{
+          console.log("ERROR",err);
+        }
+
+      );
+
+  }
+
+
+  putPreFre(){
+    console.log("estoy en prefre PUT");
+
+    let obj = {
+      id_admin: 1,
+      pregunta: 'pregunta 2',
+      respuesta: 'respuesta 2',
+    }
+
+    let id ="5f13fc10333bd65298e4c0f4";
+
+    this.utilsService.putConfig(this.url+'prefre/'+id,obj)
+      .subscribe(
+        (data) => {
+          console.log("data->",data);
+        },
+        err =>{
+          console.log("ERROR",err);
+        }
+
+      );
+  }
+
+  deletePreFre(){
+    console.log("estoy en prefre DELETE");
+
+    let id = "5f13fc10333bd65298e4c0f4";
+
+    this.utilsService.deleteConfig(this.url+'prefre/'+id)
+      .subscribe(
+        (data) => {
+          console.log("data->",data);
+        },
+        err =>{
+          console.log("ERROR",err);
+        }
+
+      );
+  } 
+   //---------------------------------search
+
+   search(){
+      console.log("estoy en search GET");
+      let nombre= 'tex';
+      this.utilsService.getConfig(this.url+'buscar/'+nombre)
+        .subscribe((data) => {
+          console.log("data->",data);
+        });
+   }
 }

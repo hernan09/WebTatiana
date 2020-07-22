@@ -1,42 +1,51 @@
-<div class="container">
-  <div
-    class="content-iterator"
-    *ngFor="let section of data; let indice = index"
-  >
-    <div class="id-scroll" [id]="section.id"></div>
-    <h3>{{ section.nombre }}</h3>
+<div class="container categoria">
+  <h1> Pregunta Frecuente</h1>
 
-    <div class="container-form">
-      <form (ngSubmit)="SendInfoLogin()">
-        <div class="form-group">
-          <h4 *ngIf="section.input_true_false">Ingrese una pregunta</h4>
-          <input
-            *ngIf="section.input_true_false"
-            class="form-control"
-            type="text"
-            placeholder="{{ section.preguntas }}"
-            [(ngModel)]="dataForm.pregunta"
-            [ngModelOptions]="{ standalone: true }"
-          />
-        </div>
-        <hr />
-        <div class="form-group">
-          <h4 *ngIf="section.input_true_false">Ingrese una respuesta</h4>
-          <textarea
-            *ngIf="section.input_true_false"
-            class="form-control"
-            id="exampleFormControlTextarea1"
-            placeholder="{{ section.respuesta }}"
-            rows="3"
-            [(ngModel)]="dataForm.respuesta"
-            [ngModelOptions]="{ standalone: true }"
-          ></textarea>
-        </div>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="altapregunta" data-toggle="tab" href="#alta-pregunta" role="tab" aria-controls="alta-pregunta" aria-selected="true"  (click)="cleanForm()" [ngClass]="{ 'active':activeTab==='alta'}" >Alta</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="eepregunta" data-toggle="tab" href="#ee-pregunta" role="tab" aria-controls="ee-pregunta" aria-selected="false" (click)="getPreFre()"   [ngClass]="{ 'active':activeTab==='ee'}" (click)="result('ee')">Editar/Eliminar </a>
+    </li>
+  </ul>
 
-        <button type="submit" class="btn btn-success btn-block btn-sm">
-          Agregar
-        </button>
+
+  <div class="tab-content" id="myTabContent">
+
+    <div class="tab-pane fade show active" id="alta-pregunta" role="tabpanel" aria-labelledby="altapregunta"   [ngClass]="{ 'active':activeTab=='alta','show':activeTab=='alta'}">
+
+      <form #producto="ngForm" id="form-pf">
+
+        <input type="text" [(ngModel)]="nombre" name="nombrePregunta"  placeholder="Pregunta">
+
+        <textarea name="" id=""  [(ngModel)]="descripcion" name="descripcionPregunta" placeholder="Respuesta"  cols="30" rows="10"></textarea>
+
       </form>
+
+      <button (click)="postPreFre(producto)"   class="btn">{{nameBtn}}</button>
+
     </div>
+
+    <div class="tab-pane fade" id="ee-pregunta" role="tabpanel" aria-labelledby="eepregunta"   [ngClass]="{ 'active':activeTab=='ee','show':activeTab=='ee'}">
+      <div class="spinner-border text-success" *ngIf="showLoading"></div>
+      <table *ngIf="!showLoading">
+        <tr>
+          <th>Pregunta</th>
+          <th>Editar</th>
+          <th>Eliminar</th>
+        </tr>
+        <tr *ngFor="let categoria of arrayCategoria">
+          <td>{{categoria.pregunta}}</td>
+          <td><button (click)="editar(categoria,'alta')" class="btn-table">Editar</button></td>
+          <td><button (click)="deletePreFre(categoria)" class="btn-table">Eliminar</button></td>
+        </tr>
+
+      </table>
+    </div>
+
   </div>
 </div>
+
+
+

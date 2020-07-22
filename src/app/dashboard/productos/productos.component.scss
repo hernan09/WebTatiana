@@ -1,58 +1,60 @@
-.container {
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
- 
-  .content-padre-edit-and-delete{
-     z-index: 1111111111111;
-  
-   .div-content-edit-and-delete{
-     width: 300px;
-     padding: 10px;
-     display: flex;
-     flex-direction: row;
-     justify-content: space-between;
-     align-items: center;
-
-     .content-check{
-
-
-      p{
-        width: 80px;
-      }
-
-     }
-    
-   
-     .content-button{
-       width: auto;
-
-      
-       button{
-         width: 55px;
-         height: 50px;
-         margin: 10px;
-       }
-     }
-   }
-  }
-
-  .container-form{
+input,textarea {
     width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: whitesmoke;
-    padding: 5px;
-    margin-top: 5%;
-
-    .content-button{
-      width: 250px;
-
-    }
+    margin-top: 10px;
 }
+
+.check {
+    width: initial;
+    margin-right: 20px;
+}
+
+.categoria {
+    min-height: 70vh;
+    border-bottom: 1px solid grey;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+tr{
+    th:nth-child(1){
+        width: 80%;
+    }
+    th:nth-child(2){
+        width: 10%;
+    }
+    th:nth-child(3){
+        width: 10%;
+    }
+} 
+
+h1{
+    text-align: center;
+    font-size: 2em;
+} 
+
+.btn{
+    margin: auto;
+    text-align: center;
+    width: 112px;
+    height: 45px;
+    border-radius: 20px;
+    margin-top: 32px;
+    border: none;
+    color: white;
+    background-color: #b3c984;
+}
+
+.btn-table{
+    background-color: #b3c984;
+    border: none;
+    color: white;
+    border-radius: 5%;
+    height: 30px;
+    width: 100%;
 }

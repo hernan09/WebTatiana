@@ -1,173 +1,76 @@
-<div class="container">
-  <div
-    class="content-iterator"
-    *ngFor="let section of data2; let indice = index"
-  >
-    <div class="id-scroll"></div>
+<div class="container categoria">
+  <h1> Categoría</h1>
 
-    <h3>CATEGORIAS</h3>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" [ngClass]="{ 'active':activeTab==='alta'}" >Alta</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" (click)="getCategorias()"   [ngClass]="{ 'active':activeTab==='ee'}" (click)="result('ee')">Editar/Eliminar </a>
+    </li>
+  </ul>
 
-    <div class="container-form">
-      <div class="general-content-tabs">
-        <ul class="nav nav-pills">
-          <li class="nav-item">
-            <a
-              class="nav-link active"
-              data-toggle="tab"
-              [ngClass]="{ active: activeTab === 'home' }"
-              (click)="search('home')"
-              href="#home"
-              >ALTA</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              data-toggle="tab"
-              href="#profile"
-              [ngClass]="{ active: activeTab === 'profile' }"
-              (click)="result('profile')"
-              >EDITAR/ELIMINAR</a
-            >
-          </li>
-        </ul>
-        <div id="myTabContent" class="tab-content">
-          <div
-            class="tab-pane fade active show"
-            [ngClass]="{ active: activeTab === 'home' }"
-            id="home"
-          >
-            <form>
-              <div class="form-group">
-                <label for="exampleFormControlInput1">Nombre</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleFormControlInput1"
-                  placeholder="Nombre"
-                  [(ngModel)]="dataSendPost.name"
-                  [ngModelOptions]="{ standalone: true }"
-                />
-              </div>
 
-              <div class="form-group">
-                <label for="exampleFormControlTextarea1"
-                  >Escriba una descripcion</label
-                >
-                <textarea
-                  class="form-control"
-                  id="exampleFormControlTextarea1"
-                  rows="3"
-                  [(ngModel)]="dataSendPost.descripcion"
-                  [ngModelOptions]="{ standalone: true }"
-                ></textarea>
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlInput1">Cargar imagen</label>
-                <input
-                  type="file"
-                  class="form-control-file"
-                  id="exampleFormControlFile1"
-                  (change)="changeFile2($event)"
-                />
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="defaultCheck1"
-                  [(ngModel)]="dataSendPost.disponible"
-                  [ngModelOptions]="{ standalone: true }"
-                />
-                <label class="form-check-label" for="defaultCheck1">
-                  Disponible
-                </label>
-              </div>
-              <br />
-              <button
-                type="button"
-                class="btn btn-primary btn-lg btn-block btn-sm"
-                (click)="sendMesage2(indice)"
-              >
-                Editar
-              </button>
-            </form>
-          </div>
-          <div
-            class="tab-pane fade show"
-            [ngClass]="{ active: activeTab === 'profile' }"
-            id="profile"
-          >
-            <form action="">
-              <div class="form-group">
-                <label for="exampleFormControlSelect1"
-                  >Seleciona la categoria</label
-                >
-                <select
-                  class="form-control"
-                  id="exampleFormControlSelect1"
-                  [(ngModel)]="dataSendPost.id_catalogo"
-                  [ngModelOptions]="{ standalone: true }"
-                >
-                  <option
-                    *ngFor="let item of data; let indice = index"
-                    value="{{ item.id_catalogo }}"
-                    >{{ item.name }}</option
-                  >
-                </select>
-                <div
-                  class="content-padre-edit-and-delete"
-                  *ngFor="
-                    let item of data | filter: dataSendPost.id_catalogo;
-                    let indice = index
-                  "
-                >
-                  <div>
-                    <div class="div-content-edit-and-delete">
-                      <div class="content-check">
-                        <div class="form-check">
-                          <p>{{ item.name }}</p>
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            value=""
-                            id="defaultCheck1"
-                            [(ngModel)]="dataSendPost.disponible"
-                            [ngModelOptions]="{ standalone: true }"
-                          />
-                          <label class="form-check-label" for="defaultCheck1">
-                            Disponible
-                          </label>
-                        </div>
-                      </div>
+  <div class="tab-content" id="myTabContent">
 
-                      <div class="content-button">
-                        <button
-                          class="btn btn-light"
-                          (click)="passDataToTabs(item)"
-                          (click)="result('home')"
-                        >
-                          <img
-                            src="https://img.icons8.com/android/24/000000/ball-point-pen.png"
-                          /></button
-                        ><button
-                          (click)="deleteObject(item, dataSendPost.id_catalogo)"
-                          class="btn btn-danger"
-                        >
-                          <img
-                            src="https://img.icons8.com/windows/32/000000/delete-forever.png"
-                            alt=""
-                          />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"   [ngClass]="{ 'active':activeTab=='alta','show':activeTab=='alta'}">
+
+      <form #categoria="ngForm">
+        <input type="text" [(ngModel)]="nombre" name="nombre"  placeholder="Nombre">
+
+        <textarea name="" id=""  [(ngModel)]="descripcion" name="descripcion" placeholder="Descripción"  cols="30" rows="10"></textarea>
+
+        <div class="btn-upload">
+          <input type="file" [(ngModel)]="imagen" id="file" name="imagen" placeholder="cargar Imagen">
+          <label for="file" class="btn-2">Subir Imagenes</label>
         </div>
+
+        <!-- <input type="checkbox" class="check" [(ngModel)]="disponible"  name="disponible"><span>Disponible </span> -->
+
+
+      </form>
+
+      <button (click)="postCategoria(categoria)"   class="btn">{{nameBtn}}</button>
+
+    </div>
+
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"   [ngClass]="{ 'active':activeTab=='ee','show':activeTab=='ee'}">
+      <div class="spinner-border text-success" *ngIf="showLoading"></div>
+      <table *ngIf="!showLoading">
+        <tr>
+          <th>Nombre</th>
+          <th>Editar</th>
+          <th>Eliminar</th>
+        </tr>
+        <tr *ngFor="let categoria of arrayCategoria">
+          <td>{{categoria.nombre}}</td>
+          <td><button (click)="editar(categoria,'alta')" class="btn-table">Editar</button></td>
+          <td><button (click)="deleteCategoria(categoria)" class="btn-table">Eliminar</button></td>
+        </tr>
+
+      </table>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        El elemento {{namePopup}} se eliminara
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn " data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn " (click)="popupDelete()">Eliminar</button>
       </div>
     </div>
   </div>

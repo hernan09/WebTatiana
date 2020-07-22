@@ -2,113 +2,57 @@
   <!-- Sidebar -->
   <nav id="sidebar" [ngClass]="{ active: toggle }" class="">
     <ul class="list-unstyled components scrollbar shadow p-3 mb-5 rounded">
+
       <li class="active">
-        <a
-          href="#homeSubmenu"
-          data-toggle="collapse"
-          aria-expanded="false"
-          class="dropdown-toggle"
-          ><span class="span-icon"
-            ><img src="https://img.icons8.com/windows/24/000000/home.png"
-          /></span>
-          HOME</a
-        >
-        <ul class="collapse list-unstyled" id="homeSubmenu">
-          <li
-            *ngFor="let section of listCatalogo; let indice = index"
-            (click)="productoSeleccionado(section, indice)"
-          >
-            <a> {{ section.name }} </a>
-          </li>
-        </ul>
+        <a  href="#homeSubmenu"  data-toggle="collapse"  aria-expanded="false"  class="dropdown-toggle" >
+          <span class="span-icon" > <img src="https://img.icons8.com/windows/24/000000/home.png"/></span>   HOME</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li  *ngFor="let section of listCatalogo; let indice = index"  (click)="productoSeleccionado(section, indice)"  >
+              <a> {{ section.name }} </a>
+            </li>
+          </ul>
       </li>
+
       <li class="active">
-        <a
-          href="#homeSubmenu2"
-          data-toggle="collapse"
-          aria-expanded="false"
-          class="dropdown-toggle"
-          ><span class="span-icon"
-            ><img
-              src="https://img.icons8.com/windows/24/000000/add-shopping-cart.png"
-          /></span>
-          PRODUCTOS</a
-        >
+        <a   href="#homeSubmenu2"    data-toggle="collapse"    aria-expanded="false"   class="dropdown-toggle" >
+          <span class="span-icon" ><img     src="https://img.icons8.com/windows/24/000000/add-shopping-cart.png" /></span>   PRODUCTOS</a>
       </li>
+
       <li class="active">
-        <a
-          href="#homeSubmenu2"
-          data-toggle="collapse"
-          aria-expanded="false"
-          class="dropdown-toggle"
-          ><span class="span-icon"
-            ><img
-              src="https://img.icons8.com/windows/24/000000/add-shopping-cart.png"
-          /></span>
-          CATEGORIAS</a
-        >
+        <a  href="#homeSubmenu2"  data-toggle="collapse"  aria-expanded="false"   class="dropdown-toggle"><span class="span-icon" ><img  src="https://img.icons8.com/windows/24/000000/add-shopping-cart.png"  /></span>
+          CATEGORIAS</a >
       </li>
+
       <li class="active">
-        <a
-          href="#homeSubmenu3"
-          data-toggle="collapse"
-          aria-expanded="false"
-          class="dropdown-toggle"
-          ><span class="span-icon"
-            ><img src="https://img.icons8.com/windows/24/000000/plus-math.png"
-          /></span>
-          PREGUNTAS Y RESPUESTAS</a
-        >
+        <a href="#homeSubmenu3"   data-toggle="collapse"  aria-expanded="false"  class="dropdown-toggle" ><span class="span-icon"  ><img src="https://img.icons8.com/windows/24/000000/plus-math.png"/></span>
+         Preguntas frecuentes</a>
       </li>
+
       <li class="active">
-        <a
-          href="#homeSubmenu4"
-          data-toggle="collapse"
-          aria-expanded="false"
-          class="dropdown-toggle"
-          ><span class="span-icon"
-            ><img src="https://img.icons8.com/windows/24/000000/plus-math.png"
-          /></span>
-          COMO COMPRAR</a
-        >
+        <a  href="#homeSubmenu4"  data-toggle="collapse"  aria-expanded="false"    class="dropdown-toggle" ><span class="span-icon"   ><img src="https://img.icons8.com/windows/24/000000/plus-math.png"  /></span>
+          COMO COMPRAR</a >
       </li>
     </ul>
+
   </nav>
   <!-- Page Content -->
 
   <!-- Page Content -->
   <div id="content" class="container">
-    <button
-      type="button"
-      (click)="toggleMenu(toggle)"
-      id="sidebarCollapse"
-      class="btn btn-dark"
-    >
-      <i class="fas fa-align-left"></i>
-      <span class="show-catalogo-menu">{{
-        toggle ? "Mostrar Dashboard" : "X"
-      }}</span>
-      <span class="show-catalogo-menu-mobile">{{
-        toggle ? "X" : "Mostrar Dashboard"
-      }}</span>
-    </button>
+  
     <!-- aca van los componentes -->
     <div class="table">
-      <app-homeslide
-        [product]="listProducto"
-        [data]="listCatalogo"
-        [catalogo]="listCategory"
-      ></app-homeslide>
-      <app-productos
-        [data2]="listIterator"
-        [data]="listCategory"
-      ></app-productos>
-      <app-categoria
-        [data2]="listIterator"
-        [data]="listCategory"
-      ></app-categoria>
-      <app-preguntas [data]="QuestionAsnwer"></app-preguntas>
-      <app-noticias [data]="NoticiasArray"></app-noticias>
+
+      <app-homeslide></app-homeslide>
+
+      <app-categoria ></app-categoria>
+
+      <app-productos ></app-productos>
+
+      <app-preguntas ></app-preguntas>
+
+      <app-noticias ></app-noticias>
+
     </div>
   </div>
 </div>

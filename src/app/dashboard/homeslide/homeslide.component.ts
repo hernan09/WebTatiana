@@ -1,95 +1,171 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
+import { UtilsService } from '../../../app/utils.service';
+import { ModalDirective } from 'ngx-bootstrap/modal';
+import { SimpleModalService } from "ngx-simple-modal";
+import { PopupComponent  } from '../popup/popup.component';
 
 @Component({
   selector: 'app-homeslide',
   templateUrl: './homeslide.component.html',
   styleUrls: ['./homeslide.component.scss']
 })
+
 export class HomeslideComponent implements OnInit {
-  @Input() idSection: any;
-  @Input() data: any;
-  @Input() catalogo:any;
-  @Input() product:any;
+  arrayImage=[];
+  imagen:any;
+  fileToUpload: File = null;
+  showLoading:boolean=true;
+  disponible=false;
+  arrayCategoria=[];
+  arrayProducto=[];
+  idCategoria:any;
+  urlDev:string='http://localhost:3000/';  
+  urlProd:string='https://serviciosmundosublimado.herokuapp.com/';
+
+  url:string=this.urlDev;
+
+  constructor(private http:HttpClient, private utilsService:UtilsService,private simpleModalService:SimpleModalService) { }
+  
+  ngOnInit(): void {
+    this.getImage();
+    this.getCategorias();
+    
+  }
+
+  getCategorias(){
+    console.log("estoy en categorias GET");//_id que te genera mongo
+
+    this.utilsService.getConfig(this.url+'categoria')
+      .subscribe((data) => {
+        this.showLoading = false;
+        console.log("data->",data);
+        this.getArrayGet(data);
+      });
+  }
+
+  getArrayGet(data){
+    this.arrayCategoria =data.categoria;
+    console.log("idCategoria",this.arrayCategoria);
+
+    this.idCategoria = this.arrayCategoria[0]._id;
+
+    //this.getProducto(this.idCategoria);
+  }
+
+  getSelectAddId(id){
+    this.idCategoria= id.value;
+  }
+ 
+  getArrayProducto(data){
+    this.arrayProducto = data.producto;
+  }
+
+  getProducto(data){
+    console.log("estoy en producto GET",data.value);
+    let id = data.value || this.arrayCategoria[0]._id;
+    this.utilsService.getConfig(this.url+'producto/'+id)
+      .subscribe((data) => {
+        console.log("data->",data);
+        this.getArrayProducto(data);
+
+      });
+  }
 
 
-  //asdasdas
-  arrayReturn=[]
-  activeTab = 'home';
-  dataForm={
-    id_admin: 1,
-    img:{},
+  actualizarNovedates(){
+    const resultado = this.arrayProducto.find( producto => producto.disponible === true );
+    let arrayIdDisponible= [];
+    let arrayIdNoDisponible= [];
+
+    for (let index = 0; index < this.arrayProducto.length; index++) {
+      if(this.arrayProducto[index].disponible === true) arrayIdDisponible.push(this.arrayProducto[index]._id);
+      else arrayIdNoDisponible.push(this.arrayProducto[index]._id);
+    }
+
+    let obj = {
+        idtrue:arrayIdDisponible,
+        idfalse:arrayIdNoDisponible
+    }
+
+    this.utilsService.putConfig(this.url+'novedades',obj)
+      .subscribe(
+        (data) => {
+          this.getProducto(this.idCategoria);
+          this.popupOk('El producto se actualizo correctamente!')
+        },
+        err =>{
+          alert(err);
+        }
+
+      );
+  }
+
+
+ 
+  getImage(){
+    this.arrayImage = [
+      {
+        img:'../../../assets/imagenes/img1.jpg'
+      },
+      {
+        img:'../../../assets/imagenes/img1.jpg'
+      },
+      {
+        img:'../../../assets/imagenes/img1.jpg'
+      },
+      {
+        img:'../../../assets/imagenes/img1.jpg'
+      },
+      {
+        img:'../../../assets/imagenes/img1.jpg'
+      },
+      {
+        img:'../../../assets/imagenes/img1.jpg'
+      },
+      {
+        img:'../../../assets/imagenes/img1.jpg'
+      },
+      {
+        img:'../../../assets/imagenes/img1.jpg'
+      }
+
+    ];
+  }
+
+
+  upImage(){
+    console.log("IMAGEN",this.imagen)
+  }
+
+
+  handleFileInput(files: FileList) {
+    console.log("FILE",files)
+    this.fileToUpload = files.item(0);
   }
   
-  dataSendPost={
-    id_admin:1,
-    name:"",
-    descripcion:"",
-    disponible:false,
-    img:{}
-  }
-  constructor(private http:HttpClient) {
-   
-   }
-   search(activeTab){
-    this.activeTab = activeTab;
-  }
-  result(activeTab){
-    this.activeTab = activeTab;
-  }
 
-  ngOnInit(): void {
-    console.log(this.data[0].arrayImg)
-    console.log(this.catalogo)
-  }
-  changeFile(e){
-    this.dataForm.img =`assets/imagenes/${e.target.files[0].name}` 
-  }
 
-  deleteObject(item,index){
-    console.log(item,'y el index seleccionado',index)
-    this.catalogo.forEach(element => {
-      element.arrayProduct.forEach(element => {
-        if(item == element){
-          console.log('es este')  
-          console.log( this.catalogo[index-1].arrayProduct.slice())
-        }   
-           
-      });
-    });
-   
-    
-  }
-  changeFile2(e){
-    this.dataSendPost.img =`assets/imagenes/${e.target.files[0].name}` 
-  }
-
-  passDataToTabs(item){
-    console.log(item)
-    this.dataSendPost.name = item.name
-    this.dataSendPost.descripcion = item.descripcion
-    this.dataSendPost.disponible = item.disponible
-  }
-
-  getJson(){
-    return this.http.get('').subscribe((resp:any)=>{
-    
+  popupOk(message){
+    let disposable = this.simpleModalService.addModal(PopupComponent, {
+      title: 'ok',
+      message: message
     })
-   }
-   
-   eliminarImg(){
-    this.data[0].arrayImg.pop()
-   }
-
-  sendMesage(){
-    console.log(this.dataForm)
-    this.data[0].arrayImg.push(this.dataForm)
+    .subscribe((isConfirmed)=>{
+        //We get modal result
+        if(isConfirmed) {
+        }
+        else {
+            //alert('declined');
+        }
+    });
+    //We can close modal calling disposable.unsubscribe();
+    //If modal was not closed manually close it by timeout
+    setTimeout(()=>{
+        //disposable.unsubscribe();
+    },10000);
   }
 
-  sendMesage2(id){
-    this.catalogo[id].arrayProduct.push(this.dataSendPost)
-    console.log(this.dataSendPost)
-    
-  }
+
 
 }

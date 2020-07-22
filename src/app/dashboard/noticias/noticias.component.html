@@ -1,30 +1,55 @@
-<div class="container">
-  <div class="col-12" *ngFor="let section of data; let indice = index">
-    <div class="id-scroll" [id]="indice"></div>
-    <h3>COMO COMPRAR</h3>
-    <form (ngSubmit)="sendMesage()" action="">
-      <input
-        class="form-control"
-        type="text"
-        placeholder="{{ section.title }}"
-        [(ngModel)]="dataForm.title"
-        [ngModelOptions]="{ standalone: true }"
-      />
-      <hr />
-      <div class="form-group">
-        <h4>Ingrese una descripcion</h4>
-        <textarea
-          class="form-control"
-          id="exampleFormControlTextarea1"
-          placeholder="{{ section.descripcion }}"
-          rows="3"
-          [(ngModel)]="dataForm.descripcion"
-          [ngModelOptions]="{ standalone: true }"
-        ></textarea>
-      </div>
-      <button type="submit" class="btn btn-success btn-block btn-sm">
-        Agregar
-      </button>
-    </form>
+<div class="container categoria">
+  <h1> Como comprar</h1>
+
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="altacompra" data-toggle="tab" href="#alta-compra" role="tab" aria-controls="alta-compra" aria-selected="true" [ngClass]="{ 'active':activeTab==='alta'}" >Alta</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="eecompra" data-toggle="tab" href="#ee-compra" role="tab" aria-controls="ee-compra" aria-selected="false" (click)="getComprar()"   [ngClass]="{ 'active':activeTab==='ee'}" (click)="result('ee')">Editar/Eliminar </a>
+    </li>
+  </ul>
+
+
+  <div class="tab-content" id="myTabContent">
+
+    <div class="tab-pane fade show active" id="alta-compra" role="tabpanel" aria-labelledby="altacompra"   [ngClass]="{ 'active':activeTab=='alta','show':activeTab=='alta'}">
+
+      <form #producto="ngForm">
+         <input type="text" [(ngModel)]="nombre" name="nombrePreguntacompra"  placeholder="Pregunta">
+
+        <textarea name="" id=""  [(ngModel)]="descripcion" name="descripcionPreguntacompra" placeholder="Respuesta"  cols="30" rows="10"></textarea>
+
+        <!-- <input type="file" [(ngModel)]="imagen"  name="imagenProdcuto" placeholder="cargar Imagen"> -->
+
+        <!-- <input type="checkbox" class="check" [(ngModel)]="disponible"  name="disponible"><span>Disponible </span> -->
+
+
+      </form>
+
+      <button (click)="postComprar(producto)"   class="btn">{{nameBtn}}</button>
+
+    </div>
+
+    <div class="tab-pane fade" id="ee-compra" role="tabpanel" aria-labelledby="eecompra"   [ngClass]="{ 'active':activeTab=='ee','show':activeTab=='ee'}">
+      <div class="spinner-border text-success" *ngIf="showLoading"></div>
+      <table *ngIf="!showLoading">
+        <tr>
+          <th>Pregunta</th>
+          <th>Editar</th>
+          <th>Eliminar</th>
+        </tr>
+        <tr *ngFor="let categoria of arrayCategoria">
+          <td>{{categoria.pregunta}}</td>
+          <td><button (click)="editar(categoria,'alta')" class="btn-table">Editar</button></td>
+          <td><button (click)="deleteComprar(categoria)" class="btn-table">Eliminar</button></td>
+        </tr>
+
+      </table>
+    </div>
+
   </div>
 </div>
+
+
+

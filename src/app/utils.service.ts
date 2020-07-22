@@ -7,22 +7,21 @@ import { catchError, retry } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UtilsService {
-  data:any;
-  constructor(private http: HttpClient) { }
+	data:any;
+	constructor(private http: HttpClient) { }
 
-  setData(data){
-    this.data = data;
-  }
+	setData(data){
+		this.data = data;
+	}
 
-  getData(){
-    return this.data;
-  }
+	getData(){
+		return this.data;
+	}
 
 	getConfig(url) {
 		console.log("url",url);
 		return this.http.get(url);
 	}
-
 
 	postConfig(url,obj) {
 		console.log("url",url);
