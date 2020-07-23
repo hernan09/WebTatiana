@@ -23,8 +23,9 @@
             justify-content: space-around;
 
             .contet-image{
+              max-width: 300px;
               img{
-                width: 200px;
+                width: 100%;
                 height: 200px;
                 cursor: pointer;
               }
@@ -102,6 +103,11 @@
 
         .btn-success{
             color: white;
+        }
+
+        img {
+          width: 100%;
+          height: 200px;
         }
     }
 }

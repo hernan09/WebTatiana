@@ -7,6 +7,23 @@
         width: 100%;
     }
 
+
+    .box-img{
+        height: 100px;
+        width: 190px;
+        display: inline-block;
+        .img{
+            height: 100px;
+            width: 100%;
+            border: 1px solid #d2cece;
+            margin: 5px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            display: inline-block;
+        }
+    }
+
     .img{
         height: 100px;
         width: 250px;
@@ -14,7 +31,7 @@
         margin: 5px;
         background-position: center center;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: contain;
         display: inline-block;
 
         button {

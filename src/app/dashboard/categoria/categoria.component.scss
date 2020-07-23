@@ -13,6 +13,22 @@ input,textarea {
     border-bottom: 1px solid grey;
     margin-bottom: 20px;
     padding-bottom: 10px;
+
+    .box-img{
+        height: 100px;
+        width: 190px;
+        display: inline-block;
+        .img{
+            height: 100px;
+            width: 100%;
+            border: 1px solid #d2cece;
+            margin: 5px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            display: inline-block;
+        }
+    }
 }
 
 ul {

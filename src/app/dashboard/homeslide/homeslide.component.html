@@ -1,20 +1,30 @@
 <div class="container slide">
   <h1> Slide de Imagenes</h1>
 
-      <div class="box">
+      <div class="box"   >
+        <div *ngIf="arrayImage">
+          <div class="img "  *ngFor="let img of arrayImage" [ngStyle]="{'background-image':'url(http://localhost:3000/media/slide/'+ img.img+')'}">
+            <button type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
 
-        <div class="img " *ngFor="let img of arrayImage" [ngStyle]="{'background-image':'url('+ img.img+')'}">
-          <button type="button" class="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
         </div>
+        <h2 *ngIf="!arrayImage">No hay Imagenes Cargadas</h2>
       </div>
 
-    <div class="btn-upload">
-      <input type="file"  id="file1" name="file1" placeholder="cargar Imagen" (change)="handleFileInput($event.target.files)">
-      <label for="file1" class="btn-2">Subir Imagenes</label>
-    </div>
-  <button class="btn" (click)="upImage()">Guardar</button>
+    <form #slide="ngForm">
+      <div class="btn-upload">
+          <input type="file"  id="slide" name="slide" (change)="cargarImgSlide($event.target.files)"  placeholder="cargar Imagen" >
+          <label for="slide" class="btn-2">Subir Imagenes</label>
+    
+          <div class="box-img">
+            <div class="img" *ngIf="imgURLPreview"  [ngStyle]="{'background-image':'url('+ imgURLPreview +')'}"></div>
+          </div>
+      </div>
+    </form>
+
+     <button class="btn" (click)="upImage(slide)">Guardar</button>
 </div>
 
 

@@ -29,6 +29,9 @@
           <div class="btn-upload">
             <input type="file" id="producto" name="producto"  (change)="cargarImgProducto($event.target.files)"  placeholder="cargar Imagen">
             <label for="producto" class="btn-2">Subir Imagenes</label>
+            <div class="box-img">
+              <div class="img" *ngIf="imgURLPreview"  [ngStyle]="{'background-image':'url('+ imgURLPreview +')'}"></div>
+            </div>
           </div>
   
         </form>

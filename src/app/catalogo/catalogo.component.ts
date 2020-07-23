@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgAnimateScrollService } from 'ng-animate-scroll';
 import { HttpClient} from '@angular/common/http';
+import { UtilsService } from '../../app/utils.service';
 
 @Component({
   selector: 'app-catalogo',
@@ -10,12 +11,21 @@ import { HttpClient} from '@angular/common/http';
 export class CatalogoComponent implements OnInit {
   toggle:boolean = false;
   listCatalogo = [];
+  listProducto = [];
   indiceSeleccionado:number;
-  constructor(private http:HttpClient,private animateScrollService: NgAnimateScrollService) { }
+  urlDev:string='http://localhost:3000/';  
+  urlProd:string='https://serviciosmundosublimado.herokuapp.com/';
+
+  url:string=this.urlDev;
+
+
+  constructor(private http:HttpClient,private animateScrollService: NgAnimateScrollService, private utilsService:UtilsService) { }
 
   ngOnInit(): void {
 
-    this.getListaCatalogo()
+    //this.getListaCatalogo()
+    this.getCategoria();
+
   }
 
 
@@ -23,7 +33,7 @@ export class CatalogoComponent implements OnInit {
   getJson(){
     return this.http.get('this._jsonURL').subscribe((resp:any)=>{
     })
-   }
+  }
 
   toggleMenu(toggle){
     console.log("toggle menu");
@@ -32,443 +42,46 @@ export class CatalogoComponent implements OnInit {
     else this.toggle = true;
   }
 
-  productoSeleccionado(producto,indice){
-    console.log('producto',producto);
-    console.log('indice',indice);
-    this.indiceSeleccionado = indice;
-    this.navigateToHeader(indice);
-  }
-
   navigateToHeader(id) {
     this.animateScrollService.scrollToElement(id.toString(), 500);
-}
-
-
-  getListaCatalogo(){
-
-    this.listCatalogo = [
-      {
-        id:123,
-        id_user:111,
-        nombre:'BARBIJOS Y KIT DE HIGIENE',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },      {
-        id:123,
-        id_user:111,
-        nombre:'TELAS SUBLIMABLES',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },      {
-        id:123,
-        id_user:111,
-        nombre:'BOLSOS Y MOCHILAS',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },      {
-        id:123,
-        id_user:111,
-        nombre:'BILLETERAS',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },      {
-        id:123,
-        id_user:111,
-        nombre:'CARPETAS PARA SUBLIMAR',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },      {
-        id:123,
-        id_user:111,
-        nombre:'CARTUCHERAS Y PORTA COSMETICOS',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },      {
-        id:123,
-        id_user:111,
-        nombre:'LIBRERiA',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },      {
-        id:123,
-        id_user:111,
-        nombre:'PAD MOUSE Y DERIVADOS',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },      {
-        id:123,
-        id_user:111,
-        nombre:'ACCESORIOS SUBLIMABLES PARA LA MODA',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },      {
-        id:123,
-        id_user:111,
-        nombre:'LLAVEROS Y ACCESORIOS PLASTICOS',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },{
-        id:123,
-        id_user:111,
-        nombre:'FUNDAS PARA CELULAR',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },{
-        id:123,
-        id_user:111,
-        nombre:'FUNDA DE TABLET Y NOTEBOOK',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },{
-        id:123,
-        id_user:111,
-        nombre:'INSUMOS PARA SUBLIMACION',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },{
-        id:123,
-        id_user:111,
-        nombre:'PRODUCTOS PARA IMPRESORAS INK JET',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },{
-        id:123,
-        id_user:111,
-        nombre:'TAZAS CERAMICAS PARA SUBLIMAR',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },{
-        id:123,
-        id_user:111,
-        nombre:'TAZAS PLASTICAS PARA SUBLIMAR',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },{
-        id:123,
-        id_user:111,
-        nombre:'CARTON SUBLIMABLE',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },{
-        id:123,
-        id_user:111,
-        nombre:'BOLSA DE FRISELINA',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },{
-        id:123,
-        id_user:111,
-        nombre:'REMERAS PARA SUBLIMAR',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },{
-        id:123,
-        id_user:111,
-        nombre:'PARCHES SUBLITEX PARA SUBLIMAR PRENDAS OSCURAS',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },{
-        id:123,
-        id_user:111,
-        nombre:'GORRAS PARA SUBLIMAR',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },{
-        id:123,
-        id_user:111,
-        nombre:'BEBE Y NIÑOS',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },{
-        id:123,
-        id_user:111,
-        nombre:'MEDIAS Y ROPA INTERIOR',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },{
-        id:123,
-        id_user:111,
-        nombre:'ALMOHADONES',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },{
-        id:123,
-        id_user:111,
-        nombre:'CALZADO Y DEPORTES',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },{
-        id:123,
-        id_user:111,
-        nombre:'MADERA SUBLIMABLE',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },{
-        id:123,
-        id_user:111,
-        nombre:'MAQUINAS SUBLIMADORAS',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },{
-        id:123,
-        id_user:111,
-        nombre:'IMPRESORAS Y PLOTTERS EPSON',
-        precio:1,
-        stock:2,
-        descripcion:'Una descripcion',
-        disponible:true,
-        img:[
-          {
-            nombre:'',
-            url:''
-          }
-        ]
-
-      },
-  ]
   }
+
+  getCategoria(){
+    console.log("estoy en categorias GET");//_id que te genera mongo
+
+    this.utilsService.getConfig(this.url+'categoria')
+      .subscribe((data) => {
+        console.log("categoria->",data);
+        this.getArrayCategoria(data)
+      });
+
+  }
+
+  getArrayCategoria(data){
+    this.listCatalogo = data.categoria
+  }
+
+  
+  productoSeleccionado(producto,indice){
+    console.log('categoria',producto);
+    console.log('indice',indice);
+    this.indiceSeleccionado = indice;
+    //this.navigateToHeader(indice);
+    this.getProducto(producto._id)
+  }
+
+  getProducto(id){
+    console.log("estoy en producto GET");
+    this.utilsService.getConfig(this.url+'producto/'+id)
+      .subscribe((data) => {
+        console.log("data->",data);
+        this.getArrayProducto(data);
+      });
+  }
+
+  getArrayProducto(data){
+    this.listProducto = data.producto;
+  }
+ 
 
 }

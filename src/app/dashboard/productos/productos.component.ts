@@ -22,10 +22,12 @@ export class ProductosComponent implements OnInit {
   showLoading:boolean=true;
   idCategoria:any;
 
+  imgURLPreview: any; 
+  public imagePath;
+
   urlDev:string='http://localhost:3000/';  
   urlProd:string='https://serviciosmundosublimado.herokuapp.com/';
-
-  url:string=this.urlProd;
+  url:string=this.urlDev;
 
   nameBtn:string='Guardar';
 
@@ -103,27 +105,30 @@ export class ProductosComponent implements OnInit {
 
     console.log("IMAGEN",this.imagen);
 
+
+    var reader = new FileReader();
+    this.imagePath = files;
+    reader.readAsDataURL(files[0]); 
+    reader.onload = (_event) => { 
+      this.imgURLPreview = reader.result; 
+    }
+
   }
  
 
-  postProducto(id){
+  postProducto(id) {
     if (this.nameBtn != 'Editar'){
       console.log("estoy en producto POST",this.imagen);
+
       let formData = new FormData();
 
-      let obj = {
-          id_admin:1,
-          id_catalogo:this.idCategoria,
-          nombre: this.nombre,
-          descripcion: this.descripcion,
-          disponible: false,
-          stock: 0,
-          img: File
-      }
-
-     
-
       formData.append('upload',this.imagen);
+      formData.append('id_catalogo',this.idCategoria);
+      formData.append('nombre',this.nombre)
+      formData.append('descripcion',this.descripcion);
+
+      console.log("formData",formData);
+
   
       this.utilsService.postConfig(this.url+'producto',formData)
         .subscribe(
@@ -244,6 +249,7 @@ export class ProductosComponent implements OnInit {
   cleanForm(){
     this.nombre ='';
     this.descripcion='';
+    this.imgURLPreview=undefined;
   }
 
 }

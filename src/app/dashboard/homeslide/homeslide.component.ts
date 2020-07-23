@@ -13,7 +13,6 @@ import { PopupComponent  } from '../popup/popup.component';
 
 export class HomeslideComponent implements OnInit {
   arrayImage=[];
-  imagen:any;
   fileToUpload: File = null;
   showLoading:boolean=true;
   disponible=false;
@@ -25,11 +24,16 @@ export class HomeslideComponent implements OnInit {
 
   url:string=this.urlDev;
 
+  imagenSlide:any;
+  
+  imgURLPreview: any; 
+  public imagePath;
+  arraySlideimg =[];
   constructor(private http:HttpClient, private utilsService:UtilsService,private simpleModalService:SimpleModalService) { }
   
   ngOnInit(): void {
-    this.getImage();
     this.getCategorias();
+    this.getSlide();
     
   }
 
@@ -102,40 +106,58 @@ export class HomeslideComponent implements OnInit {
   }
 
 
- 
-  getImage(){
-    this.arrayImage = [
-      {
-        img:'../../../assets/imagenes/img1.jpg'
-      },
-      {
-        img:'../../../assets/imagenes/img1.jpg'
-      },
-      {
-        img:'../../../assets/imagenes/img1.jpg'
-      },
-      {
-        img:'../../../assets/imagenes/img1.jpg'
-      },
-      {
-        img:'../../../assets/imagenes/img1.jpg'
-      },
-      {
-        img:'../../../assets/imagenes/img1.jpg'
-      },
-      {
-        img:'../../../assets/imagenes/img1.jpg'
-      },
-      {
-        img:'../../../assets/imagenes/img1.jpg'
-      }
+  getSlide(){
+    console.log("estoy en categorias GET");//_id que te genera mongo
 
-    ];
+    this.utilsService.getConfig(this.url+'slide')
+      .subscribe((data) => {
+        this.showLoading = false;
+        console.log("data->",data);
+        this.getArraySlide(data);
+      });
   }
 
+  getArraySlide(data){
+    this.arrayImage =data.slide;
+  }
 
-  upImage(){
-    console.log("IMAGEN",this.imagen)
+  cargarImgSlide(files: FileList){
+    console.log("IMAGEN slide",files);
+
+    this.imagenSlide = files.item(0);;
+
+    console.log("IMAGEN silde",this.imagenSlide);
+
+    var reader = new FileReader();
+    this.imagePath = files;
+    reader.readAsDataURL(files[0]); 
+    reader.onload = (_event) => { 
+      this.imgURLPreview = reader.result; 
+    }
+
+  }
+  
+  upImage(slide){
+    console.log("estoy en slide POST",this.imagenSlide);
+
+    let formDataSlide = new FormData();
+
+    formDataSlide.append('upload',this.imagenSlide);
+
+    this.utilsService.postConfig(this.url+'slide',formDataSlide)
+      .subscribe(
+        (data) => {
+          console.log("data->",data);
+          this.imgURLPreview=undefined;
+          this.getSlide()
+          this.popupOk('La Imagen se guardo correctamente!');
+        },
+        err =>{
+          console.log("ERROR",err);
+          alert(err);
+        }
+
+      );
   }
 
 
@@ -143,8 +165,6 @@ export class HomeslideComponent implements OnInit {
     console.log("FILE",files)
     this.fileToUpload = files.item(0);
   }
-  
-
 
   popupOk(message){
     let disposable = this.simpleModalService.addModal(PopupComponent, {

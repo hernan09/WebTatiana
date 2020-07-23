@@ -9,7 +9,9 @@ import { UtilsService } from '../../app/utils.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  arrayImages=[]
+  arrayImages=[];
+  arrayNovedades=[];
+  arrayCategoria=[];
   urlDev:string='http://localhost:3000/';  
   urlProd:string='https://serviciosmundosublimado.herokuapp.com/';
 
@@ -18,8 +20,9 @@ export class HomeComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.getImages();
-    console.log(this.getImages());
+    this.getSlide();
+    this.getNodevedades();
+    this.getCategoria();
   }
 
   gotoPage(name:string){
@@ -27,54 +30,54 @@ export class HomeComponent implements OnInit {
     this.router.navigate([`${name}`]);
   }
 
+   //---------------------------------inicio home
+   getSlide(){
+    console.log("estoy en categorias GET");//_id que te genera mongo
 
-  getImages(){
-    this.arrayImages=[
-      { id:"1",
-        title:"Madera",
-       descripcion:"Distintos elementos elaborados en madera apra sublimar",
-       img:"../../assets/imagenes/madera.jpg"
-      },
-      { id:"2",
-        title:"Vinilo",
-       descripcion:"Distintos elementos elaborados en madera apra sublimar",
-       img:"../../assets/imagenes/vinilo.png"
-      },
-      { id:"3",
-        title:"Textil",
-       descripcion:"Distintos elementos elaborados en madera apra sublimar",
-       img:"../../assets/imagenes/textil.jpg"
-      },
-      { id:"4",
-        title:"Hoja lata",
-       descripcion:"Distintos elementos elaborados en madera apra sublimar",
-       img:"../../assets/imagenes/lata.jpg"
-      },
-      { id:"5",
-        title:"Cueros",
-       descripcion:"Distintos elementos elaborados en madera apra sublimar",
-       img:"../../assets/imagenes/cueros.jpg"
-      },
-      { id:"6",
-        title:"Plasticos",
-       descripcion:"Distintos elementos elaborados en madera apra sublimar",
-       img:"../../assets/imagenes/plastico2.jpg"
-      },
-      
-    ]
+    this.utilsService.getConfig(this.url+'slide')
+      .subscribe((data) => {
+        console.log("slide->",data);
+        this.getArraySlide(data);
+      });
+
   }
 
+  getArraySlide(data){
+    this.arrayImages = data.slide
+  }
 
+  getNodevedades(){
+    console.log("estoy en categorias GET");//_id que te genera mongo
+
+    this.utilsService.getConfig(this.url+'novedades')
+      .subscribe((data) => {
+        console.log("novedades->",data);
+        this.getArrayNovedades(data);
+      });
+
+  }
+
+  getArrayNovedades(data){
+    this.arrayNovedades = data.producto
+  }
 
   getCategoria(){
     console.log("estoy en categorias GET");//_id que te genera mongo
 
     this.utilsService.getConfig(this.url+'categoria')
       .subscribe((data) => {
-        console.log("data->",data);
+        console.log("categoria->",data);
+        this.getArrayCategoria(data)
       });
 
   }
+
+  getArrayCategoria(data){
+    this.arrayCategoria = data.categoria
+  }
+
+
+  //------------------------
 
   postCategoria(){
     console.log("estoy en categorias POST");
