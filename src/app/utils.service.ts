@@ -8,6 +8,7 @@ import { catchError, retry } from 'rxjs/operators';
 })
 export class UtilsService {
 	data:any;
+	producto:string;
 	constructor(private http: HttpClient) { }
 
 	setData(data){
@@ -38,6 +39,23 @@ export class UtilsService {
 	deleteConfig(url) {
 		console.log("url",url);
 		return this.http.delete(url);
+	}
+
+
+	//--search
+
+	setSearchProducto(data){
+		this.producto = data;
+	}
+
+	getSearchProducto(){
+		console.log("search producto",this.producto);
+		return this.producto ;
+	}
+
+	downloadNoteReceipt(Id: string): Observable<any> {
+		let url = "https://drive.google.com/file/d/161sr24Dk3k-LdHsheGtTI93McQVewWPP/view?usp=sharing";
+		return this.http.get(url, { responseType: "blob" } );
 	}
 
 }

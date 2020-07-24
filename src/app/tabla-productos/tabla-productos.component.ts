@@ -25,4 +25,12 @@ export class TablaProductosComponent implements OnInit {
     this.router.navigate(['detalle'] );
   }
 
+  gotoPage(name:string,data){
+    console.log(`voy paraa ..${name}`,data);
+    console.log(`data`,data);
+    this.utilsService.setSearchProducto(data);
+    this.router.navigate([`${name}`]);
+  }
+  
+
 }

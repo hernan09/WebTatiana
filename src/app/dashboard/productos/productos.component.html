@@ -9,9 +9,14 @@
         <a class="nav-link" id="eeproducto" data-toggle="tab" href="#ee-producto" role="tab" aria-controls="ee-producto" aria-selected="false" (click)="getCategorias();result('ee')"   [ngClass]="{ 'active':activeTab=='ee'}">Editar/Eliminar </a>
       </li>
     </ul>
+
+
+    <div class="box-loading" *ngIf="showLoading">
+      <div class="spinner-border text-success" ></div><span>CARGANDO...</span>
+    </div>
   
   
-    <div class="tab-content" id="myTabContent">
+    <div class="tab-content" id="myTabContent"  *ngIf="!showLoading">
   
       <div class="tab-pane fade show active" id="alta-producto" role="tabpanel" aria-labelledby="altaproducto"  [ngClass]="{ 'active':activeTab=='alta','show':activeTab=='alta'}">
   

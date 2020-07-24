@@ -30,7 +30,7 @@ export class ProductosComponent implements OnInit {
   url:string=this.urlDev;
 
   nameBtn:string='Guardar';
-
+  
   id:string;
   namePopup:string;
   categoria2:string='asdasd';
@@ -68,11 +68,14 @@ export class ProductosComponent implements OnInit {
   }
 
   getProducto(data){
+    this.showLoading =true;
+
     console.log("estoy en producto GET",data.value);
     let id = data.value || this.arrayCategoria[0]._id;
     this.utilsService.getConfig(this.url+'producto/'+id)
       .subscribe((data) => {
         console.log("data->",data);
+        this.showLoading =false;
         this.getArrayProducto(data);
 
       });
@@ -117,26 +120,29 @@ export class ProductosComponent implements OnInit {
  
 
   postProducto(id) {
+    this.showLoading =true;
+
     if (this.nameBtn != 'Editar'){
       console.log("estoy en producto POST",this.imagen);
 
       let formData = new FormData();
+      let nombreImagenSet = new Date().getMilliseconds().toString();
 
       formData.append('upload',this.imagen);
       formData.append('id_catalogo',this.idCategoria);
       formData.append('nombre',this.nombre)
       formData.append('descripcion',this.descripcion);
+      formData.append('section','producto');
+      formData.append('nombreImg',nombreImagenSet+this.imagen.name);
 
       console.log("formData",formData);
 
   
-      this.utilsService.postConfig(this.url+'producto',formData)
+      this.utilsService.postConfig(this.url+'slide',formData)
         .subscribe(
           (data) => {
             console.log("data->",data);
-            this.cleanForm();
-            this.popupOk('El producto se guardo correctamente!')
-
+            this.saveImg(formData);
           },
           err =>{
             console.log("ERROR",err);
@@ -145,11 +151,32 @@ export class ProductosComponent implements OnInit {
   
         );
     }else {
-      this.putProducto()
+      this.putProducto();
     }
   }
 
+  saveImg(data){
+    console.log("se guardo imagen!");
+    this.utilsService.postConfig(this.url+'producto',data) 
+    .subscribe( 
+      (data) => {
+        console.log("data->",data);
+        this.showLoading =false;
+        this.cleanForm();
+        this.popupOk('La producto se guardo correctamente!')
+      },
+      err =>{
+        this.showLoading =false;
+        console.log("ERROR",err);
+        alert('Intente nuevamente y verifique que todos los campos esten correctos')
+      }
+
+    );
+  }
+
   putProducto(){
+      this.showLoading =true;
+
       console.log("estoy en producto PUT",this.idCategoria);
 
       let obj = {
@@ -168,12 +195,15 @@ export class ProductosComponent implements OnInit {
         .subscribe(
           (data) => {
             console.log("data->",data);
+
+            this.showLoading =false;
             this.cleanForm();
             this.popupOk('El producto se actualizo correctamente!')
           },
           err =>{
+            this.showLoading =false;
             console.log("ERROR",err);
-            alert(err);
+            alert('Intente Nuevamente y verifique que todos los campos esten correctos');
           }
   
         );
@@ -181,6 +211,7 @@ export class ProductosComponent implements OnInit {
 
 
   deleteProducto(data){
+
     console.log("estoy en producto DELETE",data);
 
     this.id =  data._id;
@@ -190,16 +221,20 @@ export class ProductosComponent implements OnInit {
   }
 
   popupDelete(){
+    this.showLoading =true;
     
     this.utilsService.deleteConfig(this.url+'producto/'+this.id)
     .subscribe(
       (data) => {
         console.log("data->",data);
         this.getProducto(this.idCategoria)
+        this.showLoading =false;
+
       },
       err =>{
+        this.showLoading =false;
         console.log("ERROR",err);
-        alert(err)
+        alert('Intente nuevamente')
       }
 
     );

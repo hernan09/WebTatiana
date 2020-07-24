@@ -25,35 +25,35 @@
           <div
             class="lines-item btn-border-5"
             [ngClass]="{ 'active-link': section == 'inicio' }"
-            (click)="gotoPage('inicio')"
+            (click)="gotoPage('inicio','')"
           >
             <a class="nav-item nav-link active">INICIO</a>
           </div>
           <div
             class="lines-item btn-border-5"
             [ngClass]="{ 'active-link': section == 'catalogo' }"
-            (click)="gotoPage('catalogo')"
+            (click)="gotoPage('catalogo','')"
           >
             <a class="nav-item nav-link">CATEGORIAS</a>
           </div>
           <div
             class="lines-item btn-border-5"
             [ngClass]="{ 'active-link': section == 'comprar' }"
-            (click)="gotoPage('comprar')"
+            (click)="gotoPage('comprar','')"
           >
             <a class="nav-item nav-link">COMO COMPRAR</a>
           </div>
           <div
             class="lines-item btn-border-5"
             [ngClass]="{ 'active-link': section == 'preguentas' }"
-            (click)="gotoPage('preguentas')"
+            (click)="gotoPage('preguentas','')"
           >
             <a class="nav-item nav-link">PREG FRECUENTES</a>
           </div>
           <div
             class="lines-item btn-border-5"
             [ngClass]="{ 'active-link': section == 'contacto' }"
-            (click)="gotoPage('contacto')"
+            (click)="gotoPage('contacto','')"
           >
             <a class="nav-item nav-link">CONTACTO</a>
           </div>
@@ -67,6 +67,8 @@
               placeholder="Que desea buscar ?"
               [(ngModel)]="searchSelect"
               [ngModelOptions]="{ standalone: true }"
+              (keyup.enter)="gotoPage('galeria',searchSelect)"
+              
             /><input id="search_submit" value="Rechercher" type="submit" />
           </form>
           <div class="content-table">

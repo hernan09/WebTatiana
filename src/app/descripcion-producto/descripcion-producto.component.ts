@@ -16,7 +16,7 @@ export class DescripcionProductoComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.informacionProducto = this.utilsService.getData();
+    this.informacionProducto = this.utilsService.getSearchProducto();
     console.log("informacion ",this.informacionProducto);
 
   }

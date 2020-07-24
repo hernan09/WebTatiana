@@ -82,6 +82,10 @@ export class CatalogoComponent implements OnInit {
   getArrayProducto(data){
     this.listProducto = data.producto;
   }
+
+  download2() {
+    window.open("https://drive.google.com/file/d/161sr24Dk3k-LdHsheGtTI93McQVewWPP/view");
+  }
  
 
 }

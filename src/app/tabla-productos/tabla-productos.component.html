@@ -13,13 +13,13 @@
 
               <div class="contet-image col-xs-12 col-md-4 col-lg-4" >
                 <img
-                (click)="gotoPage('detalle')"
+                (click)="gotoPage('detalle',subProducto)"
                 [src]="'http://localhost:3000/media/producto/'+ subProducto.img"
                 alt="..."
               />
                 <hr />
                 
-                <button type="button"  (click)="gotoPage('detalle')"  class="btn btn-dark" >
+                <button type="button"  (click)="gotoPage('detalle',subProducto)"  class="btn btn-dark" >
                   Ver Producto
                 </button>
     
@@ -37,3 +37,4 @@
     </div>
   </div>
 </div>
+

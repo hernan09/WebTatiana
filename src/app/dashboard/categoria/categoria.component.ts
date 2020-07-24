@@ -100,20 +100,25 @@ export class CategoriaComponent implements OnInit {
     if (this.nameBtn != 'Editar'){
 
       let formDatCategoria = new FormData();
+
+      let nombreImagenSet = new Date().getMilliseconds().toString();
       
-      formDatCategoria.append('upload',this.categoriaImg);
       formDatCategoria.append('nombre',this.nombre)
       formDatCategoria.append('descripcion',this.descripcion);
+      formDatCategoria.append('nombreImg',nombreImagenSet+this.categoriaImg.name);
+      formDatCategoria.append('upload',this.categoriaImg);
+      formDatCategoria.append('section','categoria');
 
       console.log("formDatCategoria",formDatCategoria);
 
-      this.utilsService.postConfig(this.url+'categoria',formDatCategoria) 
+      this.utilsService.postConfig(this.url+'slide',formDatCategoria) 
         .subscribe( 
           (data) => {
-            console.log("data->",data);
 
-            id.reset();
-            this.popupOk('El producto se guardo correctamente!')
+            console.log("data->",data);
+            this.saveImg(formDatCategoria)
+
+            //id.reset();
           },
           err =>{
             console.log("ERROR",err);
@@ -124,6 +129,22 @@ export class CategoriaComponent implements OnInit {
       this.putCategoria()
     }
 
+  }
+
+
+  saveImg(data){
+    console.log("se guardo imagen!");
+    this.utilsService.postConfig(this.url+'categoria',data) 
+    .subscribe( 
+      (data) => {
+        console.log("data->",data);
+        this.popupOk('La categoria se guardo correctamente!')
+      },
+      err =>{
+        console.log("ERROR",err);
+      }
+
+    );
   }
 
   putCategoria(){

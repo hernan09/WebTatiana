@@ -143,6 +143,7 @@ export class HomeslideComponent implements OnInit {
     let formDataSlide = new FormData();
 
     formDataSlide.append('upload',this.imagenSlide);
+    formDataSlide.append('section','slide');
 
     this.utilsService.postConfig(this.url+'slide',formDataSlide)
       .subscribe(

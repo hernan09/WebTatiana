@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; 
+import { UtilsService } from '../../app/utils.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,54 +11,23 @@ export class NavbarComponent implements OnInit {
   section: String='inicio';
   arrayImages2=[]
   searchSelect=""
-  constructor(private router: Router) { }
+  constructor(private router: Router,private utils:UtilsService) { }
 
-  gotoPage(name:string){
-    console.log("voy a catalogo!");
+
+  ngOnInit(): void {
+    this.getProducto();
+  }
+
+  getProducto(){
+    this.utils.setSearchProducto(this.searchSelect);
+  }
+
+  gotoPage(name:string,searchSelect){
+    console.log("voy a catalogo!",searchSelect);
+    this.utils.setSearchProducto(searchSelect);
+
     this.section = name;
     this.router.navigate([`${name}`]);
   }
 
-
-
- 
-  ngOnInit(): void {
-    this.getImages()
-  }
-
-  getImages(){
-    this.arrayImages2=[
-      { id:1,
-       title:"madera",
-       descripcion:"Distintos elementos elaborados en madera apra sublimar"
-      
-      },
-      { id:2,
-        title:"vinilo",
-       descripcion:"Distintos elementos elaborados en madera apra sublimar",
-       
-      },
-      { id:3,
-        title:"textil",
-       descripcion:"Distintos elementos elaborados en madera apra sublimar"
-       
-      },
-      { id:4,
-        title:"hoja lata",
-       descripcion:"Distintos elementos elaborados en madera apra sublimar"
-      
-      },
-      { id:5,
-        title:"cueros",
-       descripcion:"Distintos elementos elaborados en madera apra sublimar"
-      
-      },
-      { id:6,
-        title:"plasticos",
-       descripcion:"Distintos elementos elaborados en madera apra sublimar"
-      
-      }
-      
-    ]
-  }
 }

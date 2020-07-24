@@ -1,13 +1,30 @@
 <div class="container">
-  <div class="list-card m-5">
-    <div class="grid" *ngFor="let user of Users">
-      <figure class="effect-ming" (click)="gotoPage('detalle')">
-        <img src="{{ user.img }}" alt="..." />
-        <figcaption>
-          {{ user.name }}
-          <p>{{ user.desc }}.</p>
-        </figcaption>
-      </figure>
-    </div>
+
+  <div class="box-loading" *ngIf="showLoading">
+    <div class="spinner-border text-success" ></div><span>CARGANDO...</span>
   </div>
+  <div *ngIf="!showLoading">
+    <h1>Resultado de la busqueda</h1>
+    <input type="text" (keyup.enter)="search2()" [(ngModel)]="busqueda" placeholder="Realizar otra Busqueda">
+    <button class="btn btn-success"   (click)="search2()"> Buscar</button>
+    <app-tabla-productos [productos]="listProducto" ></app-tabla-productos>
+  </div>
+
+    <!-- <div class="row card-box">
+      <div class="col-xs-12 col-md-4 col-lg-4" *ngFor="let user of listProducto "> 
+        <div class="list-card m-5">
+
+        <div class="grid" >
+          <figure class="effect-ming" (click)="gotoPage('detalle')">
+            <img [src]="'http://localhost:3000/media/producto/'+ user.img" alt="..." />
+            <figcaption>
+              <p>{{ user.nombre }}.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+    </div>
+  </div> -->
+
 </div>

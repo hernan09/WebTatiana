@@ -2,46 +2,24 @@
   <h2>Carpetas para sublimar</h2>
   <div class="row">
     <div class="col-md-6 col-xs-6">
-      <div class="img"></div>
+      <div class="img"  [ngStyle]="{'background-image':'url(http://localhost:3000/media/producto/'+ informacionProducto.img +')'}" ></div>
     </div>
     <div class="col-md-6 col-xs-6">
-      <h4>carpetas para sublimar</h4>
-      <p>$200</p>
+      <h4>{{informacionProducto.nombre}}</h4>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum. In culpa qui officia deserunt mollit anim id est
-        laborum.
+        {{informacionProducto.descripcion}}
       </p>
     </div>
   </div>
 
-  <nav></nav>
-  <div class="tab-content" id="nav-tabContent">
-    <div
-      class="tab-pane fade show active"
-      id="nav-home"
-      role="tabpanel"
-      aria-labelledby="nav-home-tab"
-    >
-      <h3>Sublimacion del producto</h3>
-      Excepteur sint occaecat cupidatat, dolore eu fugiat nulla pariatur non
-      proident. Dolorem sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et fugiat nulla pariatur dolore magna aliqua.
-      Irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-      fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation
-      ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </div>
-    <div
-      class="tab-pane fade"
-      id="nav-profile"
-      role="tabpanel"
-      aria-labelledby="nav-profile-tab"
-    >
-      Nam tempor utamur gubergren no. Pri quas audiam virtute ut, case utamur
-      fuisset eam ut, dolor in
-    </div>
-  </div>
+
+  <div  class="tab-pane fade show active"  id="nav-home"  role="tabpanel"  aria-labelledby="nav-home-tab">
+  <h3>Sublimacion del producto</h3>
+  <p>sint occaecat cupidatat, dolore eu fugiat nulla pariatur non
+    proident. Dolorem sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et fugiat nulla pariatur dolore magna aliqua.
+    Irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+    fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation
+    ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+</div>
 </div>
