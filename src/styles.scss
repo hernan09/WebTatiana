@@ -13,6 +13,11 @@
   }
 }
 
+.scroll-position{
+  position: relative !important;
+  top: -200px !important;
+}
+
 .btn-upload{
     [type="file"] {
         height: 0;

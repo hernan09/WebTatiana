@@ -1,4 +1,6 @@
   <div class="container categoria">
+    <div class="scroll-position" id="productos"></div>
+
     <h1> Producto</h1>
   
     <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -38,7 +40,7 @@
           <div class="btn-upload">
             <input type="file" id="producto" name="producto"  (change)="cargarImgProducto($event.target.files)"  placeholder="cargar Imagen">
             <label for="producto" class="btn-2">{{btnImagen}}</label>
-            
+
             <div class="box-img"  *ngIf="!putImage">
               <div class="img" *ngIf="imgURLPreview"  [ngStyle]="{'background-image':'url('+ imgURLPreview +')'}"></div>
             </div>

@@ -71,11 +71,19 @@ a, a:hover, a:focus {
 #sidebar ul li  {
     border-bottom: 1px solid gray;
     cursor: pointer;
+
+    color: black;
+    background:  white;
+
+    :hover{
+        color: white;
+        background:  black;
+    }
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
-    background: black;
+    //color: black;
+    //background:  #fff;
     font-weight: 700;
 }
 ul ul a {

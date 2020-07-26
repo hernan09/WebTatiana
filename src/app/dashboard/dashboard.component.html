@@ -3,33 +3,28 @@
   <nav id="sidebar" [ngClass]="{ active: toggle }" class="">
     <ul class="list-unstyled components scrollbar shadow p-3 mb-5 rounded">
 
-      <li class="active">
-        <a  href="#homeSubmenu"  data-toggle="collapse"  aria-expanded="false"  class="dropdown-toggle" >
-          <span class="span-icon" > <img src="https://img.icons8.com/windows/24/000000/home.png"/></span>   HOME</a>
-          <ul class="collapse list-unstyled" id="homeSubmenu">
-            <li  *ngFor="let section of listCatalogo; let indice = index"  (click)="productoSeleccionado(section, indice)"  >
-              <a> {{ section.name }} </a>
-            </li>
-          </ul>
+      <li class="active" (click)="navigateToHeader('slide')">
+        <a  href="#homeSubmenu"  data-toggle="collapse"  aria-expanded="false"   >
+          <span class="span-icon" > </span>   HOME</a>
       </li>
 
-      <li class="active">
-        <a   href="#homeSubmenu2"    data-toggle="collapse"    aria-expanded="false"   class="dropdown-toggle" >
-          <span class="span-icon" ><img     src="https://img.icons8.com/windows/24/000000/add-shopping-cart.png" /></span>   PRODUCTOS</a>
-      </li>
-
-      <li class="active">
-        <a  href="#homeSubmenu2"  data-toggle="collapse"  aria-expanded="false"   class="dropdown-toggle"><span class="span-icon" ><img  src="https://img.icons8.com/windows/24/000000/add-shopping-cart.png"  /></span>
+      <li class="active"  (click)="navigateToHeader('categoria')">
+        <a  href="#homeSubmenu2"  data-toggle="collapse"  aria-expanded="false"  ><span class="span-icon" ></span>
           CATEGORIAS</a >
       </li>
 
-      <li class="active">
-        <a href="#homeSubmenu3"   data-toggle="collapse"  aria-expanded="false"  class="dropdown-toggle" ><span class="span-icon"  ><img src="https://img.icons8.com/windows/24/000000/plus-math.png"/></span>
-         Preguntas frecuentes</a>
+      <li class="active"  (click)="navigateToHeader('productos')">
+        <a   href="#homeSubmenu2"    data-toggle="collapse"    aria-expanded="false" >
+          <span class="span-icon" ></span>   PRODUCTOS</a>
       </li>
 
-      <li class="active">
-        <a  href="#homeSubmenu4"  data-toggle="collapse"  aria-expanded="false"    class="dropdown-toggle" ><span class="span-icon"   ><img src="https://img.icons8.com/windows/24/000000/plus-math.png"  /></span>
+      <li class="active"  (click)="navigateToHeader('preguntas')">
+        <a href="#homeSubmenu3"   data-toggle="collapse"  aria-expanded="false" ><span class="span-icon"  ></span>
+          PREGUNTAS FRECUENTES</a>
+      </li>
+
+      <li class="active"  (click)="navigateToHeader('compra')">
+        <a  href="#homeSubmenu4"  data-toggle="collapse"  aria-expanded="false"  ><span class="span-icon"   ></span>
           COMO COMPRAR</a >
       </li>
     </ul>
