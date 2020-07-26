@@ -30,7 +30,7 @@ app.listen(port,(err)=>{
 
 app.post('/mailer',(req,res)=>{
     let transporter = nodemailer.createTransport({
-      service: 'outlook',
+      service: 'gmail',
       //configurar el email de la entidad que manda el mail, user y pass
       auth: {
         user: 'sublimadodelmundo@gmail.com',
@@ -46,7 +46,7 @@ app.post('/mailer',(req,res)=>{
       from: 'sublimadodelmundo@gmail.com',
       //el email a donde queres que llegue
       to: 'sublimadodelmundo@gmail.com',
-      subject: 'sublimadodelmundo@gmail.com',
+      subject: 'Sublimadomundo',
       html: `
       <strong>Nombre:</strong> ${req.body.name} <br/>
       <strong>Tell:</strong> ${req.body.tell} <br/>
@@ -58,8 +58,7 @@ app.post('/mailer',(req,res)=>{
     transporter.sendMail(mailoptions, (error, info) => {
         if (error) console.log(`${error}`)
         else {
-          console.log(info)
-          
+          console.log(info) 
         }
       })
     })
