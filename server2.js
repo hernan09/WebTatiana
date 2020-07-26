@@ -33,8 +33,8 @@ app.post('/mailer',(req,res)=>{
       service: 'outlook',
       //configurar el email de la entidad que manda el mail, user y pass
       auth: {
-        user: 'email que enviar',
-        pass: 'password del email'
+        user: 'sublimadodelmundo@gmail.com',
+        pass: 'sublimados123'
       }, 
       tls: {
         rejectUnauthorized: false
@@ -43,10 +43,10 @@ app.post('/mailer',(req,res)=>{
   //cambia los datos emi
     let mailoptions = {
         //aca el email de sublimados
-      from: 'delsublimadomundo@gmail.com',
+      from: 'sublimadodelmundo@gmail.com',
       //el email a donde queres que llegue
-      to: 'delsublimadomundo@gmail.com',
-      subject: 'Hernan Gomez',
+      to: 'sublimadodelmundo@gmail.com',
+      subject: 'sublimadodelmundo@gmail.com',
       html: `
       <strong>Nombre:</strong> ${req.body.name} <br/>
       <strong>Tell:</strong> ${req.body.tell} <br/>
