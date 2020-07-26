@@ -144,6 +144,7 @@ export class HomeslideComponent implements OnInit {
 
     formDataSlide.append('upload',this.imagenSlide);
     formDataSlide.append('section','slide');
+    formDataSlide.append('removeImg',slide);
 
     this.utilsService.postConfig(this.url+'slide',formDataSlide)
       .subscribe(
@@ -161,10 +162,62 @@ export class HomeslideComponent implements OnInit {
       );
   }
 
-
   handleFileInput(files: FileList) {
     console.log("FILE",files)
     this.fileToUpload = files.item(0);
+  }
+
+  popupDelete(data){
+    console.log('id',data._id);
+    //this.showLoading =true;
+
+    let formDataSlideremove = new FormData();
+
+    formDataSlideremove.append('section','slide');
+    formDataSlideremove.append('nombre',data.img);
+
+    let obj = {
+      section:'slide',
+      nombre:data.img
+    }
+    
+    this.utilsService.postConfig(this.url+'slide/'+data._id,obj)
+    .subscribe(
+      (data) => {
+        console.log("data->",data);
+        //this.getProducto(this.idCategoria)
+        this.getSlide();
+        //this.showLoading =false;
+
+      },
+      err =>{
+        this.showLoading =false;
+        console.log("ERROR",err);
+        alert('Intente nuevamente')
+      }
+
+    );
+  }
+
+  showConfirm(data) {
+    let disposable = this.simpleModalService.addModal(PopupComponent, {
+          title: 'Eliminar',
+          message: `¿Desea eliminar esta Imagen?`
+        })
+        .subscribe((isConfirmed)=>{
+            //We get modal result
+            if(isConfirmed) {
+              this.popupDelete(data);
+            }
+            else {
+                //alert('declined');
+            }
+        });
+    //We can close modal calling disposable.unsubscribe();
+    //If modal was not closed manually close it by timeout
+    setTimeout(()=>{
+        //disposable.unsubscribe();
+    },10000);
   }
 
   popupOk(message){

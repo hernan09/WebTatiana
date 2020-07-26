@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   arrayCategoria=[];
   urlDev:string='http://localhost:3000/';  
   urlProd:string='https://serviciosmundosublimado.herokuapp.com/';
-
+  showLoading:boolean;
   url:string=this.urlDev;
   constructor(private router: Router, private utilsService:UtilsService) { }
   
@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit {
   }
 
   getNodevedades(){
+    this.showLoading = true;
     console.log("estoy en categorias GET");//_id que te genera mongo
 
     this.utilsService.getConfig(this.url+'novedades')
@@ -58,6 +59,7 @@ export class HomeComponent implements OnInit {
   }
 
   getArrayNovedades(data){
+    this.showLoading = false;
     this.arrayNovedades = data.producto
   }
 

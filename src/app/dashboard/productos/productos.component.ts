@@ -16,12 +16,13 @@ export class ProductosComponent implements OnInit {
   arrayProducto=[];
   nombre:string;
   descripcion:string;
+  subTitulo:string;
+  detalle:string;
   imagen:File = null;
   disponible:boolean=false;
   activeTab = 'alta';
   showLoading:boolean=true;
   idCategoria:any;
-
   imgURLPreview: any; 
   public imagePath;
 
@@ -30,6 +31,10 @@ export class ProductosComponent implements OnInit {
   url:string=this.urlDev;
 
   nameBtn:string='Guardar';
+
+  img:string;
+  putImage:boolean=false;
+  btnImagen:string="Subir Imagen"
   
   id:string;
   namePopup:string;
@@ -82,13 +87,17 @@ export class ProductosComponent implements OnInit {
   }
 
   editar(data,section) {
+    this.putImage=true;
+    this.btnImagen='Remplazar Imagen';
     console.log("EDITANDO",data);
     this.nameBtn='Editar';
     this.activeTab = section;
 
     this.nombre = data.nombre;
     this.descripcion = data.descripcion;
-    //this.imagen = 'asd';
+    this.subTitulo = data.subTitulo;
+    this.detalle = data.detalle;
+    this.img = data.img;
     this.id = data._id;
 
     this.idCategoria = data.id_catalogo;
@@ -102,6 +111,7 @@ export class ProductosComponent implements OnInit {
   }
 
   cargarImgProducto(files: FileList){
+    this.putImage =false;
     console.log("IMAGEN",files);
 
     this.imagen = files.item(0);;
@@ -118,7 +128,6 @@ export class ProductosComponent implements OnInit {
 
   }
  
-
   postProducto(id) {
     this.showLoading =true;
 
@@ -132,13 +141,15 @@ export class ProductosComponent implements OnInit {
       formData.append('id_catalogo',this.idCategoria);
       formData.append('nombre',this.nombre)
       formData.append('descripcion',this.descripcion);
+      formData.append('subTitulo',this.subTitulo);
+      formData.append('detalle',this.detalle);
       formData.append('section','producto');
       formData.append('nombreImg',nombreImagenSet+this.imagen.name);
 
       console.log("formData",formData);
 
   
-      this.utilsService.postConfig(this.url+'slide',formData)
+      this.utilsService.postConfig(this.url+'producto',formData)
         .subscribe(
           (data) => {
             console.log("data->",data);
@@ -157,7 +168,7 @@ export class ProductosComponent implements OnInit {
 
   saveImg(data){
     console.log("se guardo imagen!");
-    this.utilsService.postConfig(this.url+'producto',data) 
+    this.utilsService.postConfig(this.url+'slide',data) 
     .subscribe( 
       (data) => {
         console.log("data->",data);
@@ -176,22 +187,37 @@ export class ProductosComponent implements OnInit {
 
   putProducto(){
       this.showLoading =true;
-
+      this.btnImagen="Subir Imagen";
       console.log("estoy en producto PUT",this.idCategoria);
 
-      let obj = {
-          id_admin:1,
-          id_catalogo:this.idCategoria,
-          nombre: this.nombre,
-          descripcion: this.descripcion,
-          disponible: false,
-          stock: 0,
-          img: 'https://upload.wikimedia.org/wikipedia/commons/4/4b/16_wood_samples.jpg'
-      }
+      let putFormData = new FormData();
+      let nombreImagenSet = new Date().getMilliseconds().toString();
+
+      putFormData.append('upload',this.imagen);
+      putFormData.append('id_catalogo',this.idCategoria);
+      putFormData.append('nombre',this.nombre)
+      putFormData.append('descripcion',this.descripcion);
+      putFormData.append('subTitulo',this.subTitulo);
+      putFormData.append('detalle',this.detalle);
+      putFormData.append('section','producto');
   
+      if(!this.putImage){
+        console.log("Entro en 1");
+        putFormData.append('eliminar','true');
+        putFormData.append('nombreImg',nombreImagenSet+this.imagen.name);
+        putFormData.append('oldnombreImagen',this.img);
+        this.saveImg(putFormData);
+      }else{
+        console.log("Entro en 2");
+        putFormData.append('eliminar','false');
+        putFormData.append('nombreImg',this.img);
+        putFormData.append('oldnombreImagen','');
+
+      }
+
       let id = this.id;
   
-      this.utilsService.putConfig(this.url+'producto/'+id,obj)
+      this.utilsService.putConfig(this.url+'producto/'+id,putFormData)
         .subscribe(
           (data) => {
             console.log("data->",data);
@@ -208,6 +234,9 @@ export class ProductosComponent implements OnInit {
   
         );
   }
+
+
+ 
 
 
   deleteProducto(data){
@@ -285,6 +314,8 @@ export class ProductosComponent implements OnInit {
     this.nombre ='';
     this.descripcion='';
     this.imgURLPreview=undefined;
+    this.subTitulo = '';
+    this.detalle = '';
   }
 
 }

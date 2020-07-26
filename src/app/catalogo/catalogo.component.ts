@@ -15,17 +15,37 @@ export class CatalogoComponent implements OnInit {
   indiceSeleccionado:number;
   urlDev:string='http://localhost:3000/';  
   urlProd:string='https://serviciosmundosublimado.herokuapp.com/';
-
+  arrayNovedades = [];
   url:string=this.urlDev;
-
+  showLoading:boolean=false;
 
   constructor(private http:HttpClient,private animateScrollService: NgAnimateScrollService, private utilsService:UtilsService) { }
 
   ngOnInit(): void {
+    this.getNodevedades();
 
     //this.getListaCatalogo()
     this.getCategoria();
 
+  }
+
+  getNodevedades(){
+    this.showLoading=true;
+
+    console.log("estoy en categorias GET");//_id que te genera mongo
+
+    this.utilsService.getConfig(this.url+'novedades')
+      .subscribe((data) => {
+        console.log("novedades->",data);
+        this.showLoading=false;
+
+        this.getArrayNovedades(data);
+      });
+
+  }
+
+  getArrayNovedades(data){
+    this.arrayNovedades = data.producto
   }
 
 
@@ -71,6 +91,7 @@ export class CatalogoComponent implements OnInit {
   }
 
   getProducto(id){
+    this.showLoading=true;
     console.log("estoy en producto GET");
     this.utilsService.getConfig(this.url+'producto/'+id)
       .subscribe((data) => {
@@ -80,6 +101,8 @@ export class CatalogoComponent implements OnInit {
   }
 
   getArrayProducto(data){
+    this.showLoading=false;
+
     this.listProducto = data.producto;
   }
 

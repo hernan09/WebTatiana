@@ -30,12 +30,21 @@
           <input type="text" [(ngModel)]="nombre" name="nombreProdcuto"  placeholder="Nombre">
   
           <textarea name="" id=""  [(ngModel)]="descripcion" name="descripcionProdcuto" placeholder="Descripción"  cols="30" rows="10"></textarea>
+
+          <input type="text" [(ngModel)]="subTitulo" name="subTitulo"  placeholder="Sub Titulo">
+  
+          <textarea name="detalle" id=""  [(ngModel)]="detalle" placeholder="Detalle"  cols="30" rows="10"></textarea>
   
           <div class="btn-upload">
             <input type="file" id="producto" name="producto"  (change)="cargarImgProducto($event.target.files)"  placeholder="cargar Imagen">
-            <label for="producto" class="btn-2">Subir Imagenes</label>
-            <div class="box-img">
+            <label for="producto" class="btn-2">{{btnImagen}}</label>
+            
+            <div class="box-img"  *ngIf="!putImage">
               <div class="img" *ngIf="imgURLPreview"  [ngStyle]="{'background-image':'url('+ imgURLPreview +')'}"></div>
+            </div>
+
+            <div *ngIf="putImage">
+              <div class="img "  [ngStyle]="{'background-image':'url(http://localhost:3000/media/producto/'+ img+')'}">  </div>
             </div>
           </div>
   

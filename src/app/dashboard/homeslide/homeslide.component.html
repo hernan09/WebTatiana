@@ -4,7 +4,7 @@
       <div class="box"   >
         <div *ngIf="arrayImage">
           <div class="img "  *ngFor="let img of arrayImage" [ngStyle]="{'background-image':'url(http://localhost:3000/media/slide/'+ img.img+')'}">
-            <button type="button" class="close" aria-label="Close">
+            <button type="button" class="close" aria-label="Close" (click)="showConfirm(img)">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>

@@ -30,33 +30,18 @@
 
 </div>
 
-<div class="container">
-  <div class="row"></div>
+<div class="container contain">
 
-  <div class="col-12 col-md-12 col-lg-12">
-    <div class="jumbotron">
-      <blockquote class="text-center">
-        <h3 class="display-4 mb-5">Novedades</h3>
+  <h3 class="display-4" style="text-align: center;">Novedades</h3>
 
-        <div class="content-images-most">
-          <div class="contet-image"  *ngFor="let novedades of arrayNovedades">
-            <img
-              (click)="gotoPage('detalle')"
-              [src]="'http://localhost:3000/media/producto/'+ novedades.img"
-              alt="..."
-            />
-            <hr />
-            <button   type="button"  (click)="gotoPage('detalle')"  class="btn btn-info"   >
-              Ver Producto
-            </button>
-
-            <h5>{{novedades.nombre}}</h5>
-          </div>
-        </div>
-        
-      </blockquote>
-    </div>
+  <div class="box-loading" *ngIf="showLoading">
+    <div class="spinner-border text-success" ></div><span>CARGANDO...</span>
   </div>
+
+  <div *ngIf="!showLoading">
+      <app-tabla-productos [productos]="arrayNovedades" ></app-tabla-productos>
+  </div>
+
 
   <div class="col-12 col-md-12 col-lg-12 contain">
     <!-- probando los endpoint
@@ -84,7 +69,7 @@
     <h1>Buscar</h1>
     <button (click)="search()">get Buscar</button> -->
 
-    <h3 class="display-4" style="text-align: center;">Categorias</h3>
+    <h3 class="display-4" style="text-align: center;">Categorías</h3>
     
     <div class="content-grid">
       <div class="grid" (click)="gotoPage('catalogo')">

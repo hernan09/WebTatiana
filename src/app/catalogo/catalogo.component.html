@@ -67,10 +67,21 @@
         realizar su compra.
       </p>
       <p>A continuación Listado de precios</p> -->
+      <div>
+        <div class="box-loading" *ngIf="showLoading">
+          <div class="spinner-border text-success" ></div><span>CARGANDO...</span>
+        </div>
 
-      <div class="table">
-        <app-tabla-productos [productos]="listProducto"></app-tabla-productos>
+        <div *ngIf="!showLoading && listProducto.length == 0 ">
+          <app-tabla-productos [productos]="arrayNovedades" ></app-tabla-productos>
+        </div>
+
+
+        <div class="table" *ngIf="!showLoading && listProducto.length > 0">
+          <app-tabla-productos [productos]="listProducto"></app-tabla-productos>
+        </div>
       </div>
+
     </div>
   </div>
 </div>

@@ -36,9 +36,10 @@ export class UtilsService {
 		return this.http.put(url,obj);
 	}
 
-	deleteConfig(url) {
+	deleteConfig(url,data:any={}) {
 		console.log("url",url);
-		return this.http.delete(url);
+		console.log("data",data);
+		return this.http.delete(url,data );
 	}
 
 

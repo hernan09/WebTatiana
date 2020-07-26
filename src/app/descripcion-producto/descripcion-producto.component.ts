@@ -22,3 +22,4 @@ export class DescripcionProductoComponent implements OnInit {
   }
 
 }
+//C:\Users\emili\AppData\Local\Android\Sdk

@@ -1,11 +1,11 @@
 <div class="container">
-  <h2>Carpetas para sublimar</h2>
+  <h2>{{informacionProducto.nombre}}</h2>
   <div class="row">
     <div class="col-md-6 col-xs-6">
       <div class="img"  [ngStyle]="{'background-image':'url(http://localhost:3000/media/producto/'+ informacionProducto.img +')'}" ></div>
     </div>
     <div class="col-md-6 col-xs-6">
-      <h4>{{informacionProducto.nombre}}</h4>
+      <h4>Descripción:</h4>
       <p>
         {{informacionProducto.descripcion}}
       </p>
@@ -14,12 +14,7 @@
 
 
   <div  class="tab-pane fade show active"  id="nav-home"  role="tabpanel"  aria-labelledby="nav-home-tab">
-  <h3>Sublimacion del producto</h3>
-  <p>sint occaecat cupidatat, dolore eu fugiat nulla pariatur non
-    proident. Dolorem sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et fugiat nulla pariatur dolore magna aliqua.
-    Irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-    fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation
-    ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+  <h3> {{informacionProducto.subTitulo}}</h3>
+  <p> {{informacionProducto.detalle}}</p> 
 </div>
 </div>
