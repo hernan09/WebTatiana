@@ -78,6 +78,12 @@
             ></textarea>
           </div>
           <button type="submit" class="btn btn-dark">Enviar</button>
+          <div class="box-loading" *ngIf="showLoading">
+            <div class="spinner-border text-success" ></div><span>ENVIANDO...</span>
+          </div>
+          <div class="box-loading" *ngIf="showLoadingm">
+            <span>{{message}}!</span>
+          </div>
         </form>
       </div>
 

@@ -10,18 +10,32 @@ export class ContactoComponent implements OnInit {
  nombre:any
  tell:any
  email:any
- texto:any
+ texto:any;
+ showLoading:boolean=false;
+ showLoadingm:boolean=false;
+ message:String;
   constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
+    this.showLoading=false;
+    this.showLoadingm=false;
   }
 
   sendMessage(body) {
-    return this.http.post("http://localhost:4000/mailer", body).subscribe(data =>{
+    this.showLoading =true;
+    console.log("envia emial")
+    return this.http.post("http://localhost:3000/mailer", body).subscribe(data =>{
       console.log('salio la data', data)
+      this.showLoading=false;
+      this.showLoadingm=true;
+      this.getMessage(data);
     });
    
     }
+
+  getMessage(data){
+    this.message = data.message;
+  }
 
 
     contactForm(e){
