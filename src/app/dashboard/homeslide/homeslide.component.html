@@ -61,3 +61,10 @@
 
   <button class="btn" *ngIf="arrayProducto.length"  (click)="actualizarNovedates()">Guardar</button>
 </div>
+
+<div class="container slide">
+  <h1>Link PDF</h1> 
+
+  <input type="text" [(ngModel)]="pdf"><button class="btn" (click)="guardarPDF()">Guardar</button>
+
+</div>

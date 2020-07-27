@@ -18,7 +18,7 @@ export class CatalogoComponent implements OnInit {
   arrayNovedades = [];
   url:string=this.urlDev;
   showLoading:boolean=false;
-
+  pdf:string;
   constructor(private http:HttpClient,private animateScrollService: NgAnimateScrollService, private utilsService:UtilsService) { }
 
   ngOnInit(): void {
@@ -26,6 +26,7 @@ export class CatalogoComponent implements OnInit {
 
     //this.getListaCatalogo()
     this.getCategoria();
+    this.getPdf();
 
   }
 
@@ -99,6 +100,21 @@ export class CatalogoComponent implements OnInit {
         this.getArrayProducto(data);
       });
   }
+  
+  getPdf(){
+    this.showLoading=true;
+    console.log("estoy en producto GET");
+    this.utilsService.getConfig(this.url+'pdf')
+      .subscribe((data) => {
+        console.log("data->",data);
+        this.getArrayPdf(data);
+      });
+  }
+
+  getArrayPdf(data){
+    console.log("pdf",data)
+    this.pdf = data.pdf[0].pdf;
+  }
 
   getArrayProducto(data){
     this.showLoading=false;
@@ -107,7 +123,7 @@ export class CatalogoComponent implements OnInit {
   }
 
   download2() {
-    window.open("https://drive.google.com/file/d/161sr24Dk3k-LdHsheGtTI93McQVewWPP/view");
+    window.open(this.pdf);
   }
  
 

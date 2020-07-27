@@ -21,7 +21,7 @@ export class HomeslideComponent implements OnInit {
   idCategoria:any;
   urlDev:string='http://localhost:3000/';  
   urlProd:string='https://serviciosmundosublimado.herokuapp.com/';
-
+  pdf:string;
   url:string=this.urlDev;
 
   imagenSlide:any;
@@ -153,6 +153,25 @@ export class HomeslideComponent implements OnInit {
           this.imgURLPreview=undefined;
           this.getSlide()
           this.popupOk('La Imagen se guardo correctamente!');
+        },
+        err =>{
+          console.log("ERROR",err);
+          alert(err);
+        }
+
+      );
+  }
+
+  guardarPDF() {
+    let formDataSlide = new FormData();
+
+    formDataSlide.append('pdf', this.pdf);
+
+    this.utilsService.postConfig(this.url+'pdf',formDataSlide)
+      .subscribe(
+        (data) => {
+          console.log("data->",data);
+          this.popupOk('El PDF se guardo correctamente!');
         },
         err =>{
           console.log("ERROR",err);

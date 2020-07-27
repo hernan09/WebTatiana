@@ -8,9 +8,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "start3": "node server2.js",
     "ng": "ng",
-    "start2": "ng serve",
     "build": "ng build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
