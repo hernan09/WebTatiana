@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   urlDev:string='http://localhost:3000/';  
   urlProd:string='https://serviceemds.herokuapp.com/';
   showLoading:boolean;
-  url:string=this.urlDev;
+  url:string=this.urlProd;
   constructor(private router: Router, private utilsService:UtilsService) { }
   
 

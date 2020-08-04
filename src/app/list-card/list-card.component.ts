@@ -20,7 +20,7 @@ export class ListCardComponent implements OnInit {
   urlDev:string='http://localhost:3000/';  
   urlProd:string='https://serviceemds.herokuapp.com/';
 
-  url:string=this.urlDev;
+  url:string=this.urlProd;
 
   constructor(private http:HttpClient, private router: Router,private utils:UtilsService,private activatedRoute: ActivatedRoute) { 
     console.log("ENTRO2");

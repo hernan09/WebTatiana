@@ -22,7 +22,7 @@ export class HomeslideComponent implements OnInit {
   urlDev:string='http://localhost:3000/';  
   urlProd:string='https://serviceemds.herokuapp.com/';
   pdf:string;
-  url:string=this.urlDev;
+  url:string=this.urlProd;
 
   imagenSlide:any;
   

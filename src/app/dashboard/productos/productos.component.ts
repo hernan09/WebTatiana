@@ -28,7 +28,7 @@ export class ProductosComponent implements OnInit {
 
   urlDev:string='http://localhost:3000/';  
   urlProd:string='https://serviceemds.herokuapp.com/';
-  url:string=this.urlDev;
+  url:string=this.urlProd;
 
   nameBtn:string='Guardar';
 

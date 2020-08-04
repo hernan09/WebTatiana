@@ -16,7 +16,7 @@ export class CatalogoComponent implements OnInit {
   urlDev:string='http://localhost:3000/';  
   urlProd:string='https://serviceemds.herokuapp.com/';
   arrayNovedades = [];
-  url:string=this.urlDev;
+  url:string=this.urlProd;
   showLoading:boolean=false;
   pdf:string;
   constructor(private http:HttpClient,private animateScrollService: NgAnimateScrollService, private utilsService:UtilsService) { }

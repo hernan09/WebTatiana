@@ -12,7 +12,7 @@ export class PregfrecuentesComponent implements OnInit {
   urlDev:string='http://localhost:3000/';  
   urlProd:string='https://serviceemds.herokuapp.com/';
 
-  url:string=this.urlDev;
+  url:string=this.urlProd;
   constructor(private http:HttpClient, private utilsService:UtilsService) { }
 
   ngOnInit(): void {
