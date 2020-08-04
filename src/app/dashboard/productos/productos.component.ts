@@ -27,7 +27,7 @@ export class ProductosComponent implements OnInit {
   public imagePath;
 
   urlDev:string='http://localhost:3000/';  
-  urlProd:string='https://serviciosmundosublimado.herokuapp.com/';
+  urlProd:string='https://serviceemds.herokuapp.com/';
   url:string=this.urlDev;
 
   nameBtn:string='Guardar';

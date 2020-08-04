@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   arrayNovedades=[];
   arrayCategoria=[];
   urlDev:string='http://localhost:3000/';  
-  urlProd:string='https://serviciosmundosublimado.herokuapp.com/';
+  urlProd:string='https://serviceemds.herokuapp.com/';
   showLoading:boolean;
   url:string=this.urlDev;
   constructor(private router: Router, private utilsService:UtilsService) { }

@@ -18,7 +18,7 @@ export class ListCardComponent implements OnInit {
   private _jsonURL = 'assets/mock.json';
 
   urlDev:string='http://localhost:3000/';  
-  urlProd:string='https://serviciosmundosublimado.herokuapp.com/';
+  urlProd:string='https://serviceemds.herokuapp.com/';
 
   url:string=this.urlDev;
 

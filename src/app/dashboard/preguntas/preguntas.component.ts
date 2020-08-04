@@ -21,7 +21,7 @@ export class PreguntasComponent implements OnInit {
   showLoading:boolean=true;
 
   urlDev:string='http://localhost:3000/';  
-  urlProd:string='https://serviciosmundosublimado.herokuapp.com/';
+  urlProd:string='https://serviceemds.herokuapp.com/';
 
   url:string=this.urlDev;
 

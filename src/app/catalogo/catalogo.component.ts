@@ -14,7 +14,7 @@ export class CatalogoComponent implements OnInit {
   listProducto = [];
   indiceSeleccionado:number;
   urlDev:string='http://localhost:3000/';  
-  urlProd:string='https://serviciosmundosublimado.herokuapp.com/';
+  urlProd:string='https://serviceemds.herokuapp.com/';
   arrayNovedades = [];
   url:string=this.urlDev;
   showLoading:boolean=false;

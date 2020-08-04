@@ -11,7 +11,7 @@ export class ComprarComponent implements OnInit {
   arrayPregRes=[];
   idSelected:any;
   urlDev:string='http://localhost:3000/';  
-  urlProd:string='https://serviciosmundosublimado.herokuapp.com/';
+  urlProd:string='https://serviceemds.herokuapp.com/';
 
   url:string=this.urlDev;
   constructor(private http:HttpClient, private utilsService:UtilsService) { }

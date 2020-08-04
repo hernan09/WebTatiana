@@ -20,7 +20,7 @@ export class HomeslideComponent implements OnInit {
   arrayProducto=[];
   idCategoria:any;
   urlDev:string='http://localhost:3000/';  
-  urlProd:string='https://serviciosmundosublimado.herokuapp.com/';
+  urlProd:string='https://serviceemds.herokuapp.com/';
   pdf:string;
   url:string=this.urlDev;
 
