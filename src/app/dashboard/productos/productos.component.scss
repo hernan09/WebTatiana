@@ -8,6 +8,13 @@ input,textarea {
     margin-right: 20px;
 }
 
+.link-btn {
+    cursor: pointer;
+    &:hover {
+        color: blue;
+    }
+}
+
 .categoria {
     min-height: 70vh;
     border-bottom: 1px solid grey;

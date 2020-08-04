@@ -46,6 +46,10 @@ export class ProductosComponent implements OnInit {
     this.getCategorias();
   }
 
+  recarga(){
+    this.getCategorias();
+  }
+
   getCategorias(){
     console.log("estoy en categorias GET");//_id que te genera mongo
 

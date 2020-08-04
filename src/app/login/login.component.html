@@ -10,7 +10,7 @@
             id="exampleInputtext1"
             aria-describedby="emailHelp"
             required
-            [(ngModel)]="data.name"
+            [(ngModel)]="user"
             [ngModelOptions]="{ standalone: true }"
           />
         </div>
@@ -20,12 +20,12 @@
             type="password"
             class="form-control"
             id="exampleInputPassword1"
-            [(ngModel)]="data.pass"
+            [(ngModel)]="pass"
             [ngModelOptions]="{ standalone: true }"
             required
           />
         </div>
-        <button type="submit" class="btn btn-info btn-block">
+        <button type="submit"   (click)="gotoPage('dashboard')" class="btn btn-info btn-block">
           Login
         </button>
       </form>

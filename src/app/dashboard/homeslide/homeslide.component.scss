@@ -77,6 +77,13 @@
         }
     }
 }  
+.link-btn {
+    cursor: pointer;
+    &:hover {
+        color: blue;
+    }
+}
+
 
 .box {
     height: 138px;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-login',
@@ -7,12 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   showmodalbolean:boolean = false;
+  section: String='inicio';
+
+  user:string;
+  pass:string;
    data={
      name:'',
      pass:''
    }
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -38,6 +43,14 @@ export class LoginComponent implements OnInit {
        console.log('vola de aca intrusoo')
      }
    }
+  }
+
+  gotoPage(name:string){
+    console.log("voy a catalogo!");
+    this.section = name;
+    
+    if(this.user == 'delsublimado.mundo@gmail.com' && this.pass=="lanus2020") this.router.navigate([`${name}`]);
+    else alert('Contraseña incorrecta')
   }
 
 }

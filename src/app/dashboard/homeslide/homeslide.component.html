@@ -31,13 +31,14 @@
 
 <div class="container slide">
   <h1> Novedades    </h1> 
+  <a  class="link-btn" (click)="recarga()">Traer últimas categoria cargadas</a>
+
   <div class="box-loading" *ngIf="showLoading">
     <div class="spinner-border text-success" ></div><span>CARGANDO...</span>
   </div>
 
   <div *ngIf="!showLoading ">
 
-    <label for="">Categoría </label> 
     <select id="editselect" #editselect name="select-categoria2" class="form-control" (change)="getProducto(editselect)">
       <option  value="0" >Seleccione una categoria para empezar</option>
       <option *ngFor="let categoria of arrayCategoria" [value]="categoria._id" >{{categoria.nombre}}</option>

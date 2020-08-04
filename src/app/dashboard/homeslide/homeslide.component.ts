@@ -37,6 +37,10 @@ export class HomeslideComponent implements OnInit {
     
   }
 
+  recarga(){
+    this.getCategorias();
+  }
+
   getCategorias(){
     console.log("estoy en categorias GET");//_id que te genera mongo
 
