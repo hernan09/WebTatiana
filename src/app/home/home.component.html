@@ -9,7 +9,7 @@
 
 
           <div class="carousel-item "  [ngClass]="{ 'active': 1 == i }" *ngFor="let img of  arrayImages;  index as i">
-            <img [src]="'http://localhost:3000/media/slide/'+ img.img"    class="d-block w-100"   alt="..."    />
+            <img [src]="'https://serviceemds.herokuapp.com/media/slide/'+ img.img"    class="d-block w-100"   alt="..."    />
           </div>
 
    
@@ -74,7 +74,7 @@
     <div class="content-grid">
       <div class="grid" (click)="gotoPage('catalogo')">
         <figure  class="effect-jazz"   *ngFor="let item of arrayCategoria; let indice = index"  >
-          <img  [src]="'http://localhost:3000/media/categoria/'+ item.img" alt="img25" />
+          <img  [src]="'https://serviceemds.herokuapp.com/media/categoria/'+ item.img" alt="img25" />
           <figcaption>
             <h2>{{ item.nombre }}</h2>
             <p [hidden]="item.descripcion == 'null'">
