@@ -2,6 +2,7 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { Router } from '@angular/router'; 
 import { HttpClient } from '@angular/common/http';
 import { UtilsService } from '../../app/utils.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,7 @@ export class HomeComponent implements OnInit {
   urlProd:string='https://serviceemds.herokuapp.com/';
   showLoading:boolean;
   url:string=this.urlProd;
-  constructor(private router: Router, private utilsService:UtilsService) { }
+  constructor(private router: Router, private utilsService:UtilsService,private _sanitizer: DomSanitizer) { }
   
 
   ngOnInit(): void {
@@ -44,6 +45,8 @@ export class HomeComponent implements OnInit {
 
   getArraySlide(data){
     this.arrayImages = data.slide
+
+
   }
 
   getNodevedades(){

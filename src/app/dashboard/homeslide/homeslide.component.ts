@@ -4,6 +4,7 @@ import { UtilsService } from '../../../app/utils.service';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { SimpleModalService } from "ngx-simple-modal";
 import { PopupComponent  } from '../popup/popup.component';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-homeslide',
@@ -23,13 +24,13 @@ export class HomeslideComponent implements OnInit {
   urlProd:string='https://serviceemds.herokuapp.com/';
   pdf:string;
   url:string=this.urlProd;
-
+  imagePathshow:any;
   imagenSlide:any;
   
   imgURLPreview: any; 
   public imagePath;
   arraySlideimg =[];
-  constructor(private http:HttpClient, private utilsService:UtilsService,private simpleModalService:SimpleModalService) { }
+  constructor(private http:HttpClient, private utilsService:UtilsService,private simpleModalService:SimpleModalService,private _sanitizer: DomSanitizer) { }
   
   ngOnInit(): void {
     this.getCategorias();
@@ -123,6 +124,10 @@ export class HomeslideComponent implements OnInit {
 
   getArraySlide(data){
     this.arrayImage =data.slide;
+
+    this.imagePathshow = this._sanitizer.bypassSecurityTrustResourceUrl('data:'+ this.arrayImage[0].mimetype+';base64,' 
+                 + this.arrayImage[0].base64);
+    console.log('imagePathshow',this.imagePathshow);
   }
 
   cargarImgSlide(files: FileList){
@@ -151,6 +156,35 @@ export class HomeslideComponent implements OnInit {
     formDataSlide.append('removeImg',slide);
 
     this.utilsService.postConfig(this.url+'slide',formDataSlide)
+      .subscribe(
+        (data) => {
+          console.log("data->",data);
+          this.imgURLPreview=undefined;
+          this.getSlide()
+          this.popupOk('La Imagen se guardo correctamente!');
+        },
+        err =>{
+          console.log("ERROR",err);
+          alert(err);
+        }
+
+      );
+  }
+
+  upImage22222(slide){
+    console.log("estoy en slide POST",this.imagenSlide);
+
+    let formDataSlide = new FormData();
+
+    formDataSlide.append('upload',this.imagenSlide);
+
+    let obj = {
+      upload:this.imagenSlide,
+      removeImg:slide
+    }
+
+
+    this.utilsService.postConfig(this.url+'slide',obj)
       .subscribe(
         (data) => {
           console.log("data->",data);

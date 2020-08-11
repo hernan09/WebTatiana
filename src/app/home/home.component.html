@@ -7,11 +7,9 @@
       <div   id="carouselExampleFade"    class="carousel slide carousel-fade"     data-ride="carousel"  >
         <div class="carousel-inner" data-interval="3000">
 
-
           <div class="carousel-item "  [ngClass]="{ 'active': 1 == i }" *ngFor="let img of  arrayImages;  index as i">
-            <img [src]="'https://serviceemds.herokuapp.com/media/slide/'+ img.img"    class="d-block w-100"   alt="..."    />
+            <img [src]="_sanitizer.bypassSecurityTrustResourceUrl('data:'+ img.mimetype+';base64,' + img.base64)"    class="d-block w-100"   alt="..."    />
           </div>
-
    
           <a  class="carousel-control-prev"    href="#carouselExampleFade"   role="button"   data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

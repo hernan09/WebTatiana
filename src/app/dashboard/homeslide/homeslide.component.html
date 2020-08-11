@@ -1,10 +1,10 @@
 <div class="container slide">
   <div class="scroll-position" id="slide"></div>
   <h1> Slide de Imagenes</h1>
-
+  
       <div class="box"   >
         <div *ngIf="arrayImage">
-          <div class="img "  *ngFor="let img of arrayImage" [ngStyle]="{'background-image':'url(https://serviceemds.herokuapp.com/media/slide/'+ img.img+')'}">
+          <div class="img "  *ngFor="let img of arrayImage"  [style.background-image]="'url(' +  _sanitizer.bypassSecurityTrustResourceUrl('data:'+ img.mimetype+';base64,' + img.base64).changingThisBreaksApplicationSecurity + ')'">
             <button type="button" class="close" aria-label="Close" (click)="showConfirm(img)">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -14,7 +14,7 @@
         <h2 *ngIf="!arrayImage">No hay Imagenes Cargadas</h2>
       </div>
 
-    <form #slide="ngForm">
+    <form #slide="ngForm" enctype="multipart/form-data">
       <div class="">
           <input type="file"  id="slide" name="slide" (change)="cargarImgSlide($event.target.files)"  placeholder="cargar Imagen" >
           <label for="slide" class="btn-2">Subir Imagenes</label>
