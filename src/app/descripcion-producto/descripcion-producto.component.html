@@ -2,7 +2,7 @@
   <h2>{{informacionProducto.nombre}}</h2>
   <div class="row">
     <div class="col-md-6 col-xs-6">
-      <div class="img"  [ngStyle]="{'background-image':'url(https://serviceemds.herokuapp.com/media/producto/'+ informacionProducto.img +')'}" ></div>
+    <div class="img" [style.background-image]="'url('+ imagePathshow.changingThisBreaksApplicationSecurity + ')'"></div> 
     </div>
     <div class="col-md-6 col-xs-6">
       <h4>Descripción:</h4>
@@ -12,9 +12,8 @@
     </div>
   </div>
 
-
   <div  class="tab-pane fade show active"  id="nav-home"  role="tabpanel"  aria-labelledby="nav-home-tab">
-  <h3> {{informacionProducto.subTitulo}}</h3>
-  <p> {{informacionProducto.detalle}}</p> 
-</div>
+    <h3> {{informacionProducto.subTitulo}}</h3>
+    <p> {{informacionProducto.detalle}}</p> 
+  </div>
 </div>

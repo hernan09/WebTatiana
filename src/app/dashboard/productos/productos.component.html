@@ -2,7 +2,7 @@
     <div class="scroll-position" id="productos"></div>
 
     <h1> Producto</h1>
-    <a  class="link-btn" (click)="recarga()">Traer últimas categoria cargadas</a>
+    <a  class="link-btn" (click)="recarga()">Traer últimas categorías cargadas</a>
   
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
@@ -23,7 +23,7 @@
   
       <div class="tab-pane fade show active" id="alta-producto" role="tabpanel" aria-labelledby="altaproducto"  [ngClass]="{ 'active':activeTab=='alta','show':activeTab=='alta'}">
   
-        <form #producto="ngForm">
+        <form #producto="ngForm" name="producto" enctype="multipart/form-data">
 
           <label for="">Categoría</label>
           <select id="inputState"  #inputState name="select-categoria" class="form-control" [(ngModel)]="idCategoria" (change)="getSelectAddId(inputState)">
@@ -47,7 +47,7 @@
             </div>
 
             <div *ngIf="putImage">
-              <div class="img "  [ngStyle]="{'background-image':'url(https://serviceemds.herokuapp.com/media/producto/'+ img+')'}">  </div>
+              <div class="img "  [style.background-image]="'url(' +  _sanitizer.bypassSecurityTrustResourceUrl('data:'+ allDataPut.mimetype+';base64,' + allDataPut.base64).changingThisBreaksApplicationSecurity + ')'">  </div>
             </div>
           </div>
   

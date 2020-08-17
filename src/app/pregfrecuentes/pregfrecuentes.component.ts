@@ -24,8 +24,6 @@ export class PregfrecuentesComponent implements OnInit {
     return this.http.get('this._jsonURL').subscribe((resp:any)=>{
     })
   }
-
-
   
   getPreFre(){
     console.log("estoy en prefre GET");

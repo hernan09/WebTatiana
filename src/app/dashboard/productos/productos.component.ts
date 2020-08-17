@@ -4,6 +4,7 @@ import { UtilsService } from '../../../app/utils.service';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { SimpleModalService } from "ngx-simple-modal";
 import { PopupComponent  } from '../popup/popup.component';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class ProductosComponent implements OnInit {
   showLoading:boolean=true;
   idCategoria:any;
   imgURLPreview: any; 
-  public imagePath;
+  imagePath;
 
   urlDev:string='http://localhost:3000/';  
   urlProd:string='https://serviceemds.herokuapp.com/';
@@ -35,12 +36,11 @@ export class ProductosComponent implements OnInit {
   img:string;
   putImage:boolean=false;
   btnImagen:string="Subir Imagen"
-  
+  allDataPut:any;
   id:string;
   namePopup:string;
   categoria2:string='asdasd';
-  constructor(private http:HttpClient, private utilsService:UtilsService,private simpleModalService:SimpleModalService) {
-   }
+  constructor(private http:HttpClient, private utilsService:UtilsService,private simpleModalService:SimpleModalService,private _sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.getCategorias();
@@ -96,7 +96,7 @@ export class ProductosComponent implements OnInit {
     console.log("EDITANDO",data);
     this.nameBtn='Editar';
     this.activeTab = section;
-
+    this.allDataPut = data;
     this.nombre = data.nombre;
     this.descripcion = data.descripcion;
     this.subTitulo = data.subTitulo;
@@ -135,7 +135,7 @@ export class ProductosComponent implements OnInit {
   postProducto(id) {
     this.showLoading =true;
 
-    if (this.nameBtn != 'Editar'){
+    if (this.nameBtn != 'Editar') {
       console.log("estoy en producto POST",this.imagen);
 
       let formData = new FormData();
@@ -143,7 +143,7 @@ export class ProductosComponent implements OnInit {
 
       formData.append('upload',this.imagen);
       formData.append('id_catalogo',this.idCategoria);
-      formData.append('nombre',this.nombre)
+      formData.append('nombre',this.nombre);
       formData.append('descripcion',this.descripcion);
       formData.append('subTitulo',this.subTitulo);
       formData.append('detalle',this.detalle);
@@ -151,13 +151,15 @@ export class ProductosComponent implements OnInit {
       formData.append('nombreImg',nombreImagenSet+this.imagen.name);
 
       console.log("formData",formData);
-
   
       this.utilsService.postConfig(this.url+'producto',formData)
         .subscribe(
           (data) => {
             console.log("data->",data);
-            this.saveImg(formData);
+            //this.saveImg(formData);
+            this.showLoading =false;
+            this.cleanForm();
+            this.popupOk('La producto se guardo correctamente!')
           },
           err =>{
             console.log("ERROR",err);
@@ -165,7 +167,7 @@ export class ProductosComponent implements OnInit {
           }
   
         );
-    }else {
+    } else {
       this.putProducto();
     }
   }
@@ -210,7 +212,7 @@ export class ProductosComponent implements OnInit {
         putFormData.append('eliminar','true');
         putFormData.append('nombreImg',nombreImagenSet+this.imagen.name);
         putFormData.append('oldnombreImagen',this.img);
-        this.saveImg(putFormData);
+        //this.saveImg(putFormData);
       }else{
         console.log("Entro en 2");
         putFormData.append('eliminar','false');
@@ -225,8 +227,10 @@ export class ProductosComponent implements OnInit {
         .subscribe(
           (data) => {
             console.log("data->",data);
-
-            this.showLoading =false;
+            this.nameBtn = 'Guargar';
+            this.putImage = false;
+            this.imgURLPreview = undefined;
+            this.showLoading = false;
             this.cleanForm();
             this.popupOk('El producto se actualizo correctamente!')
           },

@@ -8,6 +8,7 @@ import { UtilsService } from '../../app/utils.service';
   templateUrl: './catalogo.component.html',
   styleUrls: ['./catalogo.component.scss']
 })
+
 export class CatalogoComponent implements OnInit {
   toggle:boolean = false;
   listCatalogo = [];
@@ -42,13 +43,11 @@ export class CatalogoComponent implements OnInit {
 
         this.getArrayNovedades(data);
       });
-
   }
 
   getArrayNovedades(data){
     this.arrayNovedades = data.producto
   }
-
 
   //aca voy a pegarle al endpoint de emi
   getJson(){

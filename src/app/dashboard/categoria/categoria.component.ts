@@ -4,6 +4,7 @@ import { UtilsService } from '../../../app/utils.service';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { SimpleModalService } from "ngx-simple-modal";
 import { PopupComponent  } from '../popup/popup.component';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class CategoriaComponent implements OnInit {
   descripcion:string;
 
   categoriaImg:any
+  categoriaImg2:any
 
   disponible:boolean=false;
   activeTab = 'alta';
@@ -34,17 +36,21 @@ export class CategoriaComponent implements OnInit {
   namePopup:string;
 
   imgURLPreview: any; 
-  public imagePath;
+  imgURLPreview2: any; 
+  imagePath;
+  imagePath2:any;
 
-
+  allDataPut:any;
   img:string;
   putImage:boolean=false;
   btnImagen:string="Subir Imagen";
 
   nombreCategoria:string;
   descripcionCategoria:string;
+  formDatCategoria = new FormData();
+  formDatCategoria2 = new FormData();
 
-  constructor(private http:HttpClient, private utilsService:UtilsService,private simpleModalService:SimpleModalService) { }
+  constructor(private http:HttpClient, private utilsService:UtilsService,private simpleModalService:SimpleModalService,private _sanitizer: DomSanitizer) { }
 
   ngOnInit(): void { }
 
@@ -61,7 +67,7 @@ export class CategoriaComponent implements OnInit {
   }
 
   getArrayGet(data){
-    this.arrayCategoria =data.categoria;
+    this.arrayCategoria = data.categoria;
   }
 
   editar(data,section) {
@@ -70,14 +76,12 @@ export class CategoriaComponent implements OnInit {
     console.log("EDITANDO",data);
     this.nameBtn='Editar';
     this.activeTab = section;
-
+    this.allDataPut = data;
     this.nombre = data.nombre;
     this.descripcion = data.descripcion;
     this.img = data.img;
     this.disponible = data.disponible;
     this.id = data._id;
-
-    
     this.nombreCategoria = data.nombre;
     this.descripcionCategoria =data.descripcion;
   }
@@ -109,33 +113,46 @@ export class CategoriaComponent implements OnInit {
 
   }
 
+  onFileChanges(dataImage) {
+    console.log('data imagen base64',dataImage);
+    this.categoriaImg = dataImage[0];
+  }
+
   postCategoria(id){
-    this.putImage =false;
     this.btnImagen="Subir Imagen"
     console.log("estoy en categorias POST",this.categoriaImg);
 
     if (this.nameBtn != 'Editar'){
 
-      let formDatCategoria = new FormData();
 
       let nombreImagenSet = new Date().getMilliseconds().toString();
       
-      formDatCategoria.append('nombre',this.nombre)
-      formDatCategoria.append('descripcion',this.descripcion);
-      formDatCategoria.append('nombreImg',nombreImagenSet+this.categoriaImg.name);
-      formDatCategoria.append('upload',this.categoriaImg);
-      formDatCategoria.append('section','categoria');
+      this.formDatCategoria.append('nombre',this.nombre);
+      this.formDatCategoria.append('descripcion',this.descripcion);
+      this.formDatCategoria.append('nombreImg',nombreImagenSet+this.categoriaImg.name || null);
+      this.formDatCategoria.append('upload',this.categoriaImg);
+      this.formDatCategoria.append('section','categoria');
 
-      console.log("formDatCategoria",formDatCategoria);
+      console.log("formDatCategoria",this.formDatCategoria);
 
-      this.utilsService.postConfig(this.url+'categoria',formDatCategoria) 
+      let objCategoria = {
+        nombre:this.nombre,
+        descripcion:this.descripcion,
+        nombreImg:this.categoriaImg.name,
+        upload:this.categoriaImg.base64
+      }
+
+      this.utilsService.postConfig(this.url+'categoria',this.formDatCategoria) 
         .subscribe( 
           (data) => {
 
             console.log("data->",data);
-            this.saveImg(formDatCategoria)
+            this.popupOk('La categoria se guardo correctamente!')
+            
+            //this.saveImg(formDatCategoria)
 
-            //id.reset();
+            id.reset();
+            this.imgURLPreview = undefined;
           },
           err =>{
             console.log("ERROR",err);
@@ -147,7 +164,6 @@ export class CategoriaComponent implements OnInit {
     }
 
   }
-
 
   saveImg(data){
     console.log("se guardo imagen!");
@@ -168,20 +184,20 @@ export class CategoriaComponent implements OnInit {
     console.log("estoy en categorias editar");
     let putFormDataCategoria = new FormData();
     let nombreImagenSet = new Date().getMilliseconds().toString();
-    
-    putFormDataCategoria.append('nombre',this.nombreCategoria)
-    putFormDataCategoria.append('descripcion',this.descripcionCategoria);
+    console.log("nombre de la categoria",this.nombre);
+    putFormDataCategoria.append('nombre',this.nombre)
+    putFormDataCategoria.append('descripcion',this.descripcion);
     putFormDataCategoria.append('upload',this.categoriaImg);
     putFormDataCategoria.append('section','categoria');
 
     let id = this.id;
-
+    console.log(!this.putImage);
     if(!this.putImage){
       console.log("Entro en 1");
       putFormDataCategoria.append('eliminar','true');
       putFormDataCategoria.append('nombreImg',nombreImagenSet+this.categoriaImg.name);
       putFormDataCategoria.append('oldnombreImagen',this.img);
-      this.saveImg(putFormDataCategoria);
+      //this.saveImg(putFormDataCategoria);
     }else{
       console.log("Entro en 2");
       putFormDataCategoria.append('eliminar','false');
@@ -189,6 +205,8 @@ export class CategoriaComponent implements OnInit {
       putFormDataCategoria.append('oldnombreImagen','');
 
     }
+
+    console.log('=>',putFormDataCategoria)
 
     this.utilsService.putConfig(this.url+'categoria/'+id,putFormDataCategoria)
       .subscribe(

@@ -4,6 +4,7 @@
   
       <div class="box"   >
         <div *ngIf="arrayImage">
+          <!-- convierte a base 64 la imagen en el servidor y la armo aca, en categoria y producto convierto a base  64 local -->
           <div class="img "  *ngFor="let img of arrayImage"  [style.background-image]="'url(' +  _sanitizer.bypassSecurityTrustResourceUrl('data:'+ img.mimetype+';base64,' + img.base64).changingThisBreaksApplicationSecurity + ')'">
             <button type="button" class="close" aria-label="Close" (click)="showConfirm(img)">
               <span aria-hidden="true">&times;</span>

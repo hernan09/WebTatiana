@@ -26,6 +26,7 @@ import { FilterPipe } from './pipes/filterdash/filter.pipe';
 import { FilterPipe2 } from './pipes/pipefilter/search.pipe';
 import { CategoriaComponent } from './dashboard/categoria/categoria.component'
 import { SimpleModalModule } from 'ngx-simple-modal';
+import { AlifeFileToBase64Module } from 'alife-file-to-base64';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { SimpleModalModule } from 'ngx-simple-modal';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    SimpleModalModule
+    SimpleModalModule,
+    AlifeFileToBase64Module
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -72,7 +72,7 @@
     <div class="content-grid">
       <div class="grid" (click)="gotoPage('catalogo')">
         <figure  class="effect-jazz"   *ngFor="let item of arrayCategoria; let indice = index"  >
-          <img  [src]="'https://serviceemds.herokuapp.com/media/categoria/'+ item.img" alt="img25" />
+          <img [src]="_sanitizer.bypassSecurityTrustResourceUrl('data:'+ item.mimetype+';base64,' + item.base64)"    class="d-block w-100"   alt="..."    />
           <figcaption>
             <h2>{{ item.nombre }}</h2>
             <p [hidden]="item.descripcion == 'null'">

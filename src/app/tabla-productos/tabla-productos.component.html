@@ -14,7 +14,7 @@
               <div class="contet-image col-xs-12 col-md-4 col-lg-4" >
                 <img
                 (click)="gotoPage('detalle',subProducto)"
-                [src]="'https://serviceemds.herokuapp.com/media/producto/'+ subProducto.img"
+                [src]="_sanitizer.bypassSecurityTrustResourceUrl('data:'+ subProducto.mimetype+';base64,' + subProducto.base64)"  
                 alt="..."
               />
                 <hr />

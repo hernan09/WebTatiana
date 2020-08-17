@@ -2,6 +2,7 @@ import { Component, OnInit,Input } from '@angular/core';
 import { Router } from '@angular/router'; 
 import { UtilsService } from '../../app/utils.service';
 import { NgAnimateScrollService } from 'ng-animate-scroll';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-tabla-productos',
@@ -11,7 +12,7 @@ import { NgAnimateScrollService } from 'ng-animate-scroll';
 export class TablaProductosComponent implements OnInit {
   @Input() idSection: any;
   @Input() productos: any;
-  constructor(private router:Router, private utilsService:UtilsService) { }
+  constructor(private router:Router, private utilsService:UtilsService,private _sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
   }

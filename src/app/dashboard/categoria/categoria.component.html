@@ -17,30 +17,28 @@
 
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"   [ngClass]="{ 'active':activeTab=='alta','show':activeTab=='alta'}">
 
-      <form #categoria="ngForm" name="categoria">
+      <form  #categoriaform name="categoria" enctype="multipart/form-data">
+
+
         <input type="text" [(ngModel)]="nombre" name="nombreCategoria"  placeholder="Nombre">
 
         <textarea name="" id=""  [(ngModel)]="descripcion" name="descripcionCategoria" placeholder="Descripción"  cols="30" rows="10"></textarea>
 
         <div class="">
-          <input type="file"  id="categoria" name="categoria"  (change)="cargarImgCategoria($event.target.files)"  placeholder="cargar Imagen">
-          <label for="categoria" class="btn-2">{{btnImagen}}</label>
+          <input type="file"  id="imagenCatgoria" name="imagenCatgoria"  (change)="cargarImgCategoria($event.target.files)"  placeholder="cargar Imagen">
+          <label for="imagenCatgoria" class="btn-2">{{btnImagen}}</label>
           
           <div class="box-img" *ngIf="!putImage">
             <div class="img" *ngIf="imgURLPreview"  [ngStyle]="{'background-image':'url('+ imgURLPreview +')'}"></div>
           </div>
 
           <div *ngIf="putImage">
-            <div class="img "  [ngStyle]="{'background-image':'url(https://serviceemds.herokuapp.com/media/categoria/'+ img+')'}">  </div>
+            <div class="img "  [style.background-image]="'url(' +  _sanitizer.bypassSecurityTrustResourceUrl('data:'+ allDataPut.mimetype+';base64,' + allDataPut.base64).changingThisBreaksApplicationSecurity + ')'">  </div>
           </div>
         </div>
 
-        <!-- <input type="checkbox" class="check" [(ngModel)]="disponible"  name="disponible"><span>Disponible </span> -->
-
-
       </form>
-
-      <button (click)="postCategoria(categoria)"   class="btn">{{nameBtn}}</button>
+      <button (click)="postCategoria(categoriaform)"   class="btn">{{nameBtn}}</button>
 
     </div>
 
