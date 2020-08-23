@@ -186,3 +186,15 @@
          
       }
     }
+
+
+@media (max-width: 768px) {
+  h3 {
+    font-weight: 500;
+  }
+  form {
+      padding: 0 !important;
+      margin: 0 !important;
+      width: 100% !important;
+  } 
+}
