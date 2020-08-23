@@ -5,18 +5,23 @@
 
       <blockquote class="text-center">
 
-        <!-- <h3 class="display-4 mb-5">categoria {{ indice }}</h3>  (click)="detalle(subProducto)" -->
+        <!-- <h3 class="display-4 mb-5">categoria {{ indice }}</h3>  (click)="detalle(subProducto)" 
+        
+                          <img
+                  (click)="gotoPage('detalle',subProducto)"
+                  [src]="_sanitizer.bypassSecurityTrustResourceUrl('data:'+ subProducto.mimetype+';base64,' + subProducto.base64)"  
+                  alt="..."
+                />
+       
+                
+        -->
         <div class="content-images-most">
 
           <div class="row">
-            <div  *ngFor="let subProducto of productos; let indice = index">
 
-              <div class="contet-image col-xs-12 col-md-4 col-lg-4" >
-                <img
-                (click)="gotoPage('detalle',subProducto)"
-                [src]="_sanitizer.bypassSecurityTrustResourceUrl('data:'+ subProducto.mimetype+';base64,' + subProducto.base64)"  
-                alt="..."
-              />
+              <div  *ngFor="let subProducto of productos; let indice = index" class="contet-image col-xs-12 col-md-4 col-lg-4" >
+                <div class="img2 img"  (click)="gotoPage('detalle',subProducto)" [style.background-image]="'url(' + _sanitizer.bypassSecurityTrustResourceUrl('data:'+ subProducto.mimetype+';base64,' + subProducto.base64).changingThisBreaksApplicationSecurity + ')'">         </div>
+
                 <hr />
                 
                 <button type="button"  (click)="gotoPage('detalle',subProducto)"  class="btn btn-dark" >
@@ -28,7 +33,6 @@
 
             </div>
 
-          </div>
 
 
         </div>

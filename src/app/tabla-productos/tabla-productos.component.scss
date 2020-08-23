@@ -24,7 +24,8 @@
 
             .contet-image{
               max-width: 300px;
-              img{
+              width: 100% !important;
+              .img{
                 width: 100%;
                 height: 200px;
                 cursor: pointer;
@@ -68,7 +69,7 @@
               }
               
  
-              img:hover{
+              .img:hover{
                 filter: grayscale(100%);
                 display: block;
                 transform:translateY(10px) ;
@@ -80,7 +81,7 @@
                 -webkit-animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	              animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
               }
-              img:hover~button{
+              .img:hover~button{
                 visibility: visible;
                 -webkit-animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	              animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -105,7 +106,7 @@
             color: white;
         }
 
-        img {
+        .img {
           width: 100%;
           height: 200px;
         }
@@ -113,7 +114,13 @@
 }
 
 
-
+.img2{
+  height: 100px;
+  width: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 
 .id-scroll {
     position: relative;

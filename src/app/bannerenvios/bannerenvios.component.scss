@@ -28,6 +28,30 @@
 }
 
 
+    .img{
+        height: 130px;
+        margin: 5px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .icon1{
+        background-image: url('../../assets/imagenes/iconos-1.png');
+    }
+    .icon2{
+        background-image: url('../../assets/imagenes/iconos-2.png');
+    }
+    .icon3{
+        background-image: url('../../assets/imagenes/iconos-3.png');
+    }
+
+
+
+
+
+
+
 @media(max-width:600px){
     .container-banner-env{
         width: 100%;

@@ -1,26 +1,9 @@
 <div class="wrapper">
-  <!-- Sidebar -->
+
   <nav id="sidebar" [ngClass]="{ active: toggle }" class="">
-    <!-- <div class="sidebar-header">
-            <h3>Bootstrap Sidebar</h3>
-        </div> -->
 
     <ul class="list-unstyled components scrollbar">
-      <!-- <p>Dummy Heading</p> -->
-      <!-- <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>
-                        <a href="#">Home 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 3</a>
-                    </li>
-                </ul>
-            </li> -->
+
       <li
         *ngFor="let producto of listCatalogo; let indice = index"
         [ngClass]="{ active: indice == indiceSeleccionado }"
@@ -32,9 +15,7 @@
     </ul>
   </nav>
 
-  <!-- Page Content  asdasdasdasdasdasd-->
   <div id="content" class="container">
-    <!-- Page Content -->
     <div id="content" class="container">
       <button
         type="button"
@@ -62,11 +43,6 @@
         </div>
       </div>
 
-      <!-- <p>
-        los preciso pueden sufrir variaciones ,por favor consultar antes de
-        realizar su compra.
-      </p>
-      <p>A continuación Listado de precios</p> -->
       <div>
         <div class="box-loading" *ngIf="showLoading">
           <div class="spinner-border text-success" ></div><span>CARGANDO...</span>
