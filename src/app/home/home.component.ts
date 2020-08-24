@@ -17,9 +17,13 @@ export class HomeComponent implements OnInit {
   urlProd:string='https://serviceemds.herokuapp.com/';
   showLoading:boolean;
   url:string=this.urlProd;
+  isLoading:boolean=true
   constructor(private router: Router, private utilsService:UtilsService,private _sanitizer: DomSanitizer) { }
   
 
+  ngAfterViewInit() {
+    this.isLoading = false;
+  }
   ngOnInit(): void {
     this.getSlide();
     this.getNodevedades();
