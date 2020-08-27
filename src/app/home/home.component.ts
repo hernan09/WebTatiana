@@ -30,8 +30,12 @@ export class HomeComponent implements OnInit {
     this.getCategoria();
   }
 
-  gotoPage(name:string){
+  gotoPage(name:string,data){
+
+    this.utilsService.setSelectCatalogo(data);
     console.log(`voy a  ${name}`);
+    console.log(data);
+    this.utilsService.setSelectMenu(name);
     this.router.navigate([`${name}`]);
   }
 

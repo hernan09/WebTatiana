@@ -8,14 +8,17 @@ import { UtilsService } from '../../app/utils.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  section: String='inicio';
+  section: String='inicio' ;
   arrayImages2=[]
   searchSelect=""
-  constructor(private router: Router,private utils:UtilsService) { }
+  constructor(private router: Router,public utils:UtilsService) { }
 
 
   ngOnInit(): void {
+    this.utils.setSelectMenu('inicio');
+
     this.getProducto();
+    console.log("menu!");
   }
 
   getProducto(){
@@ -24,6 +27,7 @@ export class NavbarComponent implements OnInit {
 
   gotoPage(name:string,searchSelect){
     console.log("voy a catalogo!",searchSelect);
+    this.utils.setSelectMenu(name);
     this.utils.setSearchProducto(searchSelect);
 
     this.section = name;

@@ -20,14 +20,18 @@ export class CatalogoComponent implements OnInit {
   url:string=this.urlProd;
   showLoading:boolean=false;
   pdf:string;
+
+  getCategoriaSeleccioandaDesdeHome:any;
   constructor(private http:HttpClient,private animateScrollService: NgAnimateScrollService, private utilsService:UtilsService) { }
 
   ngOnInit(): void {
-    this.getNodevedades();
-
-    //this.getListaCatalogo()
+    if(!this.utilsService.getSelectCategoria())  this.getNodevedades();
+    else this.productoSeleccionadoDesdeHome(this.utilsService.getSelectCategoria());
     this.getCategoria();
     this.getPdf();
+
+    //this.getListaCatalogo()
+
 
   }
 
@@ -79,6 +83,20 @@ export class CatalogoComponent implements OnInit {
 
   getArrayCategoria(data){
     this.listCatalogo = data.categoria
+
+    const index = this.listCatalogo.findIndex(categoria => categoria.nombre === this.getCategoriaSeleccioandaDesdeHome.nombre);
+    console.log("index=>", index);
+    this.indiceSeleccionado =index;
+  }
+
+
+  productoSeleccionadoDesdeHome(producto){
+    console.log('categoria2222',producto);
+    this.getCategoriaSeleccioandaDesdeHome = producto;
+    let indice =1
+    this.indiceSeleccionado = indice;
+    //this.navigateToHeader(indice);
+    this.getProducto(producto._id)
   }
 
   

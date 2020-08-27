@@ -24,35 +24,35 @@
         <div class="navbar-nav ml-auto">
           <div
             class="lines-item btn-border-5"
-            [ngClass]="{ 'active-link': section == 'inicio' }"
+            [ngClass]="{ 'active-link':  utils.getSelectMenu() == 'inicio' }"
             (click)="gotoPage('inicio','')"
           >
-            <a class="nav-item nav-link active">INICIO</a>
+            <a class="nav-item nav-link active">INICIO </a>
           </div>
           <div
             class="lines-item btn-border-5"
-            [ngClass]="{ 'active-link': section == 'catalogo' }"
+            [ngClass]="{ 'active-link': utils.getSelectMenu() == 'catalogo' }"
             (click)="gotoPage('catalogo','')"
           >
             <a class="nav-item nav-link">CATEGORIAS</a>
           </div>
           <div
             class="lines-item btn-border-5"
-            [ngClass]="{ 'active-link': section == 'comprar' }"
+            [ngClass]="{ 'active-link':  utils.getSelectMenu() == 'comprar' }"
             (click)="gotoPage('comprar','')"
           >
             <a class="nav-item nav-link">COMO COMPRAR</a>
           </div>
           <div
             class="lines-item btn-border-5"
-            [ngClass]="{ 'active-link': section == 'preguentas' }"
+            [ngClass]="{ 'active-link':  utils.getSelectMenu() == 'preguentas' }"
             (click)="gotoPage('preguentas','')"
           >
             <a class="nav-item nav-link">PREG FRECUENTES</a>
           </div>
           <div
             class="lines-item btn-border-5"
-            [ngClass]="{ 'active-link': section == 'contacto' }"
+            [ngClass]="{ 'active-link':  utils.getSelectMenu() == 'contacto' }"
             (click)="gotoPage('contacto','')"
           >
             <a class="nav-item nav-link">CONTACTO</a>

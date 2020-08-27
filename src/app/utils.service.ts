@@ -9,6 +9,9 @@ import { catchError, retry } from 'rxjs/operators';
 export class UtilsService {
 	data:any;
 	producto:string;
+
+	idCatalogo:any =undefined;
+	sectionPage:string;
 	constructor(private http: HttpClient) { }
 
 	setData(data){
@@ -58,5 +61,22 @@ export class UtilsService {
 		let url = "https://drive.google.com/file/d/161sr24Dk3k-LdHsheGtTI93McQVewWPP/view?usp=sharing";
 		return this.http.get(url, { responseType: "blob" } );
 	}
+
+	getSelectCategoria(){
+		return this.idCatalogo
+	}
+
+	setSelectCatalogo(data){
+		this.idCatalogo = data;
+	}
+
+	getSelectMenu(){
+		return this.sectionPage
+	}
+
+	setSelectMenu(data){
+		this.sectionPage = data;
+	}
+
 
 }

@@ -19,7 +19,7 @@
 
           <div class="row">
 
-              <div  *ngFor="let subProducto of productos; let indice = index" class="contet-image col-xs-12 col-md-4 col-lg-4" >
+              <div  *ngFor="let subProducto of productos; let indice = index" class="contet-image col-xs-6 col-md-2 col-lg-2" >
                 <div class="img2 img"  (click)="gotoPage('detalle',subProducto)" [style.background-image]="'url(' + _sanitizer.bypassSecurityTrustResourceUrl('data:'+ subProducto.mimetype+';base64,' + subProducto.base64).changingThisBreaksApplicationSecurity + ')'">         </div>
 
                 <hr />

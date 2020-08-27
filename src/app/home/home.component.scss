@@ -16,7 +16,7 @@
         .carousel{
           .carousel-inner{
               .carousel-item{
-                  img{
+                  .img{
                       width: 100%;
                       max-height: 432px;
                   }
@@ -27,6 +27,15 @@
 
     
 }
+}
+
+
+.img2{
+  height: 100px;
+  width: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .sub-title{ 
@@ -58,7 +67,7 @@
 
             .contet-image{
               max-width: 300px;
-              img{
+              .img{
                 width: 300px;
                 height: 300px;
                 cursor: pointer;
@@ -102,7 +111,7 @@
               }
               
  
-              img:hover{
+              .img:hover{
                 filter: grayscale(100%);
                 display: block;
                 transform:translateY(10px) ;
@@ -114,7 +123,7 @@
                 -webkit-animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	              animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
               }
-              img:hover~button{
+              .img:hover~button{
                 visibility: visible;
                 -webkit-animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	              animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -187,11 +196,11 @@
             border-radius: 5%;
           }
           
-          .grid figure img {
+          .grid figure .img {
             position: relative;
             display: block;
             width: 320px;
-            height: 320px;
+            //height: 320px;
             min-height: 100%;
             max-width: 100%;
             opacity: 0.8;
@@ -260,12 +269,12 @@
       background: linear-gradient(-45deg, #f3cf3f 0%,#f33f58 100%);
     }
     
-    figure.effect-jazz img {
+    figure.effect-jazz .img {
       opacity: 0.9;
     }
     
     figure.effect-jazz figcaption::after,
-    figure.effect-jazz img,
+    figure.effect-jazz .img,
     figure.effect-jazz p {
       -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
       transition: opacity 0.35s, transform 0.35s;
@@ -307,7 +316,7 @@
       opacity: 0;
     }
     
-    figure.effect-jazz:hover img {
+    figure.effect-jazz:hover .img {
       opacity: 0.7;
       -webkit-transform: scale3d(1.05,1.05,1);
       transform: scale3d(1.05,1.05,1);

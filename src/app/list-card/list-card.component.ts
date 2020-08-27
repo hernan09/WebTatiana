@@ -37,6 +37,7 @@ export class ListCardComponent implements OnInit {
   }
 
   gotoPage(name:string){
+    this.utils.setSelectMenu(name);
     console.log(`voy paraa ..${name}`);
     this.router.navigate([`${name}`]);
   }

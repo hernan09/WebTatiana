@@ -29,6 +29,7 @@ export class TablaProductosComponent implements OnInit {
   gotoPage(name:string,data){
     console.log(`voy paraa ..${name}`,data);
     console.log(`data`,data);
+    this.utilsService.setSelectMenu(name);
     this.utilsService.setSearchProducto(data);
     this.router.navigate([`${name}`]);
   }

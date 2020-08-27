@@ -70,9 +70,10 @@
     <h3 class="display-4 sub-title" style="text-align: center;">Categorías</h3>
     
     <div class="content-grid">
-      <div class="grid" (click)="gotoPage('catalogo')">
-        <figure  class="effect-jazz"   *ngFor="let item of arrayCategoria; let indice = index"  >
-          <img [src]="_sanitizer.bypassSecurityTrustResourceUrl('data:'+ item.mimetype+';base64,' + item.base64)"    class="d-block w-100"   alt="..."    />
+      <div class="grid" >
+        <figure  class="effect-jazz"   *ngFor="let item of arrayCategoria; let indice = index" (click)="gotoPage('catalogo',item)" >
+          <div class="img2 img"   [style.background-image]="'url(' + _sanitizer.bypassSecurityTrustResourceUrl('data:'+ item.mimetype+';base64,' + item.base64).changingThisBreaksApplicationSecurity + ')'">         </div>
+          <!-- <img [src]="_sanitizer.bypassSecurityTrustResourceUrl('data:'+ item.mimetype+';base64,' + item.base64)"    class="d-block w-100"   alt="..."    /> -->
           <figcaption>
             <h2>{{ item.nombre }}</h2>
             <p [hidden]="item.descripcion == 'null'">

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; 
+import { UtilsService } from '../../app/utils.service';
 
 
 @Component({
@@ -9,14 +10,15 @@ import { Router } from '@angular/router';
 })
 export class ContactFooterComponent implements OnInit {
   section: String='inicio';
-  constructor(private router: Router) { }
+  constructor(private router: Router, private utils: UtilsService) { }
 
   ngOnInit(): void {
   }
 
   gotoPage(name:string){
-    console.log("voy a catalogo!");
+    console.log("voy a catalogo!",name);
     this.section = name;
+    this.utils.setSelectMenu(name);
     this.router.navigate([`${name}`]);
   }
 
