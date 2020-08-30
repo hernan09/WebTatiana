@@ -31,8 +31,6 @@ export class CatalogoComponent implements OnInit {
     this.getPdf();
 
     //this.getListaCatalogo()
-
-
   }
 
   getNodevedades(){

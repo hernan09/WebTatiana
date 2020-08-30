@@ -378,6 +378,15 @@
       }
     }
 }
+
+.img-slide {
+  max-height: 432px;
+  height: 500px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 //animacion del banner fade
 @-webkit-keyframes fade-in-bck {
     0% {
@@ -466,6 +475,11 @@
           }
         }
       }
+    }
+
+    .img-slide {
+      height: 200px;
+      margin-bottom: 10px;
     }
   }
 

@@ -243,10 +243,6 @@ export class ProductosComponent implements OnInit {
         );
   }
 
-
- 
-
-
   deleteProducto(data){
 
     console.log("estoy en producto DELETE",data);

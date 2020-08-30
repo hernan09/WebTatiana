@@ -293,8 +293,12 @@
 }
 
 @media (max-width: 768px) {
+  .general-container{
+    margin-bottom: 10px !important;
+  }
   #examplenav {
     padding-bottom: 18px;
+    margin-bottom: 10px !important;
   }
   .container {
     a {
