@@ -34,9 +34,8 @@
 
       <div class="row box-download">
         <div class="col-md-6 col-xs-12">
-          <h3>Precios Actualizados junio, 2020</h3>
-
-          <p>Descargar Catálogo para imprimir</p>
+          <h3>Descargar precios actualizados</h3>
+          <p>Hace click en la imagen y descargate el catálogo</p>
         </div>
         <div class="col-md-6 col-xs-12" >
           <div class="iconPDF" (click)="download2()"></div>
@@ -49,8 +48,9 @@
         </div>
 
         <div *ngIf="!showLoading && listProducto.length == 0 ">
-          <h3>Mira la novedades novedades</h3>
-          <app-tabla-productos [productos]="arrayNovedades" ></app-tabla-productos>
+          <p>No tenes productos cargados</p>
+          <!-- <h3>Mira la novedades novedades</h3>
+          <app-tabla-productos [productos]="arrayNovedades" ></app-tabla-productos> -->
         </div>
 
 
