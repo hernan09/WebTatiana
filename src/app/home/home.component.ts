@@ -25,6 +25,8 @@ export class HomeComponent implements OnInit {
     this.isLoading = false;
   }
   ngOnInit(): void {
+    this.utilsService.setSelectMenu('inicio');
+
     this.getSlide();
     this.getNodevedades();
     this.getCategoria();

@@ -25,7 +25,11 @@ export class CatalogoComponent implements OnInit {
   constructor(private http:HttpClient,private animateScrollService: NgAnimateScrollService, private utilsService:UtilsService) { }
 
   ngOnInit(): void {
-    if(!this.utilsService.getSelectCategoria())  this.getNodevedades();
+    this.utilsService.setSelectMenu('catalogo');
+
+    if(!this.utilsService.getSelectCategoria()) {
+      this.getCategoriaInicial();
+    } 
     else this.productoSeleccionadoDesdeHome(this.utilsService.getSelectCategoria());
     this.getCategoria();
     this.getPdf();
@@ -68,6 +72,24 @@ export class CatalogoComponent implements OnInit {
     this.animateScrollService.scrollToElement(id.toString(), 500);
   }
 
+  getCategoriaInicial(){
+    console.log("estoy en categorias GET");//_id que te genera mongo
+
+    this.utilsService.getConfig(this.url+'categoria')
+      .subscribe((data) => {
+        console.log("categoria->",data);
+        this.getArrayCategoriaInicial(data)
+      });
+  }
+
+  getArrayCategoriaInicial(data){
+    this.listCatalogo = data.categoria
+
+    this.indiceSeleccionado =0;
+
+    this.getProducto(data.categoria[0]._id);
+  }
+
   getCategoria(){
     console.log("estoy en categorias GET");//_id que te genera mongo
 
@@ -76,7 +98,6 @@ export class CatalogoComponent implements OnInit {
         console.log("categoria->",data);
         this.getArrayCategoria(data)
       });
-
   }
 
   getArrayCategoria(data){
@@ -94,7 +115,7 @@ export class CatalogoComponent implements OnInit {
     let indice =1
     this.indiceSeleccionado = indice;
     //this.navigateToHeader(indice);
-    this.getProducto(producto._id)
+    this.getProducto(producto._id);
   }
 
   

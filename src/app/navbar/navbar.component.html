@@ -9,6 +9,7 @@
         <div class="imgelogo"></div>
       </a>
       <button
+        (click)="showMenu()"
         class="navbar-toggler"
         type="button"
         data-toggle="collapse"
@@ -33,8 +34,9 @@
             class="lines-item btn-border-5"
             [ngClass]="{ 'active-link': utils.getSelectMenu() == 'catalogo' }"
             (click)="gotoPage('catalogo','')"
+         
           >
-            <a class="nav-item nav-link">CATEGORIAS</a>
+            <a class="nav-item nav-link" >CATEGORIAS</a>
           </div>
           <div
             class="lines-item btn-border-5"

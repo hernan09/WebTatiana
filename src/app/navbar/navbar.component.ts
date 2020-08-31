@@ -10,7 +10,8 @@ import { UtilsService } from '../../app/utils.service';
 export class NavbarComponent implements OnInit {
   section: String='inicio' ;
   arrayImages2=[]
-  searchSelect=""
+  searchSelect="";
+  isNavbarCollapsed:true;
   constructor(private router: Router,public utils:UtilsService) { }
 
 
@@ -25,7 +26,13 @@ export class NavbarComponent implements OnInit {
     this.utils.setSearchProducto(this.searchSelect);
   }
 
+  showMenu(){
+    (<HTMLInputElement>document.getElementById("navbarNavAltMarkup")).style.display = "block";
+
+  }
+
   gotoPage(name:string,searchSelect){
+    (<HTMLInputElement>document.getElementById("navbarNavAltMarkup")).style.display = "none";
     console.log("voy a catalogo!",searchSelect);
     this.utils.setSelectMenu(name);
     this.utils.setSearchProducto(searchSelect);

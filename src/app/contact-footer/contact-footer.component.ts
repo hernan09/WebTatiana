@@ -13,6 +13,7 @@ export class ContactFooterComponent implements OnInit {
   constructor(private router: Router, private utils: UtilsService) { }
 
   ngOnInit(): void {
+    this.utils.setSelectMenu('contacto');
   }
 
   gotoPage(name:string){

@@ -24,6 +24,8 @@ export class ComprarComponent implements OnInit {
 
 
    ngOnInit(): void {
+    this.utilsService.setSelectMenu('comprar');
+
     this.getPreFre();
   }
  

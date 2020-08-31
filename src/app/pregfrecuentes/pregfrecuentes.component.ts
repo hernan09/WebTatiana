@@ -16,6 +16,8 @@ export class PregfrecuentesComponent implements OnInit {
   constructor(private http:HttpClient, private utilsService:UtilsService) { }
 
   ngOnInit(): void {
+    this.utilsService.setSelectMenu('preguentas');
+    
     this.getPreFre();
   }
 
