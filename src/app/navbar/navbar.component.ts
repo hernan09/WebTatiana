@@ -28,7 +28,6 @@ export class NavbarComponent implements OnInit {
 
   showMenu(){
     (<HTMLInputElement>document.getElementById("navbarNavAltMarkup")).style.display = "block";
-
   }
 
   gotoPage(name:string,searchSelect){
