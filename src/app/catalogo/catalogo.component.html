@@ -1,64 +1,62 @@
-<div class="wrapper">
+<div class="row container box">
 
-  <nav id="sidebar" [ngClass]="{ active: toggle }" class="">
+  <div class="wrapper">
 
-    <ul class="list-unstyled components scrollbar">
-
-      <li
-        *ngFor="let producto of listCatalogo; let indice = index"
-        [ngClass]="{ active: indice == indiceSeleccionado }"
-      >
-        <a (click)="productoSeleccionado(producto, indice)">{{
-          producto.nombre
-        }}</a>
-      </li>
-    </ul>
-  </nav>
-
-  <div id="content" class="container">
-    <div id="content" class="container">
-      <button
-        type="button"
-        (click)="toggleMenu(toggle)"
-        id="sidebarCollapse"
-        class="btn btn-dark"
-      >
+    <nav id="sidebar" [ngClass]="{ active: toggle }" class="col-12 col-xs-4 col-md-4">
+      <button        type="button"      (click)="toggleMenu(toggle)"      id="sidebarCollapse"      class="btn btn-dark is-mobile"    >
         <i class="fas fa-align-left"></i>
-        <span class="show-catalogo-menu">{{
-          toggle ? "Mostrar Catalogo" : "X"
-        }}</span>
-        <span class="show-catalogo-menu-mobile">{{
-          toggle ? "X" : "Mostrar Catalogo"
-        }}</span>
-      </button>
-
-      <div class="row box-download">
-        <div class="col-md-6 col-xs-12">
-          <h3>Descargar precios actualizados</h3>
-          <p>Hace click en la imagen y descargate el catálogo</p>
-        </div>
-        <div class="col-md-6 col-xs-12" >
-          <div class="iconPDF" (click)="download2()"></div>
-        </div>
+        <span class="show-catalogo-menu">{{   toggle ? "CERRAR" : "X"     }}</span>      <span class="show-catalogo-menu-mobile">{{ toggle ? "X" : "CERRAR"        }}</span>
+      </button> 
+  
+      <ul class="list-unstyled components scrollbar">
+  
+        <li
+          *ngFor="let producto of listCatalogo; let indice = index"
+          [ngClass]="{ active: indice == indiceSeleccionado }"
+        >
+          <a (click)="productoSeleccionado(producto, indice)">{{
+            producto.nombre
+          }}</a>
+        </li>
+      </ul>
+    </nav>
+  
+    <div id="content" class="container col-12 col-xs-8 col-md-8">
+      <div id="content" class="container ">
+         <button        type="button"      (click)="toggleMenu(toggle)"      id="sidebarCollapse"      class="btn btn-dark is-mobile"    >
+            <i class="fas fa-align-left"></i>
+            <span class="show-catalogo-menu">{{   toggle ? "Mostrar Catalogo" : "X"     }}</span>      <span class="show-catalogo-menu-mobile">{{ toggle ? "X" : "Mostrar Catalogo"        }}</span>
+          </button> 
+  
+          <div class="row box-download">
+            <div class="col-md-6 col-xs-12">
+              <h3>Descargar precios actualizados</h3>
+              <p>Hace click en la imagen y descargate el catálogo</p>
+            </div>
+            <div class="col-md-6 col-xs-12" >
+              <div class="iconPDF" (click)="download2()"></div>
+            </div>
+          </div>
+  
+          <div>
+            <div class="box-loading" *ngIf="showLoading">
+              <div class="spinner-border text-success" ></div><span>CARGANDO...</span>
+            </div>
+  
+            <div *ngIf="!showLoading && listProducto.length == 0 ">
+              <p>No tenes productos cargados</p>
+              <!-- <h3>Mira la novedades novedades</h3>
+              <app-tabla-productos [productos]="arrayNovedades" ></app-tabla-productos> -->
+            </div>
+  
+  
+            <div class="table" *ngIf="!showLoading && listProducto.length > 0">
+              <app-tabla-productos [productos]="listProducto"></app-tabla-productos>
+            </div>
+          </div>
+  
       </div>
-
-      <div>
-        <div class="box-loading" *ngIf="showLoading">
-          <div class="spinner-border text-success" ></div><span>CARGANDO...</span>
-        </div>
-
-        <div *ngIf="!showLoading && listProducto.length == 0 ">
-          <p>No tenes productos cargados</p>
-          <!-- <h3>Mira la novedades novedades</h3>
-          <app-tabla-productos [productos]="arrayNovedades" ></app-tabla-productos> -->
-        </div>
-
-
-        <div class="table" *ngIf="!showLoading && listProducto.length > 0">
-          <app-tabla-productos [productos]="listProducto"></app-tabla-productos>
-        </div>
-      </div>
-
     </div>
   </div>
+  
 </div>

@@ -23,9 +23,12 @@
             display: flex;
             flex-flow: row wrap;
             justify-content: space-around;
+            .row{
+              width: 100%;
+            }
 
             .contet-image{
-              max-width: 300px;
+              //max-width: 300px;
               width: 100% !important;
               .img{
                 width: 100%;

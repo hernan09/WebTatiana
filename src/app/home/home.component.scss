@@ -174,7 +174,7 @@
             max-width: 100%;
             list-style: none;
             text-align: center;
-            left: 40px;
+            //left: 40px;
             
           }
           
@@ -184,9 +184,10 @@
             float: left;
             overflow: hidden;
             margin: 5px;
-            min-width: 320px;
-            max-width: 300px;
+            //min-width: 320px;
+            max-width: 100%;
             max-height: 360px;
+            width: 100%;
             
             height: auto;
             background: black;
@@ -198,7 +199,7 @@
           .grid figure .img {
             position: relative;
             display: block;
-            width: 320px;
+            width: 341px;
             //height: 320px;
             min-height: 100%;
             max-width: 100%;
@@ -391,6 +392,14 @@
   margin-bottom: 55px;
 }
 
+#carousel-control-next {
+  right: 86 !important;
+}
+
+#carousel-control-prev {
+  left: 86 !important;
+}
+
 //animacion del banner fade
 @-webkit-keyframes fade-in-bck {
     0% {
@@ -439,6 +448,7 @@
       padding: 0;
     }
 
+
     .content-img {
       padding: 0;
       margin: 0;
@@ -485,6 +495,18 @@
       height: 200px;
       margin-bottom: 10px;
     }
+
+    .grid figure .img {
+  
+      width: 100% !important;
+    }
+
+    .content-grid .grid {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+
   }
 
   .effect-jazz {

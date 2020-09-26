@@ -15,11 +15,11 @@
             </div>
           </div>
 
-          <a  class="carousel-control-prev"    href="#carouselExampleFade"   role="button"   data-slide="prev">
+          <a  class="carousel-control-prev"   id="carousel-control-prev"  href="#carouselExampleFade"   role="button"   data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
           </a>
-          <a  class="carousel-control-next"  href="#carouselExampleFade"   role="button"  data-slide="next">
+          <a  class="carousel-control-next"   id="carousel-control-next"  href="#carouselExampleFade"   role="button"  data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
@@ -75,18 +75,25 @@
 
     <div class="content-grid">
       <div class="grid" >
-        <figure  class="effect-jazz"   *ngFor="let item of arrayCategoria; let indice = index" (click)="gotoPage('catalogo',item)" >
-          <div class="img2 img"   [style.background-image]="'url(' + _sanitizer.bypassSecurityTrustResourceUrl('data:'+ item.mimetype+';base64,' + item.base64).changingThisBreaksApplicationSecurity + ')'">         </div>
-          <!-- <img [src]="_sanitizer.bypassSecurityTrustResourceUrl('data:'+ item.mimetype+';base64,' + item.base64)"    class="d-block w-100"   alt="..."    /> -->
-          <figcaption>
-            <h2>{{ item.nombre }}</h2>
-            <p [hidden]="item.descripcion == 'null'">
-              {{ item.descripcion }}
-            </p>
-          </figcaption>
-        </figure>
+
+        <div class="row">
+            <div class="col-12 col-xs-12 col-md-4" *ngFor="let item of arrayCategoria; let indice = index" (click)="gotoPage('catalogo',item)"> 
+                <figure  class="effect-jazz"    >
+                  <div class="img2 img"   [style.background-image]="'url(' + _sanitizer.bypassSecurityTrustResourceUrl('data:'+ item.mimetype+';base64,' + item.base64).changingThisBreaksApplicationSecurity + ')'">         </div>
+                  <!-- <img [src]="_sanitizer.bypassSecurityTrustResourceUrl('data:'+ item.mimetype+';base64,' + item.base64)"    class="d-block w-100"   alt="..."    /> -->
+                  <figcaption>
+                    <h2>{{ item.nombre }}</h2>
+                    <p [hidden]="item.descripcion == 'null'">
+                      {{ item.descripcion }}
+                    </p>
+                  </figcaption>
+                </figure>
+            </div>
+        </div>
+
       </div>
     </div>
+
   </div>
 
   <app-bannerenvios></app-bannerenvios>
