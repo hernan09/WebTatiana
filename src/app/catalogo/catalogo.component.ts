@@ -148,8 +148,10 @@ export class CatalogoComponent implements OnInit {
   }
 
   getArrayPdf(data){
-    console.log("pdf",data)
-    this.pdf = data.pdf[0].pdf;
+    let  position = data.pdf.length;
+    console.log("pdf",data,position);
+
+    this.pdf = data.pdf[position-1].pdf;
   }
 
   getArrayProducto(data){
@@ -159,6 +161,7 @@ export class CatalogoComponent implements OnInit {
   }
 
   download2() {
+    console.log("**",this.pdf)
     window.open(this.pdf);
   }
  
